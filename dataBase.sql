@@ -28,16 +28,16 @@ CREATE TABLE `booking` (
   `id` int(11) NOT NULL,
   `id_room` int(11) NOT NULL,
   `id_service` int(11) DEFAULT NULL,
-  `arrival` datetime NOT NULL,
-  `leaving` datetime NOT NULL,
-  `booking_col` varchar(45) DEFAULT NULL,
+  `arrival_date` datetime NOT NULL,
+  `leaving_date` datetime NOT NULL,
   `id_client` int(11) NOT NULL,
+  `human_amount` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idroom_idx` (`id_room`),
   KEY `idservice_idx` (`id_service`),
   KEY `idclient_idx` (`id_client`),
   CONSTRAINT `clients` FOREIGN KEY (`id_client`) REFERENCES `client` (`id`),
-  CONSTRAINT `idroom` FOREIGN KEY (`id_room`) REFERENCES `room` (`id`),
+  CONSTRAINT `idroom` FOREIGN KEY (`id_room`) REFERENCES `hotel_room` (`id`),
   CONSTRAINT `idservice` FOREIGN KEY (`id_service`) REFERENCES `service` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -121,10 +121,10 @@ CREATE TABLE `feedback` (
   `id` int(11) NOT NULL,
   `mark` varchar(45) NOT NULL,
   `text` varchar(255) DEFAULT NULL,
-  `client` int(11) NOT NULL,
+  `id_client` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `idclients_idx` (`client`),
-  CONSTRAINT `idclients` FOREIGN KEY (`client`) REFERENCES `client` (`id`)
+  KEY `idclients_idx` (`id_client`),
+  CONSTRAINT `idclients` FOREIGN KEY (`id_client`) REFERENCES `client` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -135,6 +135,37 @@ CREATE TABLE `feedback` (
 LOCK TABLES `feedback` WRITE;
 /*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
 /*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `hotel_room`
+--
+
+DROP TABLE IF EXISTS `hotel_room`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `hotel_room` (
+  `id` int(11) NOT NULL,
+  `status` varchar(10) NOT NULL,
+  `room_amount` int(11) NOT NULL DEFAULT '1',
+  `id_type` int(11) NOT NULL,
+  `id_client` int(11) DEFAULT NULL,
+  `price` double NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idclient_idx` (`id_client`),
+  KEY `idtype_idx` (`id_type`),
+  CONSTRAINT `idclient` FOREIGN KEY (`id_client`) REFERENCES `client` (`id`),
+  CONSTRAINT `idtype` FOREIGN KEY (`id_type`) REFERENCES `room_type` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hotel_room`
+--
+
+LOCK TABLES `hotel_room` WRITE;
+/*!40000 ALTER TABLE `hotel_room` DISABLE KEYS */;
+/*!40000 ALTER TABLE `hotel_room` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -162,33 +193,28 @@ LOCK TABLES `role` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `room`
+-- Table structure for table `room_type`
 --
 
-DROP TABLE IF EXISTS `room`;
+DROP TABLE IF EXISTS `room_type`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `room` (
+CREATE TABLE `room_type` (
   `id` int(11) NOT NULL,
-  `status` varchar(10) NOT NULL,
-  `room_amount` int(11) NOT NULL DEFAULT '1',
-  `type` varchar(45) DEFAULT NULL,
-  `id_client` int(11) DEFAULT NULL,
-  `price` double NOT NULL,
-  `description` varchar(1024) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `idclient_idx` (`id_client`),
-  CONSTRAINT `idclient` FOREIGN KEY (`id_client`) REFERENCES `client` (`id`)
+  `name` varchar(45) NOT NULL,
+  `human_amount` int(11) NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `room`
+-- Dumping data for table `room_type`
 --
 
-LOCK TABLES `room` WRITE;
-/*!40000 ALTER TABLE `room` DISABLE KEYS */;
-/*!40000 ALTER TABLE `room` ENABLE KEYS */;
+LOCK TABLES `room_type` WRITE;
+/*!40000 ALTER TABLE `room_type` DISABLE KEYS */;
+/*!40000 ALTER TABLE `room_type` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -253,4 +279,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-10 19:48:42
+-- Dump completed on 2019-03-10 20:17:36
