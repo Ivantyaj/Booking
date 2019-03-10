@@ -25,20 +25,20 @@ DROP TABLE IF EXISTS `booking`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `booking` (
-  `idbooking` int(11) NOT NULL,
-  `idroom` int(11) NOT NULL,
-  `idservice` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `id_room` int(11) NOT NULL,
+  `id_service` int(11) DEFAULT NULL,
   `arrival` datetime NOT NULL,
   `leaving` datetime NOT NULL,
-  `bookingcol` varchar(45) DEFAULT NULL,
-  `idclient` int(11) NOT NULL,
-  PRIMARY KEY (`idbooking`),
-  KEY `idroom_idx` (`idroom`),
-  KEY `idservice_idx` (`idservice`),
-  KEY `idclient_idx` (`idclient`),
-  CONSTRAINT `clients` FOREIGN KEY (`idclient`) REFERENCES `client` (`idclient`),
-  CONSTRAINT `idroom` FOREIGN KEY (`idroom`) REFERENCES `room` (`idroom`),
-  CONSTRAINT `idservice` FOREIGN KEY (`idservice`) REFERENCES `service` (`idservice`)
+  `booking_col` varchar(45) DEFAULT NULL,
+  `id_client` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idroom_idx` (`id_room`),
+  KEY `idservice_idx` (`id_service`),
+  KEY `idclient_idx` (`id_client`),
+  CONSTRAINT `clients` FOREIGN KEY (`id_client`) REFERENCES `client` (`id`),
+  CONSTRAINT `idroom` FOREIGN KEY (`id_room`) REFERENCES `room` (`id`),
+  CONSTRAINT `idservice` FOREIGN KEY (`id_service`) REFERENCES `service` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -59,20 +59,20 @@ DROP TABLE IF EXISTS `client`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `client` (
-  `idclient` int(11) NOT NULL,
-  `iduser` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
   `surname` varchar(45) NOT NULL,
   `phone` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `passportnum` varchar(45) NOT NULL,
-  `countvisiting` int(11) NOT NULL DEFAULT '0',
-  `iddiscount` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idclient`),
-  KEY `iduser_idx` (`iduser`),
-  KEY `iddiscount_idx` (`iddiscount`),
-  CONSTRAINT `iddiscount` FOREIGN KEY (`iddiscount`) REFERENCES `discont` (`iddiscont`),
-  CONSTRAINT `iduser` FOREIGN KEY (`iduser`) REFERENCES `user` (`iduser`)
+  `passport_num` varchar(45) NOT NULL,
+  `count_visiting` int(11) NOT NULL DEFAULT '0',
+  `id_discount` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `iduser_idx` (`id_user`),
+  KEY `iddiscount_idx` (`id_discount`),
+  CONSTRAINT `iddiscount` FOREIGN KEY (`id_discount`) REFERENCES `discount` (`id`),
+  CONSTRAINT `iduser` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -86,28 +86,28 @@ LOCK TABLES `client` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `discont`
+-- Table structure for table `discount`
 --
 
-DROP TABLE IF EXISTS `discont`;
+DROP TABLE IF EXISTS `discount`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
-CREATE TABLE `discont` (
-  `iddiscont` int(11) NOT NULL,
+CREATE TABLE `discount` (
+  `id` int(11) NOT NULL,
   `percent` int(11) NOT NULL,
-  `minvisitingcount` int(11) NOT NULL DEFAULT '1',
+  `min_visiting_count` int(11) NOT NULL DEFAULT '1',
   `description` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`iddiscont`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `discont`
+-- Dumping data for table `discount`
 --
 
-LOCK TABLES `discont` WRITE;
-/*!40000 ALTER TABLE `discont` DISABLE KEYS */;
-/*!40000 ALTER TABLE `discont` ENABLE KEYS */;
+LOCK TABLES `discount` WRITE;
+/*!40000 ALTER TABLE `discount` DISABLE KEYS */;
+/*!40000 ALTER TABLE `discount` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -118,13 +118,13 @@ DROP TABLE IF EXISTS `feedback`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `feedback` (
-  `idfeedback` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `mark` varchar(45) NOT NULL,
-  `feedback` varchar(255) DEFAULT NULL,
+  `text` varchar(255) DEFAULT NULL,
   `client` int(11) NOT NULL,
-  PRIMARY KEY (`idfeedback`),
+  PRIMARY KEY (`id`),
   KEY `idclients_idx` (`client`),
-  CONSTRAINT `idclients` FOREIGN KEY (`client`) REFERENCES `client` (`idclient`)
+  CONSTRAINT `idclients` FOREIGN KEY (`client`) REFERENCES `client` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -145,10 +145,10 @@ DROP TABLE IF EXISTS `role`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `role` (
-  `idrole` int(11) NOT NULL,
-  `rolename` varchar(45) NOT NULL,
+  `id` int(11) NOT NULL,
+  `role_name` varchar(45) NOT NULL,
   `permission` int(11) DEFAULT NULL,
-  PRIMARY KEY (`idrole`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -169,15 +169,16 @@ DROP TABLE IF EXISTS `room`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `room` (
-  `idroom` int(11) NOT NULL,
-  `free` tinyint(4) NOT NULL,
-  `roomcol` int(11) NOT NULL DEFAULT '1',
-  `class` varchar(45) DEFAULT NULL,
-  `idclient` int(11) DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `status` varchar(10) NOT NULL,
+  `room_amount` int(11) NOT NULL DEFAULT '1',
+  `type` varchar(45) DEFAULT NULL,
+  `id_client` int(11) DEFAULT NULL,
   `price` double NOT NULL,
-  PRIMARY KEY (`idroom`),
-  KEY `idclient_idx` (`idclient`),
-  CONSTRAINT `idclient` FOREIGN KEY (`idclient`) REFERENCES `client` (`idclient`)
+  `description` varchar(1024) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idclient_idx` (`id_client`),
+  CONSTRAINT `idclient` FOREIGN KEY (`id_client`) REFERENCES `client` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -198,12 +199,12 @@ DROP TABLE IF EXISTS `service`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `service` (
-  `idservice` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(45) NOT NULL,
   `price` double NOT NULL DEFAULT '0',
   `description` varchar(255) DEFAULT NULL,
-  `enable` tinyint(4) NOT NULL,
-  PRIMARY KEY (`idservice`)
+  `status` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -224,13 +225,13 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `user` (
-  `iduser` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `login` varchar(45) NOT NULL,
   `password` varchar(45) NOT NULL,
-  `idrole` int(11) NOT NULL,
-  PRIMARY KEY (`iduser`),
-  KEY `idrole_idx` (`idrole`),
-  CONSTRAINT `idrole` FOREIGN KEY (`idrole`) REFERENCES `role` (`idrole`)
+  `id_role` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idrole_idx` (`id_role`),
+  CONSTRAINT `idrole` FOREIGN KEY (`id_role`) REFERENCES `role` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -252,4 +253,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-10 18:00:05
+-- Dump completed on 2019-03-10 19:48:42
