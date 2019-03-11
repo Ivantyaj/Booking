@@ -3,11 +3,12 @@ package com.booking.model.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "room_type")
-public class RoomType {
+public class RoomType implements Serializable {
     @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,13 +17,16 @@ public class RoomType {
     @Column(name = "human_amount")
     private Long humanAmount;
 
-    @JsonIgnore
     @Enumerated(EnumType.STRING)
     @Column(name = "name", nullable = false)
     private Type type;
 
     @Column(name = "description", length = 1000)
     private String description;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "roomType")
+    private Room room;
 
     public RoomType() {
     }
@@ -59,20 +63,12 @@ public class RoomType {
         this.description = description;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        RoomType roomType = (RoomType) o;
-        return Objects.equals(id, roomType.id) &&
-                Objects.equals(humanAmount, roomType.humanAmount) &&
-                type == roomType.type &&
-                Objects.equals(description, roomType.description);
+    public Room getRoom() {
+        return room;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, humanAmount, type, description);
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     @Override
@@ -84,4 +80,22 @@ public class RoomType {
                 ", description='" + description + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RoomType roomType = (RoomType) o;
+        return Objects.equals(id, roomType.id) &&
+                Objects.equals(humanAmount, roomType.humanAmount) &&
+                type == roomType.type &&
+                Objects.equals(description, roomType.description) &&
+                Objects.equals(room, roomType.room);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, humanAmount, type, description, room);
+    }
+
 }

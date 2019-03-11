@@ -3,13 +3,14 @@ package com.booking.model.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
 
 @Entity
 @Table(name = "client")
-public class Client {
+public class Client implements Serializable {
 
     @JsonIgnore
     @Id
@@ -18,6 +19,9 @@ public class Client {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
     private List<Room> roomList;
+
+    public Client() {
+    }
 
     public Long getId() {
         return id;
