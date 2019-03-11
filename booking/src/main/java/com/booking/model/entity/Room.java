@@ -4,27 +4,26 @@ package com.booking.model.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "hotel_room")
-public class Room {
+public class Room implements Serializable {
 
     @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "room_amount")
+    @Column(name = "room_amount", nullable = false)
     private Long roomAmount;
-
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_client")
     private Client client;
 
-    @JsonIgnore
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private RoomStatus status;
@@ -32,7 +31,6 @@ public class Room {
     @Column(name = "price", length = 1000)
     private Double price;
 
-    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_type")
     private RoomType roomType;
@@ -112,10 +110,10 @@ public class Room {
         return "Room{" +
                 "id=" + id +
                 ", roomAmount=" + roomAmount +
-                ", client=" + client +
                 ", status=" + status +
                 ", price=" + price +
-                ", roomType=" + roomType +
+                ",type=" + roomType +
                 '}';
+
     }
 }
