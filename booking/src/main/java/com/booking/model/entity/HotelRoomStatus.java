@@ -1,5 +1,5 @@
 package com.booking.model.entity;
 
-public enum RoomStatus {
+public enum HotelRoomStatus {
     FREE,BLOCKED
 }

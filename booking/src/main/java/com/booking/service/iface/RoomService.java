@@ -1,9 +1,13 @@
 package com.booking.service.iface;
 
-import com.booking.model.entity.Room;
+import com.booking.model.entity.HotelRoom;
+
+import java.util.List;
 
 public interface RoomService {
-    void save(Room object);
+    void save(HotelRoom object);
 
-    Room getById(Long id);
+    HotelRoom getById(Long id);
+
+    List<HotelRoom> getAll();
 }

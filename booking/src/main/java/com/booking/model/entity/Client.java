@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 
 @Entity
@@ -14,11 +15,13 @@ public class Client implements Serializable {
 
     @JsonIgnore
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_gen_client")
+    @SequenceGenerator(name = "seq_gen_client",
+            sequenceName = "seq_client", allocationSize = 1)
     private Long id;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client", cascade = CascadeType.ALL)
-    private List<Room> roomList;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
+    private Set<HotelRoom> hotelRoomList;
 
     public Client() {
     }
@@ -31,12 +34,12 @@ public class Client implements Serializable {
         this.id = id;
     }
 
-    public List<Room> getRoomList() {
-        return roomList;
+    public Set<HotelRoom> getHotelRoomList() {
+        return hotelRoomList;
     }
 
-    public void setRoomList(List<Room> roomList) {
-        this.roomList = roomList;
+    public void setHotelRoomList(Set<HotelRoom> hotelRoomList) {
+        this.hotelRoomList = hotelRoomList;
     }
 
     @Override
@@ -45,19 +48,19 @@ public class Client implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
         return Objects.equals(id, client.id) &&
-                Objects.equals(roomList, client.roomList);
+                Objects.equals(hotelRoomList, client.hotelRoomList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, roomList);
+        return Objects.hash(id, hotelRoomList);
     }
 
     @Override
     public String toString() {
         return "Client{" +
                 "id=" + id +
-                ", roomList=" + roomList +
+                ", hotelRoomList=" + hotelRoomList +
                 '}';
     }
 }
