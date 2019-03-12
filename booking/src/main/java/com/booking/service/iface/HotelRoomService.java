@@ -4,7 +4,7 @@ import com.booking.model.entity.HotelRoom;
 
 import java.util.List;
 
-public interface RoomService {
+public interface HotelRoomService {
     void save(HotelRoom object);
 
     HotelRoom getById(Long id);

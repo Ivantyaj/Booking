@@ -2,8 +2,8 @@ package com.booking.service;
 
 import com.booking.exceptions.NotFoundException;
 import com.booking.model.entity.HotelRoom;
-import com.booking.service.iface.RoomService;
-import com.booking.service.repository.RoomRepository;
+import com.booking.service.iface.HotelRoomService;
+import com.booking.service.repository.HotelRoomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,31 +11,31 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class RoomServiceImpl implements RoomService {
+public class HotelRoomServiceImpl implements HotelRoomService {
 
-    private RoomRepository roomRepository;
+    private HotelRoomRepository hotelRoomRepository;
 
     @Autowired
-    public RoomServiceImpl(RoomRepository roomRepository) {
-        this.roomRepository = roomRepository;
+    public HotelRoomServiceImpl(HotelRoomRepository hotelRoomRepository) {
+        this.hotelRoomRepository = hotelRoomRepository;
     }
 
     @Override
     @Transactional
     public void save(HotelRoom object) {
-        roomRepository.save(object);
+        hotelRoomRepository.save(object);
     }
 
     @Override
     public HotelRoom getById(Long id) {
-        return roomRepository.findById(id).orElseThrow(() ->
+        return hotelRoomRepository.findById(id).orElseThrow(() ->
                 new NotFoundException("Номер не найден")
         );
     }
 
     @Override
     public List<HotelRoom> getAll() {
-        return roomRepository.findAll();
+        return hotelRoomRepository.findAll();
     }
 
 

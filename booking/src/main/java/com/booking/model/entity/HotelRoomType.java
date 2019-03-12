@@ -12,9 +12,7 @@ public class HotelRoomType implements Serializable {
 
     @JsonIgnore
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_gen_hotel_room_type")
-    @SequenceGenerator(name = "seq_gen_hotel_room_type",
-            sequenceName = "seq_hotel_room_type", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "human_amount")

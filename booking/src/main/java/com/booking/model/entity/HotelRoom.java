@@ -13,9 +13,7 @@ public class HotelRoom implements Serializable {
 
     @JsonIgnore
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_gen_hotel_room")
-    @SequenceGenerator(name = "seq_gen_hotel_room",
-            sequenceName = "seq_hotel_room", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "room_amount", nullable = false)

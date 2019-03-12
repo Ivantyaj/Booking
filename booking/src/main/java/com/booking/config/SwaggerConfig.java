@@ -3,8 +3,6 @@ package com.booking.config;
 import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -29,12 +27,13 @@ public class SwaggerConfig {
                 .build()
                 .apiInfo(apiInfo());
     }
+
     // Describe your apis
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Hotel Management Rest APIs")
-                .description("This page lists all the rest apis for Hotel Management App.")
-                .version("1.0-SNAPSHOT")
+                .title("Booking")
+                .description("Project")
+                .version("v.1.0.0.")
                 .build();
     }
 }
