@@ -8,27 +8,28 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "room_type")
-public class RoomType implements Serializable {
+public class HotelRoomType implements Serializable {
+
     @JsonIgnore
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_gen_hotel_room_type")
+    @SequenceGenerator(name = "seq_gen_hotel_room_type",
+            sequenceName = "seq_hotel_room_type", allocationSize = 1)
     private Long id;
 
     @Column(name = "human_amount")
     private Long humanAmount;
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "name", nullable = false)
-    private Type type;
+    private String type_name;
 
     @Column(name = "description", length = 1000)
     private String description;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "roomType")
-    private Room room;
+    @OneToOne(mappedBy = "hotelRoomType")
+    private HotelRoom hotelRoom;
 
-    public RoomType() {
+    public HotelRoomType() {
     }
 
     public Long getId() {
@@ -47,12 +48,12 @@ public class RoomType implements Serializable {
         this.humanAmount = humanAmount;
     }
 
-    public Type getType() {
-        return type;
+    public String getType_name() {
+        return type_name;
     }
 
-    public void setType(Type type) {
-        this.type = type;
+    public void setType_name(String type_name) {
+        this.type_name = type_name;
     }
 
     public String getDescription() {
@@ -63,20 +64,20 @@ public class RoomType implements Serializable {
         this.description = description;
     }
 
-    public Room getRoom() {
-        return room;
+    public HotelRoom getHotelRoom() {
+        return hotelRoom;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setHotelRoom(HotelRoom hotelRoom) {
+        this.hotelRoom = hotelRoom;
     }
 
     @Override
     public String toString() {
-        return "RoomType{" +
+        return "HotelRoomType{" +
                 "id=" + id +
                 ", humanAmount=" + humanAmount +
-                ", type=" + type +
+                ", type_name=" + type_name +
                 ", description='" + description + '\'' +
                 '}';
     }
@@ -85,17 +86,17 @@ public class RoomType implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RoomType roomType = (RoomType) o;
-        return Objects.equals(id, roomType.id) &&
-                Objects.equals(humanAmount, roomType.humanAmount) &&
-                type == roomType.type &&
-                Objects.equals(description, roomType.description) &&
-                Objects.equals(room, roomType.room);
+        HotelRoomType hotelRoomType = (HotelRoomType) o;
+        return Objects.equals(id, hotelRoomType.id) &&
+                Objects.equals(humanAmount, hotelRoomType.humanAmount) &&
+                type_name.equals(hotelRoomType.type_name) &&
+                Objects.equals(description, hotelRoomType.description) &&
+                Objects.equals(hotelRoom, hotelRoomType.hotelRoom);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, humanAmount, type, description, room);
+        return Objects.hash(id, humanAmount, type_name, description, hotelRoom);
     }
 
 }

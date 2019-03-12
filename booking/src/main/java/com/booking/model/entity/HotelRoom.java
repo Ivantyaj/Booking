@@ -9,34 +9,35 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "hotel_room")
-public class Room implements Serializable {
+public class HotelRoom implements Serializable {
 
     @JsonIgnore
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_gen_hotel_room")
+    @SequenceGenerator(name = "seq_gen_hotel_room",
+            sequenceName = "seq_hotel_room", allocationSize = 1)
     private Long id;
 
     @Column(name = "room_amount", nullable = false)
     private Long roomAmount;
 
-    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_client")
     private Client client;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
-    private RoomStatus status;
+    private HotelRoomStatus status;
 
     @Column(name = "price", length = 1000)
     private Double price;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_type")
-    private RoomType roomType;
+    private HotelRoomType hotelRoomType;
 
-    public Room() {
-        this.status = RoomStatus.FREE;
+    public HotelRoom() {
+        this.status = HotelRoomStatus.FREE;
     }
 
     public Long getId() {
@@ -63,11 +64,11 @@ public class Room implements Serializable {
         this.client = client;
     }
 
-    public RoomStatus getStatus() {
+    public HotelRoomStatus getStatus() {
         return status;
     }
 
-    public void setStatus(RoomStatus status) {
+    public void setStatus(HotelRoomStatus status) {
         this.status = status;
     }
 
@@ -79,40 +80,40 @@ public class Room implements Serializable {
         this.price = price;
     }
 
-    public RoomType getRoomType() {
-        return roomType;
+    public HotelRoomType getHotelRoomType() {
+        return hotelRoomType;
     }
 
-    public void setRoomType(RoomType roomType) {
-        this.roomType = roomType;
+    public void setHotelRoomType(HotelRoomType hotelRoomType) {
+        this.hotelRoomType = hotelRoomType;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Room room = (Room) o;
-        return Objects.equals(id, room.id) &&
-                Objects.equals(roomAmount, room.roomAmount) &&
-                Objects.equals(client, room.client) &&
-                status == room.status &&
-                Objects.equals(price, room.price) &&
-                roomType == room.roomType;
+        HotelRoom hotelRoom = (HotelRoom) o;
+        return Objects.equals(id, hotelRoom.id) &&
+                Objects.equals(roomAmount, hotelRoom.roomAmount) &&
+                Objects.equals(client, hotelRoom.client) &&
+                status == hotelRoom.status &&
+                Objects.equals(price, hotelRoom.price) &&
+                hotelRoomType == hotelRoom.hotelRoomType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, roomAmount, client, status, price, roomType);
+        return Objects.hash(id, roomAmount, client, status, price, hotelRoomType);
     }
 
     @Override
     public String toString() {
-        return "Room{" +
+        return "HotelRoom{" +
                 "id=" + id +
                 ", roomAmount=" + roomAmount +
                 ", status=" + status +
                 ", price=" + price +
-                ",type=" + roomType +
+                ",hotelRoomType=" + hotelRoomType +
                 '}';
 
     }
