@@ -24,6 +24,7 @@ public class HotelRoomType implements Serializable {
     @Column(name = "description", length = 1000)
     private String description;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "hotelRoomType")
     private HotelRoom hotelRoom;
 
