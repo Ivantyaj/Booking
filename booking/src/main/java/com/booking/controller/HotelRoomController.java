@@ -16,7 +16,7 @@ import java.util.List;
 @RestController(value = "RoomController")
 @RequestMapping(value = "/hotel/rooms")
 @Api(tags = "hotel")
-public class HotelRoomController {
+public class HotelRoomController extends BaseController {
 
     private final HotelRoomService hotelRoomService;
 
