@@ -65,5 +65,6 @@ fabric.properties
 booking/.idea
 booking/target
 booking/out
+booking/*.log
 ~*.*
 *.ldb
