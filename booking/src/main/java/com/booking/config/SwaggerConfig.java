@@ -15,7 +15,7 @@ import static springfox.documentation.builders.PathSelectors.regex;
 
 @Configuration
 @EnableSwagger2
-//@EnableAutoConfiguration
+@EnableAutoConfiguration
 @ComponentScan(basePackages = "com.booking.controller")
 public class SwaggerConfig {
 
@@ -29,7 +29,6 @@ public class SwaggerConfig {
 //                .paths(Predicates.not(PathSelectors.regex("/error.*")))
                 .build()
                 .apiInfo(metaData());
-
     }
 
     // Describe your apis

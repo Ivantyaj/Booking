@@ -26,8 +26,8 @@ public class Discount {
     @Column(name = "description")
     private String description;
 
-    @ManyToMany(mappedBy = "discounts")
-    private Set<Client> client = new HashSet<>();
+    @OneToMany(mappedBy = "discount")
+    private Set<Client> clients = new HashSet<>();
 
     public Discount() {
     }
@@ -40,13 +40,6 @@ public class Discount {
         this.id = id;
     }
 
-    public Set<Client> getClient() {
-        return client;
-    }
-
-    public void setClient(Set<Client> client) {
-        this.client = client;
-    }
 
     public Long getPercent() {
         return percent;
@@ -72,21 +65,38 @@ public class Discount {
         this.description = description;
     }
 
+    public Set<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients(Set<Client> clients) {
+        this.clients = clients;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Discount discount = (Discount) o;
-        return Objects.equals(id, discount.id) &&
-                Objects.equals(percent, discount.percent) &&
-                Objects.equals(minVisitCount, discount.minVisitCount) &&
-                Objects.equals(description, discount.description) &&
-                Objects.equals(client, discount.client);
+
+        if (!Objects.equals(id, discount.id)) return false;
+        if (!Objects.equals(percent, discount.percent)) return false;
+        if (!Objects.equals(minVisitCount, discount.minVisitCount))
+            return false;
+        if (!Objects.equals(description, discount.description))
+            return false;
+        return Objects.equals(clients, discount.clients);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, percent, minVisitCount, description, client);
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (percent != null ? percent.hashCode() : 0);
+        result = 31 * result + (minVisitCount != null ? minVisitCount.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (clients != null ? clients.hashCode() : 0);
+        return result;
     }
 
     @Override
@@ -96,7 +106,7 @@ public class Discount {
                 ", percent=" + percent +
                 ", minVisitCount=" + minVisitCount +
                 ", description='" + description + '\'' +
-                ", client=" + client +
+                ", clients=" + clients +
                 '}';
     }
 }

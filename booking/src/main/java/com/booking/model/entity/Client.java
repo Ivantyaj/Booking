@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -35,13 +34,9 @@ public class Client implements Serializable {
     @Column(name = "count_visiting")
     private Long visitingCount;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(
-            name = "client_discount",
-            joinColumns = {@JoinColumn(name = "id_client")},
-            inverseJoinColumns = {@JoinColumn(name = "id_discount")}
-    )
-    private Set<Discount> discounts = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "id_discount")
+    private Discount discount;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
     private Set<HotelRoom> hotelRoomSet;
@@ -113,12 +108,12 @@ public class Client implements Serializable {
         this.visitingCount = visitingCount;
     }
 
-    public Set<Discount> getDiscounts() {
-        return discounts;
+    public Discount getDiscount() {
+        return discount;
     }
 
-    public void setDiscounts(Set<Discount> discounts) {
-        this.discounts = discounts;
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
     }
 
     public Set<HotelRoom> getHotelRoomSet() {
@@ -134,28 +129,50 @@ public class Client implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Client client = (Client) o;
-        return Objects.equals(id, client.id) &&
-                Objects.equals(user, client.user) &&
-                Objects.equals(name, client.name) &&
-                Objects.equals(surname, client.surname) &&
-                Objects.equals(phone, client.phone) &&
-                Objects.equals(email, client.email) &&
-                Objects.equals(passportNumber, client.passportNumber) &&
-                Objects.equals(visitingCount, client.visitingCount) &&
-                Objects.equals(discounts, client.discounts) &&
-                Objects.equals(hotelRoomSet, client.hotelRoomSet);
+        if (!Objects.equals(id, client.id)) return false;
+        if (!Objects.equals(user, client.user)) return false;
+        if (!Objects.equals(name, client.name)) return false;
+        if (!Objects.equals(surname, client.surname)) return false;
+        if (!Objects.equals(phone, client.phone)) return false;
+        if (!Objects.equals(email, client.email)) return false;
+        if (!Objects.equals(passportNumber, client.passportNumber))
+            return false;
+        if (!Objects.equals(visitingCount, client.visitingCount))
+            return false;
+        if (!Objects.equals(discount, client.discount)) return false;
+        return Objects.equals(hotelRoomSet,
+                client.hotelRoomSet);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, name, surname, phone, email, passportNumber, visitingCount, discounts, hotelRoomSet);
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (surname != null ? surname.hashCode() : 0);
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (passportNumber != null ? passportNumber.hashCode() : 0);
+        result = 31 * result + (visitingCount != null ? visitingCount.hashCode() : 0);
+        result = 31 * result + (discount != null ? discount.hashCode() : 0);
+        result = 31 * result + (hotelRoomSet != null ? hotelRoomSet.hashCode() : 0);
+        return result;
     }
 
     @Override
     public String toString() {
         return "Client{" +
                 "id=" + id +
+                ", user=" + user +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", passportNumber='" + passportNumber + '\'' +
+                ", visitingCount=" + visitingCount +
+                ", discount=" + discount +
                 ", hotelRoomSet=" + hotelRoomSet +
                 '}';
     }
