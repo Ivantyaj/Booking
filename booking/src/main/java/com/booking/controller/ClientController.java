@@ -1,9 +1,7 @@
 package com.booking.controller;
 
 import com.booking.model.entity.Client;
-import com.booking.model.entity.HotelRoom;
 import com.booking.service.iface.ClientService;
-import com.booking.service.iface.HotelRoomService;
 import com.booking.utils.logging.GenericResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
