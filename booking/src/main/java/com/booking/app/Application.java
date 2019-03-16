@@ -1,4 +1,4 @@
-package com.booking;
+package com.booking.app;
 
 import com.booking.config.DatabaseConfig;
 import com.booking.utils.logging.LoggerConfig;

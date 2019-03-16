@@ -1,0 +1,331 @@
+2019-03-16 20:04:29.155 INFO  c.b.a.Application - Starting Application on vladstepway-desktop with PID 7604 (D:\CourseWork\Booking\booking\target\classes started by vlads in D:\CourseWork\Booking\booking)
+2019-03-16 20:04:29.158 INFO  c.b.a.Application - No active profile set, falling back to default profiles: default
+2019-03-16 20:04:31.574 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-16 20:04:31.687 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 101ms. Found 2 repository interfaces.
+2019-03-16 20:04:32.994 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ac0a2822] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-16 20:04:34.326 INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-03-16 20:04:34.427 INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+2019-03-16 20:04:34.427 INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-03-16 20:04:34.445 INFO  o.a.c.c.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_201\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;E:\Programs\Brackets\command;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;D:\Downloads\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;D:\Downloads\apache-ant-1.10.5-bin\apache-ant-1.10.5\bin;E:\Programs\NodeJS\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_201\bin;E:\Programs\Tomcat8.5\bin;C:\Program Files\Java\jre1.8.0_201\bin;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\axis.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\jaxrpc.jar;"E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-logging-1.0.4.jar;";E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-discovery-0.2.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\saaj.jar;E:\Programs\Tomcat8.5\common\endorsed\xercesImpl.jar;E:\Programs\Tomcat8.5\common\endorsed\xmlParserAPIs.jar;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;C:\Users\vlads\AppData\Local\GitHubDesktop\bin;E:\Programs\IntelliJ IDEA 2018.3\bin;;C:\Users\vlads\AppData\Roaming\npm;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;;.]
+2019-03-16 20:04:34.654 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2019-03-16 20:04:34.655 INFO  o.s.w.c.ContextLoader - Root WebApplicationContext: initialization completed in 5422 ms
+2019-03-16 20:04:35.127 INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-03-16 20:04:35.664 INFO  o.h.Version - HHH000412: Hibernate Core {5.4.1.Final}
+2019-03-16 20:04:36.438 INFO  o.h.a.c.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-03-16 20:04:58.228 WARN  o.h.e.j.e.i.JdbcEnvironmentInitiator - HHH000342: Could not obtain connection to query metadata : Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2019-03-16 20:04:58.335 INFO  o.h.d.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-16 20:05:21.491 WARN  o.h.e.j.s.SqlExceptionHelper - SQL Error: 0, SQLState: 08S01
+2019-03-16 20:05:21.491 ERROR o.h.e.j.s.SqlExceptionHelper - Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+2019-03-16 20:05:21.524 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in com.booking.config.DatabaseConfig: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
+2019-03-16 20:05:21.526 INFO  o.a.c.c.StandardService - Stopping service [Tomcat]
+2019-03-16 20:05:21.537 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-03-16 20:05:21.599 ERROR o.s.b.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in com.booking.config.DatabaseConfig: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1745)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1083)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:853)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.booking.app.Application.main(Application.java:13)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:402)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1741)
+	... 16 common frames omitted
+Caused by: org.hibernate.exception.JDBCConnectionException: Unable to open JDBC Connection for DDL execution
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:115)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:69)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:60)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:67)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.getTables(InformationExtractorJdbcDatabaseMetaDataImpl.java:329)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:120)
+	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:39)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:89)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:68)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:191)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:938)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390)
+	... 20 common frames omitted
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:990)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:342)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2188)
+	at com.mysql.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:2221)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2016)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:776)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:47)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:386)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:330)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:208)
+	at org.springframework.jdbc.datasource.DriverManagerDataSource.getConnectionFromDriverManager(DriverManagerDataSource.java:154)
+	at org.springframework.jdbc.datasource.DriverManagerDataSource.getConnectionFromDriver(DriverManagerDataSource.java:145)
+	at org.springframework.jdbc.datasource.AbstractDriverBasedDataSource.getConnectionFromDriver(AbstractDriverBasedDataSource.java:205)
+	at org.springframework.jdbc.datasource.AbstractDriverBasedDataSource.getConnection(AbstractDriverBasedDataSource.java:169)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:180)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:43)
+	... 35 common frames omitted
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:211)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:301)
+	... 56 common frames omitted
+2019-03-16 20:06:22.783 INFO  c.b.a.Application - Starting Application on vladstepway-desktop with PID 10680 (D:\CourseWork\Booking\booking\target\classes started by vlads in D:\CourseWork\Booking\booking)
+2019-03-16 20:06:22.788 INFO  c.b.a.Application - No active profile set, falling back to default profiles: default
+2019-03-16 20:06:23.443 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-16 20:06:23.512 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 61ms. Found 2 repository interfaces.
+2019-03-16 20:06:23.933 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$9da210a0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-16 20:06:24.210 INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-03-16 20:06:24.243 INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+2019-03-16 20:06:24.244 INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-03-16 20:06:24.250 INFO  o.a.c.c.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_201\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;E:\Programs\Brackets\command;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;D:\Downloads\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;D:\Downloads\apache-ant-1.10.5-bin\apache-ant-1.10.5\bin;E:\Programs\NodeJS\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_201\bin;E:\Programs\Tomcat8.5\bin;C:\Program Files\Java\jre1.8.0_201\bin;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\axis.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\jaxrpc.jar;"E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-logging-1.0.4.jar;";E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-discovery-0.2.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\saaj.jar;E:\Programs\Tomcat8.5\common\endorsed\xercesImpl.jar;E:\Programs\Tomcat8.5\common\endorsed\xmlParserAPIs.jar;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;C:\Users\vlads\AppData\Local\GitHubDesktop\bin;E:\Programs\IntelliJ IDEA 2018.3\bin;;C:\Users\vlads\AppData\Roaming\npm;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;;.]
+2019-03-16 20:06:24.400 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2019-03-16 20:06:24.400 INFO  o.s.w.c.ContextLoader - Root WebApplicationContext: initialization completed in 1568 ms
+2019-03-16 20:06:24.528 INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-03-16 20:06:24.587 INFO  o.h.Version - HHH000412: Hibernate Core {5.4.1.Final}
+2019-03-16 20:06:24.775 INFO  o.h.a.c.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-03-16 20:06:25.108 INFO  o.h.d.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-16 20:06:25.928 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in com.booking.config.DatabaseConfig: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [client_discount]
+2019-03-16 20:06:25.931 INFO  o.a.c.c.StandardService - Stopping service [Tomcat]
+2019-03-16 20:06:25.940 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-03-16 20:06:25.949 ERROR o.s.b.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in com.booking.config.DatabaseConfig: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [client_discount]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1745)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1083)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:853)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.booking.app.Application.main(Application.java:13)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [client_discount]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:402)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1741)
+	... 16 common frames omitted
+Caused by: org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing table [client_discount]
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:121)
+	at org.hibernate.tool.schema.internal.GroupedSchemaValidatorImpl.validateTables(GroupedSchemaValidatorImpl.java:42)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.performValidation(AbstractSchemaValidator.java:89)
+	at org.hibernate.tool.schema.internal.AbstractSchemaValidator.doValidation(AbstractSchemaValidator.java:68)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:191)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:309)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:462)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:938)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390)
+	... 20 common frames omitted
+2019-03-16 21:00:55.858 INFO  c.b.a.Application - Starting Application on vladstepway-desktop with PID 11872 (D:\CourseWork\Booking\booking\target\classes started by vlads in D:\CourseWork\Booking\booking)
+2019-03-16 21:00:55.890 INFO  c.b.a.Application - No active profile set, falling back to default profiles: default
+2019-03-16 21:00:58.961 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-16 21:00:59.585 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 587ms. Found 2 repository interfaces.
+2019-03-16 21:01:00.658 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$af2b74dc] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-16 21:01:01.588 INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-03-16 21:01:01.665 INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+2019-03-16 21:01:01.665 INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-03-16 21:01:01.685 INFO  o.a.c.c.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_201\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;E:\Programs\Brackets\command;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;D:\Downloads\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;D:\Downloads\apache-ant-1.10.5-bin\apache-ant-1.10.5\bin;E:\Programs\NodeJS\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_201\bin;E:\Programs\Tomcat8.5\bin;C:\Program Files\Java\jre1.8.0_201\bin;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\axis.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\jaxrpc.jar;"E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-logging-1.0.4.jar;";E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-discovery-0.2.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\saaj.jar;E:\Programs\Tomcat8.5\common\endorsed\xercesImpl.jar;E:\Programs\Tomcat8.5\common\endorsed\xmlParserAPIs.jar;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;C:\Users\vlads\AppData\Local\GitHubDesktop\bin;E:\Programs\IntelliJ IDEA 2018.3\bin;;C:\Users\vlads\AppData\Roaming\npm;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;;.]
+2019-03-16 21:01:02.428 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2019-03-16 21:01:02.429 INFO  o.s.w.c.ContextLoader - Root WebApplicationContext: initialization completed in 6383 ms
+2019-03-16 21:01:03.212 INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-03-16 21:01:04.237 INFO  o.h.Version - HHH000412: Hibernate Core {5.4.1.Final}
+2019-03-16 21:01:04.999 INFO  o.h.a.c.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-03-16 21:01:06.108 INFO  o.h.d.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-16 21:01:06.937 WARN  o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in com.booking.config.DatabaseConfig: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: com.booking.model.entity.Client.discounts in com.booking.model.entity.Discount.clients
+2019-03-16 21:01:06.940 INFO  o.a.c.c.StandardService - Stopping service [Tomcat]
+2019-03-16 21:01:06.951 INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-03-16 21:01:07.028 ERROR o.s.b.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in com.booking.config.DatabaseConfig: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: com.booking.model.entity.Client.discounts in com.booking.model.entity.Discount.clients
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1745)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:576)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:498)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1083)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:853)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.booking.app.Application.main(Application.java:13)
+Caused by: org.hibernate.AnnotationException: mappedBy reference an unknown target entity property: com.booking.model.entity.Client.discounts in com.booking.model.entity.Discount.clients
+	at org.hibernate.cfg.annotations.CollectionBinder.bindStarToManySecondPass(CollectionBinder.java:842)
+	at org.hibernate.cfg.annotations.CollectionBinder$1.secondPass(CollectionBinder.java:793)
+	at org.hibernate.cfg.CollectionSecondPass.doSecondPass(CollectionSecondPass.java:54)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1684)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.processSecondPasses(InFlightMetadataCollectorImpl.java:1652)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:286)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:903)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:934)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1741)
+	... 16 common frames omitted
+2019-03-16 21:03:16.392 INFO  c.b.a.Application - Starting Application on vladstepway-desktop with PID 600 (D:\CourseWork\Booking\booking\target\classes started by vlads in D:\CourseWork\Booking\booking)
+2019-03-16 21:03:16.395 INFO  c.b.a.Application - No active profile set, falling back to default profiles: default
+2019-03-16 21:03:16.956 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-16 21:03:17.017 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55ms. Found 2 repository interfaces.
+2019-03-16 21:03:17.433 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fb137c24] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-16 21:03:17.788 INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-03-16 21:03:17.830 INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+2019-03-16 21:03:17.830 INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-03-16 21:03:17.838 INFO  o.a.c.c.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_201\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;E:\Programs\Brackets\command;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;D:\Downloads\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;D:\Downloads\apache-ant-1.10.5-bin\apache-ant-1.10.5\bin;E:\Programs\NodeJS\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_201\bin;E:\Programs\Tomcat8.5\bin;C:\Program Files\Java\jre1.8.0_201\bin;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\axis.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\jaxrpc.jar;"E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-logging-1.0.4.jar;";E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-discovery-0.2.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\saaj.jar;E:\Programs\Tomcat8.5\common\endorsed\xercesImpl.jar;E:\Programs\Tomcat8.5\common\endorsed\xmlParserAPIs.jar;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;C:\Users\vlads\AppData\Local\GitHubDesktop\bin;E:\Programs\IntelliJ IDEA 2018.3\bin;;C:\Users\vlads\AppData\Roaming\npm;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;;.]
+2019-03-16 21:03:18.088 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2019-03-16 21:03:18.089 INFO  o.s.w.c.ContextLoader - Root WebApplicationContext: initialization completed in 1652 ms
+2019-03-16 21:03:18.219 INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-03-16 21:03:18.298 INFO  o.h.Version - HHH000412: Hibernate Core {5.4.1.Final}
+2019-03-16 21:03:18.513 INFO  o.h.a.c.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-03-16 21:03:18.938 INFO  o.h.d.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-16 21:03:21.928 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-03-16 21:03:21.949 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-16 21:03:25.851 INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-16 21:03:25.941 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-16 21:03:26.215 INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-03-16 21:03:26.217 INFO  c.b.a.Application - Started Application in 10.188 seconds (JVM running for 11.289)
+2019-03-16 21:06:43.574 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-16 21:06:43.575 INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-03-16 21:06:43.906 INFO  o.s.w.s.DispatcherServlet - Completed initialization in 331 ms
+2019-03-16 21:25:51.111 INFO  c.b.a.Application - Starting Application on vladstepway-desktop with PID 13188 (D:\CourseWork\Booking\booking\target\classes started by vlads in D:\CourseWork\Booking\booking)
+2019-03-16 21:25:51.129 INFO  c.b.a.Application - No active profile set, falling back to default profiles: default
+2019-03-16 21:25:53.174 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-16 21:25:53.407 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 226ms. Found 2 repository interfaces.
+2019-03-16 21:25:53.984 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8547384c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-16 21:25:55.018 INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-03-16 21:25:55.088 INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+2019-03-16 21:25:55.089 INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-03-16 21:25:55.108 INFO  o.a.c.c.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_201\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;E:\Programs\Brackets\command;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;D:\Downloads\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;D:\Downloads\apache-ant-1.10.5-bin\apache-ant-1.10.5\bin;E:\Programs\NodeJS\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_201\bin;E:\Programs\Tomcat8.5\bin;C:\Program Files\Java\jre1.8.0_201\bin;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\axis.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\jaxrpc.jar;"E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-logging-1.0.4.jar;";E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-discovery-0.2.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\saaj.jar;E:\Programs\Tomcat8.5\common\endorsed\xercesImpl.jar;E:\Programs\Tomcat8.5\common\endorsed\xmlParserAPIs.jar;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;C:\Users\vlads\AppData\Local\GitHubDesktop\bin;E:\Programs\IntelliJ IDEA 2018.3\bin;;C:\Users\vlads\AppData\Roaming\npm;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;;.]
+2019-03-16 21:25:55.269 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2019-03-16 21:25:55.269 INFO  o.s.w.c.ContextLoader - Root WebApplicationContext: initialization completed in 3977 ms
+2019-03-16 21:25:55.836 INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-03-16 21:25:56.451 INFO  o.h.Version - HHH000412: Hibernate Core {5.4.1.Final}
+2019-03-16 21:25:57.281 INFO  o.h.a.c.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-03-16 21:25:58.499 INFO  o.h.d.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-16 21:26:01.310 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-03-16 21:26:01.312 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-16 21:26:03.156 INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-16 21:26:03.188 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-16 21:26:03.423 INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-03-16 21:26:03.427 INFO  c.b.a.Application - Started Application in 13.404 seconds (JVM running for 18.01)
+2019-03-16 21:26:03.548 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-16 21:26:03.548 INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-03-16 21:26:03.557 INFO  o.s.w.s.DispatcherServlet - Completed initialization in 9 ms
+2019-03-16 21:26:58.124 INFO  c.b.a.Application - Starting Application on vladstepway-desktop with PID 6128 (D:\CourseWork\Booking\booking\target\classes started by vlads in D:\CourseWork\Booking\booking)
+2019-03-16 21:26:58.126 INFO  c.b.a.Application - No active profile set, falling back to default profiles: default
+2019-03-16 21:26:58.842 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-16 21:26:58.903 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 54ms. Found 2 repository interfaces.
+2019-03-16 21:26:59.309 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$94c2dd59] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-16 21:26:59.596 INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-03-16 21:26:59.625 INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+2019-03-16 21:26:59.625 INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-03-16 21:26:59.632 INFO  o.a.c.c.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_201\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;E:\Programs\Brackets\command;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;D:\Downloads\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;D:\Downloads\apache-ant-1.10.5-bin\apache-ant-1.10.5\bin;E:\Programs\NodeJS\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_201\bin;E:\Programs\Tomcat8.5\bin;C:\Program Files\Java\jre1.8.0_201\bin;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\axis.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\jaxrpc.jar;"E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-logging-1.0.4.jar;";E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-discovery-0.2.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\saaj.jar;E:\Programs\Tomcat8.5\common\endorsed\xercesImpl.jar;E:\Programs\Tomcat8.5\common\endorsed\xmlParserAPIs.jar;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;C:\Users\vlads\AppData\Local\GitHubDesktop\bin;E:\Programs\IntelliJ IDEA 2018.3\bin;;C:\Users\vlads\AppData\Roaming\npm;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;;.]
+2019-03-16 21:26:59.806 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2019-03-16 21:26:59.807 INFO  o.s.w.c.ContextLoader - Root WebApplicationContext: initialization completed in 1633 ms
+2019-03-16 21:26:59.927 INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-03-16 21:26:59.987 INFO  o.h.Version - HHH000412: Hibernate Core {5.4.1.Final}
+2019-03-16 21:27:00.179 INFO  o.h.a.c.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-03-16 21:27:00.452 INFO  o.h.d.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-16 21:27:02.017 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-03-16 21:27:02.020 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-16 21:27:02.887 INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-16 21:27:02.919 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-16 21:27:03.089 INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-03-16 21:27:03.092 INFO  c.b.a.Application - Started Application in 5.433 seconds (JVM running for 6.278)
+2019-03-16 21:27:03.194 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-16 21:27:03.195 INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-03-16 21:27:03.204 INFO  o.s.w.s.DispatcherServlet - Completed initialization in 9 ms
+2019-03-16 21:30:15.456 INFO  c.b.a.Application - Starting Application on vladstepway-desktop with PID 360 (D:\CourseWork\Booking\booking\target\classes started by vlads in D:\CourseWork\Booking\booking)
+2019-03-16 21:30:15.459 INFO  c.b.a.Application - No active profile set, falling back to default profiles: default
+2019-03-16 21:30:16.254 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-03-16 21:30:16.321 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 60ms. Found 2 repository interfaces.
+2019-03-16 21:30:16.812 INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7c3d38cb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-03-16 21:30:17.250 INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2019-03-16 21:30:17.347 INFO  o.a.c.c.StandardService - Starting service [Tomcat]
+2019-03-16 21:30:17.348 INFO  o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.14]
+2019-03-16 21:30:17.361 INFO  o.a.c.c.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_201\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;E:\Programs\Brackets\command;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;D:\Downloads\apache-maven-3.5.4-bin\apache-maven-3.5.4\bin;D:\Downloads\apache-ant-1.10.5-bin\apache-ant-1.10.5\bin;E:\Programs\NodeJS\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_201\bin;E:\Programs\Tomcat8.5\bin;C:\Program Files\Java\jre1.8.0_201\bin;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\axis.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\jaxrpc.jar;"E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-logging-1.0.4.jar;";E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\commons-discovery-0.2.jar;E:\Programs\Tomcat8.5\webapps\axis\WEB-INF\lib\saaj.jar;E:\Programs\Tomcat8.5\common\endorsed\xercesImpl.jar;E:\Programs\Tomcat8.5\common\endorsed\xmlParserAPIs.jar;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;C:\Users\vlads\AppData\Local\GitHubDesktop\bin;E:\Programs\IntelliJ IDEA 2018.3\bin;;C:\Users\vlads\AppData\Roaming\npm;C:\Users\vlads\AppData\Local\Microsoft\WindowsApps;;.]
+2019-03-16 21:30:17.854 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext
+2019-03-16 21:30:17.855 INFO  o.s.w.c.ContextLoader - Root WebApplicationContext: initialization completed in 2349 ms
+2019-03-16 21:30:18.029 INFO  o.h.j.i.u.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-03-16 21:30:18.113 INFO  o.h.Version - HHH000412: Hibernate Core {5.4.1.Final}
+2019-03-16 21:30:18.335 INFO  o.h.a.c.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-03-16 21:30:18.722 INFO  o.h.d.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2019-03-16 21:30:19.757 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-03-16 21:30:19.759 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-03-16 21:30:21.041 INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2019-03-16 21:30:21.077 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration$JpaWebMvcConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2019-03-16 21:30:21.279 INFO  o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2019-03-16 21:30:21.288 INFO  c.b.a.Application - Started Application in 6.361 seconds (JVM running for 7.246)
+2019-03-16 21:30:51.680 INFO  o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-03-16 21:30:51.680 INFO  o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2019-03-16 21:30:51.688 INFO  o.s.w.s.DispatcherServlet - Completed initialization in 7 ms

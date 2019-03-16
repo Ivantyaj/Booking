@@ -46,6 +46,4 @@ public class HotelRoomController extends BaseController {
         List<HotelRoom> hotelRoomList = hotelRoomService.getAll();
         return new ResponseEntity<>(new GenericResponse("ROOM " + hotelRoomList), HttpStatus.OK);
     }
-
-
 }
