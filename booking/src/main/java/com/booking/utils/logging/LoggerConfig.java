@@ -14,7 +14,6 @@ import java.util.Collections;
 
 @Configuration
 @Order(Ordered.HIGHEST_PRECEDENCE)
-//@EnableAutoConfiguration
 @ComponentScan({"com.booking.service"})
 public class LoggerConfig {
 

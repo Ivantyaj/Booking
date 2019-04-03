@@ -24,7 +24,6 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
-//                .apis(RequestHandlerSelectors.basePackage("com.example.controller"))
                 .paths(regex("/.*"))
                 .paths(Predicates.not(PathSelectors.regex("/error.*")))
                 .build()
