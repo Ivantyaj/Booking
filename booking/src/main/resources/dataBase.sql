@@ -1,5 +1,6 @@
 create schema if not exists bookingbd collate utf8_general_ci;
 
+use bookingbd;
 create table if not exists discount
 (
 	id bigint auto_increment
