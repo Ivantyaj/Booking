@@ -1,10 +1,11 @@
-package com.booking.config;
+package com.booking.app;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import com.google.common.base.Predicates;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
@@ -15,7 +16,6 @@ import static springfox.documentation.builders.PathSelectors.regex;
 
 @Configuration
 @EnableSwagger2
-@EnableAutoConfiguration
 @ComponentScan(basePackages = "com.booking.controller")
 public class SwaggerConfig {
 
@@ -23,10 +23,9 @@ public class SwaggerConfig {
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.booking.controller"))
-//                .apis(RequestHandlerSelectors.any())
+                .apis(RequestHandlerSelectors.any())
                 .paths(regex("/.*"))
-//                .paths(Predicates.not(PathSelectors.regex("/error.*")))
+                .paths(Predicates.not(PathSelectors.regex("/error.*")))
                 .build()
                 .apiInfo(metaData());
     }

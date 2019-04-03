@@ -2,8 +2,8 @@ package com.booking.service;
 
 import com.booking.exceptions.NotFoundException;
 import com.booking.model.entity.Client;
+import com.booking.model.repository.ClientRepository;
 import com.booking.service.iface.ClientService;
-import com.booking.service.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
