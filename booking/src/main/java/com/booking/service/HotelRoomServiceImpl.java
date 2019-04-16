@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityExistsException;
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service
@@ -21,11 +23,11 @@ public class HotelRoomServiceImpl implements HotelRoomService {
         this.hotelRoomRepository = hotelRoomRepository;
     }
 
-    @Override
-    @Transactional
-    public void save(HotelRoom object) {
-        hotelRoomRepository.save(object);
-    }
+//    @Override
+//    @Transactional
+    //public void save(HotelRoom object) {
+//        hotelRoomRepository.save(object);
+//    }
 
     @Override
     public HotelRoom getById(Long id) {
@@ -37,6 +39,31 @@ public class HotelRoomServiceImpl implements HotelRoomService {
     @Override
     public List<HotelRoom> getAll() {
         return hotelRoomRepository.findAll();
+    }
+
+    @Override
+    @Transactional
+    public HotelRoom save(HotelRoom employee) {
+        if (employee.getId() != null /*&& hotelRoomRepository.exists(employee.getId())*/) {
+            throw new EntityExistsException("There is already existing entity with such ID in the database.");
+        }
+
+        return hotelRoomRepository.save(employee);
+    }
+
+    @Override
+    public HotelRoom update(HotelRoom employee) {
+        if (employee.getId() != null /*&& !hotelRoomRepository.exists(employee.getId())*/) {
+            throw new EntityNotFoundException("There is no entity with such ID in the database.");
+        }
+
+        return hotelRoomRepository.save(employee);
+    }
+
+    @Override
+    public void delete(Long id) {
+        hotelRoomRepository.deleteById(id);
+        //hotelRoomRepository.delete(id);
     }
 
 

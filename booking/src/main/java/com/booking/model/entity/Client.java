@@ -12,7 +12,6 @@ import java.util.Set;
 @Table(name = "client")
 public class Client implements Serializable {
 
-    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

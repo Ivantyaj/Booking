@@ -2,6 +2,7 @@ package com.booking.model.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,9 +10,9 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "hotel_room")
+@EntityListeners(AuditingEntityListener.class)
 public class HotelRoom implements Serializable {
 
-    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,6 +20,7 @@ public class HotelRoom implements Serializable {
     @Column(name = "room_amount", nullable = false)
     private Long roomAmount;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_client")
     private Client client;
@@ -30,6 +32,7 @@ public class HotelRoom implements Serializable {
     @Column(name = "price", length = 1000)
     private Double price;
 
+    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_type")
     private HotelRoomType hotelRoomType;
@@ -99,10 +102,10 @@ public class HotelRoom implements Serializable {
                 hotelRoomType == hotelRoom.hotelRoomType;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, roomAmount, client, status, price, hotelRoomType);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, roomAmount, client, status, price, hotelRoomType);
+//    }
 
     @Override
     public String toString() {

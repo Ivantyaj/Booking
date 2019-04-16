@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]>
-<!--><html class="no-js" lang="en"><!--<![endif]-->
+<!--><html class="no-js" lang="en" ng-app="ngSearch"><!--<![endif]-->
 <head>
 
 	<!-- Basic Page Needs
@@ -59,7 +59,7 @@
 	
 	
 </head>
-<body>	
+<body >
 
 	<div class="loader">
 		<div class="loader__figure"></div>
@@ -173,7 +173,7 @@
 		<div class="section z-bigger">		
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-8 mt-4 mt-lg-0">
+					<div class="col-lg-8 mt-4 mt-lg-0" ng-controller="searchCtrl">
 						<div class="row">
 							<div class="col-lg-6">
 								<div class="room-box background-grey">
@@ -185,7 +185,7 @@
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
 									</div>
-									<img src="img/room3.jpg" alt="">
+									<img id="idRoom1" src="img/room3.jpg" alt="">
 									<div class="room-box-in">
 										<h5 class="">pool suite</h5>
 										<p class="mt-3">Sed ut perspiciatis unde omnis, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et.</p>
@@ -209,7 +209,7 @@
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star-o"></i>
 									</div>
-									<img src="img/room4.jpg" alt="">
+									<img id="idRoom2" src="img/room4.jpg" alt="">
 									<div class="room-box-in">
 										<h5 class="">small room</h5>
 										<p class="mt-3">Sed ut perspiciatis unde omnis, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et.</p>
@@ -233,7 +233,7 @@
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
 									</div>
-									<img src="img/room5.jpg" alt="">
+									<img id="idRoom3" src="img/room5.jpg" alt="">
 									<div class="room-box-in">
 										<h5 class="">Apartment</h5>
 										<p class="mt-3">Sed ut perspiciatis unde omnis, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et.</p>
@@ -549,6 +549,8 @@
 	<script src="js/plugins.js"></script>  
 	<script src="js/custom.js"></script>
 	<script src="js/search.js"></script>
+	<script src="js/angular.min.js"></script>
+	<script src="js/angularCtrls.js"></script>
 <!-- End Document
 ================================================== -->
 </body>

@@ -12,7 +12,6 @@ import java.util.Set;
 @Table(name = "discount")
 public class Discount {
 
-    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -89,15 +88,15 @@ public class Discount {
         return Objects.equals(clients, discount.clients);
     }
 
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (percent != null ? percent.hashCode() : 0);
-        result = 31 * result + (minVisitCount != null ? minVisitCount.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (clients != null ? clients.hashCode() : 0);
-        return result;
-    }
+//    @Override
+//    public int hashCode() {
+//        int result = id != null ? id.hashCode() : 0;
+//        result = 31 * result + (percent != null ? percent.hashCode() : 0);
+//        result = 31 * result + (minVisitCount != null ? minVisitCount.hashCode() : 0);
+//        result = 31 * result + (description != null ? description.hashCode() : 0);
+//        result = 31 * result + (clients != null ? clients.hashCode() : 0);
+//        return result;
+//    }
 
     @Override
     public String toString() {

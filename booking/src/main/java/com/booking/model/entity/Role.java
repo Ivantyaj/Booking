@@ -12,16 +12,13 @@ import java.util.Set;
 @Table(name = "role")
 public class Role {
 
-    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnore
     @Column(name = "permission")
     private Long permission;
 
-    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
     private Set<User> userSet;
 
@@ -62,10 +59,10 @@ public class Role {
                 Objects.equals(userSet, role.userSet);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, permission, userSet);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, permission, userSet);
+//    }
 
     @Override
     public String toString() {

@@ -9,7 +9,6 @@ import java.util.Objects;
 @Table(name = "user")
 public class User {
 
-    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -70,10 +69,10 @@ public class User {
                 Objects.equals(role, user.role);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, login, password, role);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, login, password, role);
+//    }
 
     @Override
     public String toString() {

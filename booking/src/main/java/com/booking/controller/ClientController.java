@@ -39,12 +39,13 @@ public class ClientController extends BaseController {
         return new ResponseEntity<>(new GenericResponse("Client " + client), HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Get all clients", response = GenericResponse.class, notes = "get_all_clients")
-    @GetMapping(value = "/")
-    public ResponseEntity<GenericResponse> getAllClients() {
-        List<Client> clientList = clientService.getAll();
-        return new ResponseEntity<>(new GenericResponse("ClientList " + clientList), HttpStatus.OK);
-    }
+//    @ApiOperation(value = "Get all clients", response = GenericResponse.class, notes = "get_all_clients")
+//    @GetMapping(value = "/")
+//    public ResponseEntity<GenericResponse> getAllClients() {
+//        List<Client> clientList = clientService.getAll();
+//        return new ResponseEntity<>(new GenericResponse("ClientList " + clientList), HttpStatus.OK);
+//    }
+
 
 
 }

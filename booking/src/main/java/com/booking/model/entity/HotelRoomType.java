@@ -10,7 +10,6 @@ import java.util.Objects;
 @Table(name = "room_type")
 public class HotelRoomType implements Serializable {
 
-    @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,7 +23,6 @@ public class HotelRoomType implements Serializable {
     @Column(name = "description", length = 1000)
     private String description;
 
-    @JsonIgnore
     @OneToOne(mappedBy = "hotelRoomType")
     private HotelRoom hotelRoom;
 
@@ -93,9 +91,9 @@ public class HotelRoomType implements Serializable {
                 Objects.equals(hotelRoom, hotelRoomType.hotelRoom);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, humanAmount, type_name, description, hotelRoom);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, humanAmount, type_name, description, hotelRoom);
+//    }
 
 }
