@@ -23,8 +23,10 @@ public class HotelRoomType implements Serializable {
     @Column(name = "description", length = 1000)
     private String description;
 
-    @OneToOne(mappedBy = "hotelRoomType")
-    private HotelRoom hotelRoom;
+    @JsonIgnore
+    //@OneToOne(mappedBy = "hotelRoomType", cascade = CascadeType.ALL, orphanRemoval = true)
+    //@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    //private HotelRoom hotelRoom;
 
     public HotelRoomType() {
     }
@@ -61,13 +63,13 @@ public class HotelRoomType implements Serializable {
         this.description = description;
     }
 
-    public HotelRoom getHotelRoom() {
-        return hotelRoom;
-    }
+//    public HotelRoom getHotelRoom() {
+//        return hotelRoom;
+//    }
 
-    public void setHotelRoom(HotelRoom hotelRoom) {
-        this.hotelRoom = hotelRoom;
-    }
+    //public void setHotelRoom(HotelRoom hotelRoom) {
+    //    this.hotelRoom = hotelRoom;
+    //}
 
     @Override
     public String toString() {
@@ -87,8 +89,8 @@ public class HotelRoomType implements Serializable {
         return Objects.equals(id, hotelRoomType.id) &&
                 Objects.equals(humanAmount, hotelRoomType.humanAmount) &&
                 type_name.equals(hotelRoomType.type_name) &&
-                Objects.equals(description, hotelRoomType.description) &&
-                Objects.equals(hotelRoom, hotelRoomType.hotelRoom);
+                Objects.equals(description, hotelRoomType.description); //&&
+                //Objects.equals(hotelRoom, hotelRoomType.hotelRoom);
     }
 
 //    @Override

@@ -1,8 +1,8 @@
-angular.module('crudApp').factory('Employee', Employee);
+angular.module('crudApp').factory('HotelRooms', HotelRooms);
 
-Employee.$inject = [ '$resource' ];
+HotelRooms.$inject = [ '$resource' ];
 
-function Employee($resource) {
+function HotelRooms($resource) {
 	var resourceUrl = 'http://localhost:8080/hotel/rooms/:id';
 
 	return $resource(resourceUrl, {}, {

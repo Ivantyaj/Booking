@@ -33,7 +33,8 @@ public class HotelRoom implements Serializable {
     private Double price;
 
     @JsonIgnore
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    //Было OneToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_type")
     private HotelRoomType hotelRoomType;
 

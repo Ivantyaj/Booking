@@ -1,38 +1,38 @@
 angular.module("crudApp").controller("GeneralController", GeneralController);
 
-GeneralController.inject = [ '$scope', 'Employee' ];
+GeneralController.inject = [ '$scope', 'HotelRooms' ];
 
-function GeneralController($scope, Employee) {
+function GeneralController($scope, HotelRooms) {
 	
-	$scope.employees = Employee.query();
+	$scope.hotelRoomss = HotelRooms.query();
 
-	$scope.employee = {};
+	$scope.hotelRooms = {};
 	
 	$scope.buttonText="Submit";
 	
-	$scope.saveEmployee = function() {
-		if ($scope.employee.id !== undefined) {
-			Employee.update($scope.employee, function() {
-				$scope.employees = Employee.query();
-				$scope.employee = {};
+	$scope.saveHotelRooms = function() {
+		if ($scope.hotelRooms.id !== undefined) {
+			HotelRooms.update($scope.hotelRooms, function() {
+				$scope.hotelRoomss = HotelRooms.query();
+				$scope.hotelRooms = {};
 				$scope.buttonText="Submit";
 			});
 		} else {
-			Employee.save($scope.employee, function() {
-				$scope.employees = Employee.query();
-				$scope.employee = {};
+			HotelRooms.save($scope.hotelRooms, function() {
+				$scope.hotelRoomss = HotelRooms.query();
+				$scope.hotelRooms = {};
 			});
 		}
 	}
 
-	$scope.updateEmployeeInit = function(employee) {
+	$scope.updateHotelRoomsInit = function(hotelRooms) {
 		$scope.buttonText="Update";
-		$scope.employee = employee;
+		$scope.hotelRooms = hotelRooms;
 	}
 
-	$scope.deleteEmployee = function(employee) {
-		employee.$delete({id: employee.id}, function() {
-			$scope.employees = Employee.query();
+	$scope.deleteHotelRooms = function(hotelRooms) {
+		hotelRooms.$delete({id: hotelRooms.id}, function() {
+			$scope.hotelRoomss = HotelRooms.query();
 		});
 	}
 	

@@ -272,25 +272,25 @@
             <div id="tabs-1">
                 <div ng-app="crudApp" ng-controller="GeneralController">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Employees</div>
+                        <div class="panel-heading">HotelRoomss</div>
                         <div class="panel-body">
-                            <form class="col-md-4" ng-submit="saveEmployee()">
+                            <form class="col-md-4" ng-submit="saveHotelRooms()">
                                 <div class="form-group">
-                                    <label for="employeeName">Employee Name</label> <input type="text"
-                                                                                           ng-model="employee.name" class="form-control" id="employeeName"
-                                                                                           placeholder="Employee Name">
+                                    <label for="hotelRoomsName">HotelRooms Name</label> <input type="text"
+                                                                                           ng-model="hotelRooms.name" class="form-control" id="hotelRoomsName"
+                                                                                           placeholder="HotelRooms Name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="employeeSalary">Salary</label> <input type="text"
-                                                                                      ng-model="employee.salary" class="form-control"
-                                                                                      id="employeeSalary" placeholder="Salary">
+                                    <label for="hotelRoomsSalary">Salary</label> <input type="text"
+                                                                                      ng-model="hotelRooms.salary" class="form-control"
+                                                                                      id="hotelRoomsSalary" placeholder="Salary">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="employeeDepartment">Department</label>
+                                    <label for="hotelRoomsDepartment">Department</label>
                                     <input type="text"
-                                           ng-model="employee.department" class="form-control"
-                                           id="employeeDepartment" placeholder="Department">
+                                           ng-model="hotelRooms.department" class="form-control"
+                                           id="hotelRoomsDepartment" placeholder="Department">
                                 </div>
 
                                 <button type="submit" class="btn btn-default">{{buttonText}}</button>
@@ -300,22 +300,22 @@
                             <div class="table-responsive col-md-6">
                                 <table class="table table-striped">
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Salary</th>
-                                        <th>Department</th>
+                                        <th>Id</th>
+                                        <th>roomAmount</th>
+                                        <th>status</th>
                                         <th></th>
                                     </tr>
-                                    <tr ng-repeat="employee in employees">
-                                        <td>{{employee.id}}</td>
-                                        <td>{{employee.roomAmount}}</td>
-                                        <td>{{employee.status}}</td>
+                                    <tr ng-repeat="hotelRooms in hotelRoomss">
+                                        <td>{{hotelRooms.id}}</td>
+                                        <td>{{hotelRooms.roomAmount}}</td>
+                                        <td>{{hotelRooms.status}}</td>
                                         <td>
                                             <button type="button" class="btn btn-default"
-                                                    ng-click="updateEmployeeInit(employee)">
+                                                    ng-click="updateHotelRoomsInit(hotelRooms)">
                                                 <span class="glyphicon glyphicon-edit" aria-hidden="true">upd</span>
                                             </button>
                                             <button type="button" class="btn btn-default"
-                                                    ng-click="deleteEmployee(employee)">
+                                                    ng-click="deleteHotelRooms(hotelRooms)">
 								<span class="glyphicon glyphicon-remove-circle"
                                       aria-hidden="true">del</span>
                                             </button>
@@ -377,7 +377,7 @@
         src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-resource.js"></script>
 <script type="text/javascript" src="js/ng/crud/app.js"></script>
 <script type="text/javascript" src="js/ng/crud/general.controller.js"></script>
-<script type="text/javascript" src="js/ng/crud/employee.service.js"></script>
+<script type="text/javascript" src="js/ng/crud/hotelrooms.service.js"></script>
 
 <script type="text/javascript" src='js/Chart.js'></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>

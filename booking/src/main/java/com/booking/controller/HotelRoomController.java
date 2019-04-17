@@ -57,13 +57,13 @@ public class HotelRoomController extends BaseController {
     //ADD to test crud
 
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<HotelRoom> getAllEmployees() {
+    public List<HotelRoom> getAllRoom() {
         System.out.println("buckle");
         return hotelRoomService.getAll();
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<HotelRoom> createEmployee(@RequestBody HotelRoom employee) throws URISyntaxException {
+    public ResponseEntity<HotelRoom> createRoom(@RequestBody HotelRoom employee) throws URISyntaxException {
         try {
             HotelRoom result = hotelRoomService.save(employee);
             return ResponseEntity.created(new URI("http://localhost:8080/hotel/rooms" + result.getId())).body(result);
@@ -73,7 +73,7 @@ public class HotelRoomController extends BaseController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<HotelRoom> updateEmployee(@RequestBody HotelRoom employee) throws URISyntaxException {
+    public ResponseEntity<HotelRoom> updateRoom(@RequestBody HotelRoom employee) throws URISyntaxException {
         if (employee.getId() == null) {
             return new ResponseEntity<HotelRoom>(HttpStatus.NOT_FOUND);
         }
@@ -88,7 +88,7 @@ public class HotelRoomController extends BaseController {
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> deleteEmployee(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteRoom(@PathVariable Long id) {
         hotelRoomService.delete(id);
 
         return ResponseEntity.ok().build();
