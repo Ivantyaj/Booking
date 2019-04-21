@@ -1,6 +1,8 @@
 package com.booking.controller;
 
 import com.booking.model.entity.HotelRoom;
+import com.booking.model.entity.HotelRoomStatus;
+import com.booking.model.entity.HotelRoomType;
 import com.booking.service.iface.BookingService;
 import com.booking.service.iface.HotelRoomService;
 import com.booking.utils.BookingRequest;
@@ -10,6 +12,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,7 +45,8 @@ public class BookingController extends BaseController {
     @ResponseBody
     public Map<String, String> getFoos(@RequestParam String startDate,
                                        @RequestParam String endDate,
-                                       @RequestParam String clients) {
+                                       @RequestParam String clients,
+                                       @RequestParam String price) {
         System.err.println(startDate + endDate + clients);
 
             HashMap<String, String> map = new HashMap<>();
@@ -55,16 +59,24 @@ public class BookingController extends BaseController {
     @ApiOperation(value = "find free", response = GenericResponse.class, notes = "find_free")
     @GetMapping(value = "/searchFree")
     @ResponseBody
-    public Map<String, String> getFreeRooms(@RequestParam String startDate,
-                                       @RequestParam String endDate,
-                                       @RequestParam String clients) {
-        System.err.println(startDate + endDate + clients);
+    public List<HotelRoom> getFreeRooms(@RequestParam String startDate,
+                                        @RequestParam String endDate,
+                                        @RequestParam String clients,
+                                        @RequestParam String price) {
+        System.err.println(startDate + endDate + clients + price);
 
-        HashMap<String, String> map = new HashMap<>();
-        map.put("URL1", "https://avatars.mds.yandex.net/get-pdb/989257/b9eafc85-bb75-4cc6-b720-beccb7702466/s375");
-        map.put("URL2", "https://i.pinimg.com/originals/fc/ed/b7/fcedb7a0c25a7ff37a4b6eddfe9b6225.jpg");
-        map.put("URL3", "https://i.pinimg.com/736x/16/f8/b7/16f8b785f80f7e30c5fc60f4a3578cc8.jpg");
-        return map;
+//        HashMap<String, String> map = new HashMap<>();
+//        map.put("URL1", "https://avatars.mds.yandex.net/get-pdb/989257/b9eafc85-bb75-4cc6-b720-beccb7702466/s375");
+//        map.put("URL2", "https://i.pinimg.com/originals/fc/ed/b7/fcedb7a0c25a7ff37a4b6eddfe9b6225.jpg");
+//        map.put("URL3", "https://i.pinimg.com/736x/16/f8/b7/16f8b785f80f7e30c5fc60f4a3578cc8.jpg");
+//
+        ArrayList<HotelRoom> freeRooms = new ArrayList<>();
+
+        freeRooms.add(new HotelRoom((double) 123,"https://wallpaperscave.ru/images/thumbs/category/355x200/18/02-20/anime-no-game-no-life-19497.jpg","Описание"));
+        freeRooms.add(new HotelRoom((double) 456,"https://wallpaperscave.ru/images/thumbs/category/355x200/18/02-20/anime-no-game-no-life-19497.jpg","Другое описание"));
+        freeRooms.add(new HotelRoom((double) 999,"https://wallpaperscave.ru/images/thumbs/category/355x200/18/02-20/anime-no-game-no-life-19497.jpg","Другое описание"));
+
+        return freeRooms;
     }
 
 }

@@ -56,6 +56,9 @@ public class HotelRoomController extends BaseController {
 
     //ADD to test crud
 
+    //GetAll не правильно отрабатывает
+    //Response body: [{"id":1,"roomAmount":1,"status":"FREE","price":1.0},{"id":2,"roomAmount":2,"status":"FREE","price":2.0}
+    //Там два параметра с Json ignore, если их убрать, то запросы не работают
     @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<HotelRoom> getAllRoom() {
         System.out.println("buckle");
@@ -75,10 +78,12 @@ public class HotelRoomController extends BaseController {
     @RequestMapping(value = "", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<HotelRoom> updateRoom(@RequestBody HotelRoom employee) throws URISyntaxException {
         if (employee.getId() == null) {
+            System.out.println("ne  Hello update");
             return new ResponseEntity<HotelRoom>(HttpStatus.NOT_FOUND);
         }
 
         try {
+            System.out.println("Hello update");
             HotelRoom result = hotelRoomService.update(employee);
 
             return ResponseEntity.created(new URI("http://localhost:8080/hotel/rooms" + result.getId())).body(result);

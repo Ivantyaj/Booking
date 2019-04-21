@@ -10,9 +10,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController(value = "ClientController")
+@CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
 @RequestMapping(value = "/hotel/clients")
 @Api(tags = "client")
 public class ClientController extends BaseController {
@@ -46,7 +48,58 @@ public class ClientController extends BaseController {
 //        return new ResponseEntity<>(new GenericResponse("ClientList " + clientList), HttpStatus.OK);
 //    }
 
+    @ApiOperation(value = "Get stats", response = GenericResponse.class, notes = "get_stats")
+    @GetMapping(value = "/statsClient")
+    @ResponseBody
+    public List<List> getStats(@RequestParam String startDate,
+                                       @RequestParam String endDate) {
 
+        ArrayList<String> headers = new ArrayList<>();
+        headers.add("one");
+        headers.add("two");
+        headers.add("three");
+
+        ArrayList<Integer> data1 = new ArrayList<>();
+        data1.add(1);
+        data1.add(2);
+        data1.add(3);
+
+        ArrayList<Integer> data2 = new ArrayList<>();
+        data2.add(5);
+        data2.add(6);
+        data2.add(7);
+
+        ArrayList<List> toSend = new ArrayList<>();
+        toSend.add(headers);
+        toSend.add(data1);
+        toSend.add(data2);
+
+        return toSend;
+    }
+
+    //Пока хз по чем сделать статистику для второго графика, потом решим
+    @ApiOperation(value = "Get stats2", response = GenericResponse.class, notes = "get_stats2")
+    @GetMapping(value = "/statsClient2")
+    @ResponseBody
+    public List<List> getStats2(@RequestParam String startDate,
+                               @RequestParam String endDate) {
+
+        ArrayList<String> headers = new ArrayList<>();
+        headers.add("one");
+        headers.add("two");
+        headers.add("three");
+
+        ArrayList<Integer> data = new ArrayList<>();
+        data.add(1);
+        data.add(2);
+        data.add(3);
+
+        ArrayList<List> toSend = new ArrayList<>();
+        toSend.add(headers);
+        toSend.add(data);
+
+        return toSend;
+    }
 
 }
 

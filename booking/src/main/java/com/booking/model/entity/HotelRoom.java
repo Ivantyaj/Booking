@@ -17,26 +17,58 @@ public class HotelRoom implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "room_amount", nullable = false)
-    private Long roomAmount;
-
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_client")
-    private Client client;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private HotelRoomStatus status;
 
-    @Column(name = "price", length = 1000)
-    private Double price;
+    @Column(name = "room_amount", nullable = false)
+    private Long roomAmount;
 
     @JsonIgnore
     //Было OneToOne
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_type")
     private HotelRoomType hotelRoomType;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_client")
+    private Client client;
+
+
+    @Column(name = "price", length = 1000)
+    private Double price;
+
+    @Column(name = "picture_url", length = 1000)
+    private String url;
+
+    @Column(name = "description", length = 1000)
+    private String description;
+
+
+    //For tests
+    public HotelRoom(Double price, String url, String description) {
+        this.price = price;
+        this.url = url;
+        this.description = description;
+    }
+
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public HotelRoom() {
         this.status = HotelRoomStatus.FREE;
@@ -90,6 +122,7 @@ public class HotelRoom implements Serializable {
         this.hotelRoomType = hotelRoomType;
     }
 
+    //НАДО фиксить поля
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -103,20 +136,24 @@ public class HotelRoom implements Serializable {
                 hotelRoomType == hotelRoom.hotelRoomType;
     }
 
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id, roomAmount, client, status, price, hotelRoomType);
-//    }
+
 
     @Override
     public String toString() {
         return "HotelRoom{" +
                 "id=" + id +
-                ", roomAmount=" + roomAmount +
                 ", status=" + status +
+                ", roomAmount=" + roomAmount +
+                ", hotelRoomType=" + hotelRoomType +
+                ", client=" + client +
                 ", price=" + price +
-                ",hotelRoomType=" + hotelRoomType +
+                ", url='" + url + '\'' +
+                ", description='" + description + '\'' +
                 '}';
-
     }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(id, roomAmount, client, status, price, hotelRoomType);
+//    }
+
 }

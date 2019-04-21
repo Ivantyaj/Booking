@@ -10,7 +10,7 @@ $('#idSearch').click(function(){
 
 
 
-    var url = "search.html?" + "startDate=" + startDate + "&endDate=" + endDate + "&clients=" + clients;
+    var url = "search.html?" + "startDate=" + startDate + "&endDate=" + endDate + "&clients=" + clients + "&price=";
     $(location).attr('href',url);
 });
 
