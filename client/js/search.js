@@ -28,19 +28,21 @@ $(document).ready(function() {
             console.log(data['URL1']);
             console.log(data['URL3']);
 
-            //$('#idRoom1').attr("height","234");
+            //$('#idRoom1').attr("height","234px");
             $('#idRoom1').attr("src",data['URL1']);
             //$('#idRoom1').height(234);
             //$('#idRoom1').attr("width","350");
+            //$('#idRoom1').css({heigth: '100px'});
 
 
             $('#idRoom2').attr("src",data['URL2']);
             //$('#idRoom2').attr("width","350");
-            $('#idRoom2').attr("height","234");
+            //$('#idRoom2').attr("height","234px");
+
 
             $('#idRoom3').attr("src",data['URL3']);
             //$('#idRoom3').attr("width","350");
-            $('#idRoom3').attr("height","234");
+            $('#idRoom3').attr("height","234px");
 
             //console.log(JSON.parse(data));
             // $.each(data, function(key, val){

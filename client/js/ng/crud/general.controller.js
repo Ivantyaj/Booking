@@ -6,6 +6,8 @@ function GeneralController($scope, HotelRooms) {
 	
 	$scope.hotelRoomss = HotelRooms.query();
 
+	console.log($scope.hotelRoomss);
+
 	$scope.hotelRooms = {};
 	
 	$scope.buttonText="Submit";
