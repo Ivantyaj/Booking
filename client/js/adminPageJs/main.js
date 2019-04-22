@@ -231,9 +231,9 @@ var authorisation = function () {
     } else {
         $.ajax({
             type: 'POST', // метод отправки
-            url: 'http://localhost:8080/??????????', // Поменять !!!!
+            url: 'http://localhost:8080/auth/login',
             data: {
-                "email": email,
+                "email": email,// Поменять !!!!
                 "pwd": pwd,
             },
             dataType: 'json',

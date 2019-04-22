@@ -24,7 +24,7 @@ $('#btnSubscribe').click(function () {
     } else {
         $.ajax({
             type: 'POST', // метод отправки
-            url: 'http://localhost:8080/??????????', // Поменять !!!!
+            url: 'http://localhost:8080/news/subscribe', // Поменять !!!!
             data: {
                 "email": address,
             },
