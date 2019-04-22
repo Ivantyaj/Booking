@@ -17,10 +17,6 @@ public class HotelRoom implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private HotelRoomStatus status;
-
     @Column(name = "room_amount", nullable = false)
     private Long roomAmount;
 
@@ -45,6 +41,8 @@ public class HotelRoom implements Serializable {
     @Column(name = "description", length = 1000)
     private String description;
 
+    public HotelRoom() {
+    }
 
     //For tests
     public HotelRoom(Long id, Double price, String url, String description) {
@@ -53,7 +51,11 @@ public class HotelRoom implements Serializable {
         this.url = url;
         this.description = description;
     }
-
+    public HotelRoom(Double price, String url, String description) {
+        this.price = price;
+        this.url = url;
+        this.description = description;
+    }
 
     public String getUrl() {
         return url;
@@ -71,9 +73,6 @@ public class HotelRoom implements Serializable {
         this.description = description;
     }
 
-    public HotelRoom() {
-        this.status = HotelRoomStatus.FREE;
-    }
 
     public Long getId() {
         return id;
@@ -99,13 +98,6 @@ public class HotelRoom implements Serializable {
         this.client = client;
     }
 
-    public HotelRoomStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(HotelRoomStatus status) {
-        this.status = status;
-    }
 
     public Double getPrice() {
         return price;
@@ -132,7 +124,6 @@ public class HotelRoom implements Serializable {
         return Objects.equals(id, hotelRoom.id) &&
                 Objects.equals(roomAmount, hotelRoom.roomAmount) &&
                 Objects.equals(client, hotelRoom.client) &&
-                status == hotelRoom.status &&
                 Objects.equals(price, hotelRoom.price) &&
                 hotelRoomType == hotelRoom.hotelRoomType;
     }
@@ -143,7 +134,6 @@ public class HotelRoom implements Serializable {
     public String toString() {
         return "HotelRoom{" +
                 "id=" + id +
-                ", status=" + status +
                 ", roomAmount=" + roomAmount +
                 ", hotelRoomType=" + hotelRoomType +
                 ", client=" + client +
@@ -152,9 +142,6 @@ public class HotelRoom implements Serializable {
                 ", description='" + description + '\'' +
                 '}';
     }
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id, roomAmount, client, status, price, hotelRoomType);
-//    }
+
 
 }

@@ -15,4 +15,8 @@ public interface HotelRoomService {
     HotelRoom update(HotelRoom employee);
 
     void delete(Long id);
+
+    HotelRoom findById(Long id);
+
+    boolean exists(Long id);
 }
