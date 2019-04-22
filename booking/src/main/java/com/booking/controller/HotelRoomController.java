@@ -2,11 +2,7 @@ package com.booking.controller;
 
 import com.booking.model.entity.HotelRoom;
 import com.booking.service.iface.HotelRoomService;
-import com.booking.utils.logging.GenericResponse;
-
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,7 +16,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController(value = "RoomController")
-@CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
+@CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
 @RequestMapping(value = "/hotel/rooms")
 @Api(tags = "hotel")
 public class HotelRoomController extends BaseController {
@@ -59,43 +55,44 @@ public class HotelRoomController extends BaseController {
     //GetAll не правильно отрабатывает
     //Response body: [{"id":1,"roomAmount":1,"status":"FREE","price":1.0},{"id":2,"roomAmount":2,"status":"FREE","price":2.0}
     //Там два параметра с Json ignore, если их убрать, то запросы не работают
-    @RequestMapping(value = "", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<HotelRoom> getAllRoom() {
         System.out.println("buckle");
         return hotelRoomService.getAll();
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<HotelRoom> createRoom(@RequestBody HotelRoom employee) throws URISyntaxException {
         try {
             HotelRoom result = hotelRoomService.save(employee);
             return ResponseEntity.created(new URI("http://localhost:8080/hotel/rooms" + result.getId())).body(result);
         } catch (EntityExistsException e) {
-            return new ResponseEntity<HotelRoom>(HttpStatus.CONFLICT);
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
 
-    @RequestMapping(value = "", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<HotelRoom> updateRoom(@RequestBody HotelRoom employee) throws URISyntaxException {
+    @PutMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<HotelRoom> updateRoom(@RequestBody HotelRoom employee) {
         if (employee.getId() == null) {
             System.out.println("ne  Hello update");
-            return new ResponseEntity<HotelRoom>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-
         try {
-            System.out.println("Hello update");
-            HotelRoom result = hotelRoomService.update(employee);
-
-            return ResponseEntity.created(new URI("http://localhost:8080/hotel/rooms" + result.getId())).body(result);
+            HotelRoom hotelRoom = hotelRoomService.findById(employee.getId());
+            hotelRoom.setPrice(employee.getPrice());
+            hotelRoom.setRoomAmount(employee.getRoomAmount());
+            hotelRoom.setUrl(employee.getUrl());
+            hotelRoom.setDescription(employee.getDescription());
+            hotelRoomService.save(hotelRoom);
+            return new ResponseEntity<>(HttpStatus.OK);
         } catch (EntityNotFoundException e) {
-            return new ResponseEntity<HotelRoom>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> deleteRoom(@PathVariable Long id) {
         hotelRoomService.delete(id);
-
         return ResponseEntity.ok().build();
     }
 }

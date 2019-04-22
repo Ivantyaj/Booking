@@ -6,6 +6,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Objects;
 
 @Entity
@@ -16,10 +17,6 @@ public class HotelRoom implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
-    private HotelRoomStatus status;
 
     @Column(name = "room_amount", nullable = false)
     private Long roomAmount;
@@ -45,6 +42,15 @@ public class HotelRoom implements Serializable {
     @Column(name = "description", length = 1000)
     private String description;
 
+    @Column(name = "date_from")
+    private Instant dateFrom;
+
+    @Column(name = "date_to")
+    private Instant dateTo;
+
+
+    public HotelRoom() {
+    }
 
     //For tests
     public HotelRoom(Long id, Double price, String url, String description) {
@@ -54,6 +60,11 @@ public class HotelRoom implements Serializable {
         this.description = description;
     }
 
+    public HotelRoom(Double price, String url, String description) {
+        this.price = price;
+        this.url = url;
+        this.description = description;
+    }
 
     public String getUrl() {
         return url;
@@ -71,9 +82,6 @@ public class HotelRoom implements Serializable {
         this.description = description;
     }
 
-    public HotelRoom() {
-        this.status = HotelRoomStatus.FREE;
-    }
 
     public Long getId() {
         return id;
@@ -99,12 +107,20 @@ public class HotelRoom implements Serializable {
         this.client = client;
     }
 
-    public HotelRoomStatus getStatus() {
-        return status;
+    public Instant getDateFrom() {
+        return dateFrom;
     }
 
-    public void setStatus(HotelRoomStatus status) {
-        this.status = status;
+    public void setDateFrom(Instant dateFrom) {
+        this.dateFrom = dateFrom;
+    }
+
+    public Instant getDateTo() {
+        return dateTo;
+    }
+
+    public void setDateTo(Instant dateTo) {
+        this.dateTo = dateTo;
     }
 
     public Double getPrice() {
@@ -123,6 +139,20 @@ public class HotelRoom implements Serializable {
         this.hotelRoomType = hotelRoomType;
     }
 
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (roomAmount != null ? roomAmount.hashCode() : 0);
+        result = 31 * result + (hotelRoomType != null ? hotelRoomType.hashCode() : 0);
+        result = 31 * result + (client != null ? client.hashCode() : 0);
+        result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + (url != null ? url.hashCode() : 0);
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (dateFrom != null ? dateFrom.hashCode() : 0);
+        result = 31 * result + (dateTo != null ? dateTo.hashCode() : 0);
+        return result;
+    }
+
     //НАДО фиксить поля
     @Override
     public boolean equals(Object o) {
@@ -132,29 +162,24 @@ public class HotelRoom implements Serializable {
         return Objects.equals(id, hotelRoom.id) &&
                 Objects.equals(roomAmount, hotelRoom.roomAmount) &&
                 Objects.equals(client, hotelRoom.client) &&
-                status == hotelRoom.status &&
                 Objects.equals(price, hotelRoom.price) &&
                 hotelRoomType == hotelRoom.hotelRoomType;
     }
-
-
 
     @Override
     public String toString() {
         return "HotelRoom{" +
                 "id=" + id +
-                ", status=" + status +
                 ", roomAmount=" + roomAmount +
                 ", hotelRoomType=" + hotelRoomType +
                 ", client=" + client +
                 ", price=" + price +
                 ", url='" + url + '\'' +
                 ", description='" + description + '\'' +
+                ", dateFrom=" + dateFrom +
+                ", dateTo=" + dateTo +
                 '}';
     }
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id, roomAmount, client, status, price, hotelRoomType);
-//    }
+
 
 }
