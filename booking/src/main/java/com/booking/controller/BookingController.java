@@ -72,9 +72,9 @@ public class BookingController extends BaseController {
 //
         ArrayList<HotelRoom> freeRooms = new ArrayList<>();
 
-        freeRooms.add(new HotelRoom((double) 123,"https://wallpaperscave.ru/images/thumbs/category/355x200/18/02-20/anime-no-game-no-life-19497.jpg","Описание"));
-        freeRooms.add(new HotelRoom((double) 456,"https://wallpaperscave.ru/images/thumbs/category/355x200/18/02-20/anime-no-game-no-life-19497.jpg","Другое описание"));
-        freeRooms.add(new HotelRoom((double) 999,"https://wallpaperscave.ru/images/thumbs/category/355x200/18/02-20/anime-no-game-no-life-19497.jpg","Другое описание"));
+        freeRooms.add(new HotelRoom(1001L, (double) 123,"https://wallpaperscave.ru/images/thumbs/category/355x200/18/02-20/anime-no-game-no-life-19497.jpg","Описание"));
+        freeRooms.add(new HotelRoom(1002L,(double) 456,"https://wallpaperscave.ru/images/thumbs/category/355x200/18/02-20/anime-no-game-no-life-19497.jpg","Другое описание"));
+        freeRooms.add(new HotelRoom(1003L,(double) 999,"https://wallpaperscave.ru/images/thumbs/category/355x200/18/02-20/anime-no-game-no-life-19497.jpg","Другое описание"));
 
         return freeRooms;
     }

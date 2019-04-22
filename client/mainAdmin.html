@@ -86,67 +86,8 @@
 
 </header>
 
-<!-- about section -->
-<!--<div class="about" id="about">-->
-    <!--<div class="container">-->
-        <!--<h1 class="text-center">About Me</h1>-->
-        <!--<div class="row">-->
-            <!--<div class="col-lg-4 col-md-4 col-sm-12">-->
-                <!--<img src="images/team-3.jpg" class="img-fluid">-->
-                <!--<span class="text-justify">S.Web Developer</span>-->
-            <!--</div>-->
-            <!--<div class="col-lg-8 col-md-8 col-sm-12 desc">-->
-
-                <!--<h3>D.John</h3>-->
-                <!--<p>-->
-                    <!--ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod-->
-                    <!--tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,-->
-                    <!--quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo-->
-                    <!--consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse-->
-                    <!--cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non-->
-                    <!--proident, sunt in culpa qui officia deserunt mollit anim id est laborum.-->
-                <!--</p>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
-<!-- portfolio -->
 <div class="portfolio" id="portfolio">
     <h1 class="text-center">Статистика</h1>
-    <!--<div class="container">-->
-    <!--<div class="row">-->
-    <!--<div class="col-lg-4 col-md-4 col-sm-12">-->
-    <!--<img src="images/portfolio/port13.png" class="img-fluid">-->
-    <!--</div>-->
-    <!--<div class="col-lg-4 col-md-4 col-sm-12">-->
-    <!--<img src="images/portfolio/port1.png" class="img-fluid">-->
-    <!--</div>-->
-    <!--<div class="col-lg-4 col-md-4 col-sm-12">-->
-    <!--<img src="images/portfolio/port6.png" class="img-fluid">-->
-    <!--</div>-->
-
-    <!--<div class="col-lg-4 col-md-4 col-sm-12">-->
-    <!--<img src="images/portfolio/port3.png" class="img-fluid">-->
-    <!--</div>-->
-    <!--<div class="col-lg-4 col-md-4 col-sm-12">-->
-    <!--<img src="images/portfolio/port11.png" class="img-fluid">-->
-    <!--</div>-->
-    <!--<div class="col-lg-4 col-md-4 col-sm-12">-->
-    <!--<img src="images/portfolio/electric.png" class="img-fluid">-->
-    <!--</div>-->
-
-    <!--<div class="col-lg-4 col-md-4 col-sm-12">-->
-    <!--<img src="images/portfolio/Classic.jpg" class="img-fluid">-->
-    <!--</div>-->
-    <!--<div class="col-lg-4 col-md-4 col-sm-12">-->
-    <!--<img src="images/portfolio/port1.png" class="img-fluid">-->
-    <!--</div>-->
-    <!--<div class="col-lg-4 col-md-4 col-sm-12">-->
-    <!--<img src="images/portfolio/port8.png" class="img-fluid">-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--</div>-->
     <div class="container">
         <div class="row my-3">
             <div class="col">
@@ -280,8 +221,6 @@
                         </div>
 
                     </div>
-                    <div> a</div>
-                    <div> a</div>
                 </div>
             </div>
         </div>
@@ -292,14 +231,14 @@
 <div class="team" id="team">
     <div class="container">
         <h1 class="text-center">Комнаты</h1>
-        <div id="tabs">
+        <div id="tabs" ng-app="crudApp">
             <ul>
                 <li><a href="#tabs-1">Комнаты</a></li>
-                <li><a href="#tabs-2">2</a></li>
+                <li><a href="#tabs-2">Подписки</a></li>
                 <li><a href="#tabs-3">3</a></li>
             </ul>
             <div id="tabs-1">
-                <div ng-app="crudApp" ng-controller="GeneralController">
+                <div ng-controller="GeneralController">
                     <div class="panel panel-default">
                         <div class="panel-heading">HotelRoomss</div>
                         <div class="panel-body">
@@ -385,7 +324,63 @@
                 </div>
             </div>
             <div id="tabs-2">
-                <p>2</p>
+                <div ng-controller="SubscribeController">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Subscribes</div>
+                        <div class="panel-body">
+                            <form class="col-md-6" ng-submit="saveSubscribes()">
+                                <div class="form-group">
+                                    <label for="subscribeId">id</label> <input type="text"
+                                                                                ng-model="subscribe.id" class="form-control" id="subscribeId"
+                                                                                placeholder="id">
+                                </div>
+                                <div class="form-group">
+                                    <label for="subscribeEmail">email</label> <input type="text"
+                                                                                        ng-model="subscribe.email" class="form-control"
+                                                                                        id="subscribeEmail"
+                                                                                        placeholder="email">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subscribeIsSub">isSub</label>
+                                    <input type="text"
+                                           ng-model="subscribe.isSub" class="form-control"
+                                           id="subscribeIsSub" placeholder="isSub">
+                                </div>
+
+                                <button type="submit" class="btn btn-default">{{buttonText2}}</button>
+
+                            </form>
+
+                            <div class="table-responsive col-md-12">
+                                <table class="table table-striped">
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>email</th>
+                                        <th>isSubscribe</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr ng-repeat="subscribe in subscribes">
+                                        <td>{{subscribe.id}}</td>
+                                        <td>{{subscribe.email}}</td>
+                                        <td>{{subscribe.is_sub}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-default"
+                                                    ng-click="updateSubscribesInit(subscribe)">
+                                                <span class="glyphicon glyphicon-edit" aria-hidden="true">upd</span>
+                                            </button>
+                                            <button type="button" class="btn btn-default"
+                                                    ng-click="deleteSubscribes(subscribe)">
+								<span class="glyphicon glyphicon-remove-circle"
+                                      aria-hidden="true">del</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="tabs-3">
                 <p>3</p>
@@ -394,34 +389,7 @@
     </div>
 </div>
 
-<!-- Contact form -->
-<!--<div class="contact-form" id="contact">-->
-    <!--<div class="container">-->
-        <!--<form>-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-4 col-md-4 col-sm-12">-->
-                    <!--<h1>Get in Touch</h1>-->
-                <!--</div>-->
-                <!--<div class="col-lg-8 col-md-8 col-sm-12 right">-->
-                    <!--<div class="form-group">-->
-                        <!--<input type="text" class="form-control form-control-lg" placeholder="Your Name" name="">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-                        <!--<input type="email" class="form-control form-control-lg" placeholder="YourEmail@email.com"-->
-                               <!--name="email">-->
-                    <!--</div>-->
-                    <!--<div class="form-group">-->
-				   	 <!--<textarea class="form-control form-control-lg">-->
-				   	 	<!---->
-				   	 <!--</textarea>-->
-                    <!--</div>-->
-                    <!--<input type="submit" class="btn btn-secondary btn-block" value="Send" name="">-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</form>-->
-    <!--</div>-->
-<!--</div>-->
-<!-- add Javasscript file from js file -->
+
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="js/moment-with-locales.min.js"></script>
@@ -433,8 +401,11 @@
 <script type="text/javascript"
         src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-resource.js"></script>
 <script type="text/javascript" src="js/ng/crud/app.js"></script>
-<script type="text/javascript" src="js/ng/crud/general.controller.js"></script>
-<script type="text/javascript" src="js/ng/crud/hotelrooms.service.js"></script>
+<script type="text/javascript" src="js/ng/crud/controllers/general.controller.js"></script>
+<script type="text/javascript" src="js/ng/crud/services/hotelrooms.service.js"></script>
+
+<script type="text/javascript" src="js/ng/crud/controllers/subscribe.controller.js"></script>
+<script type="text/javascript" src="js/ng/crud/services/subscribe.service.js"></script>
 
 <script type="text/javascript" src='js/adminPageJs/Chart.js'></script>
 <script type="text/javascript" src="js/adminPageJs/jquery-ui.js"></script>

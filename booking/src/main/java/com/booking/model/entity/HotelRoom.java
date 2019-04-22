@@ -47,7 +47,8 @@ public class HotelRoom implements Serializable {
 
 
     //For tests
-    public HotelRoom(Double price, String url, String description) {
+    public HotelRoom(Long id, Double price, String url, String description) {
+        this.id = id;
         this.price = price;
         this.url = url;
         this.description = description;

@@ -33,6 +33,7 @@ $('#btnSubscribe').click(function () {
                 alert('Вы подписались на новости\nПроверьте вашу почту');
             },
             error: function(data){
+                alert('Не возможно подписаться в данный момент');
                 console.log("pishov vid seda");
             }})
     }

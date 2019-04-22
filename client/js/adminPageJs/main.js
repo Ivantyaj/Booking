@@ -61,7 +61,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST', // метод отправки
-            url: 'http://localhost:8080/hotel/booking/', // путь к обработчику
+            url: 'http://localhost:8080/zzzzzzzzz', // путь к обработчику
             //data:'',
             data: {
                 "name": $('#clientName').val(),
@@ -69,14 +69,11 @@ $(document).ready(function () {
             },
             dataType: 'json',
             success: function(data){
-                //console.log("syccess " + data);
+                console.log("syccess " + data);
+                $('#formFind').css("display","");
             },
             error: function(data){
                 console.log("errrrrrr" + data);
-                $('#formFind').css("display","");
-                $('#clientFindName').text("Вася Пупкин");
-                $('#clientFindInf').text("Информация о васе пупкине");
-
             }})
     });
 
@@ -84,7 +81,7 @@ $(document).ready(function () {
         event.preventDefault();
         $.ajax({
             type: 'POST', // метод отправки
-            url: 'http://localhost:8080/hotel/booking/', // путь к обработчику
+            url: 'http://localhost:8080/zzzzzzzzz', // путь к обработчику
             //data:'',
             // data: {
             //     "name": $('#clientName').val(),
