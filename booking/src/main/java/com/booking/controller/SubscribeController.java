@@ -20,15 +20,18 @@ public class SubscribeController extends BaseController {
         this.subscriberService = subscriberService;
     }
 
-    @PostMapping(value = "/subscribe")
+    //@PostMapping(value = "/subscribe")
+    @PostMapping(value = "/subscribe", produces = "application/json", consumes="application/json")
     public ResponseEntity subscribe(@RequestBody SubscribeRequest subscribeRequest) {
+        System.out.println(subscribeRequest);
         Subscriber subscriber = new Subscriber(subscribeRequest.getEmail(), true);
         subscriberService.save(subscriber);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
 
-    @PostMapping(value = "/unsubscribe")
+    //@PostMapping(value = "/unsubscribe")
+    @PostMapping(value = "/unsubscribe", produces = "application/json", consumes="application/json")
     public ResponseEntity unsubscribe(@RequestBody SubscribeRequest subscribeRequest) {
         Subscriber subscriber = subscriberService.findByEmail(subscribeRequest.getEmail());
         subscriberService.deleteByEmail(subscriber.getEmail());

@@ -25,9 +25,8 @@ $('#btnSubscribe').click(function () {
         $.ajax({
             type: 'POST', // метод отправки
             url: 'http://localhost:8080/news/subscribe', // Поменять !!!!
-            data: {
-                "email": address,
-            },
+            data: JSON.stringify({email: address}),
+            contentType: 'application/json',
             dataType: 'json',
             success: function(data){
                 alert('Вы подписались на новости\nПроверьте вашу почту');
