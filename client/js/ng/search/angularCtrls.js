@@ -26,7 +26,7 @@ appSearch.controller("searchCtrl", function ($scope, $http) {
     var startDate = getUrlParameter('startDate');
     var endDate = getUrlParameter('endDate');
     var clients = getUrlParameter('clients');
-    var price = "";
+    var price = getUrlParameter('price');
 
     $http.get("http://localhost:8080/hotel/booking/searchFree?startDate=" + startDate + "&endDate=" + endDate + "&clients=" + clients + "&price=" + price)
         .then(function (result) {

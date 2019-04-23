@@ -66,5 +66,8 @@ booking/.idea
 booking/target
 booking/out
 booking/*.log
+booking/booking.log.*
+booking/booking.*
+client/.idea
 ~*.*
 *.ldb
