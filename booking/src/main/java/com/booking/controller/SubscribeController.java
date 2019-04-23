@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@RestController(value = "AuthorizationController")
+@RestController(value = "SubscribeController")
 @CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
 @RequestMapping(value = "/news")
 @Api(tags = "booking")

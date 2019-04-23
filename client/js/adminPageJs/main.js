@@ -219,29 +219,41 @@ var createGraphRose = function (labels, data1, data2){
 }
 
 var authorisation = function () {
-    var email = $('#email').val();
-    var pwd = $('#pwd').val();
+    var login = $('#email').val();
+    var password = $('#pwd').val();
 
-    console.log(email);
-    console.log(pwd);
+    var jsonData = JSON.stringify({login: login, password: password});
+    console.log(login);
+    console.log(password);
+
+    var obj = {};
+    obj.login = login;
+    obj.password = password;
 
     //DELETE удалить заглушку, сделать запрос
-    if(pwd === "" && email === ""){
+    if(password === "" && login === ""){
         $("#myModal").modal('hide');
     } else {
         $.ajax({
             type: 'POST', // метод отправки
             url: 'http://localhost:8080/auth/login',
-            data: {
-                "email": email,// Поменять !!!!
-                "pwd": pwd,
-            },
+            // data: {
+            // "login": login,
+            // "password": password,
+            // },
+            data: jsonData,
+            contentType: 'application/json',
             dataType: 'json',
             success: function(data){
                 $("#myModal").modal('hide');
+                console.log("auth  " , data)
             },
             error: function(data){
-                console.log("pishov vid seda")
+                if(data.status == 200) {
+                    $("#myModal").modal('hide');
+                }
+                console.log("pishov vid seda " , data);
+
             }})
     }
 

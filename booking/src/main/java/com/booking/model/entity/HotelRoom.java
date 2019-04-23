@@ -2,6 +2,7 @@ package com.booking.model.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import net.bytebuddy.implementation.bind.annotation.Default;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -21,14 +22,13 @@ public class HotelRoom implements Serializable {
     @Column(name = "room_amount", nullable = false)
     private Long roomAmount;
 
-    @JsonIgnore
-    //Было OneToOne
-    @ManyToOne(fetch = FetchType.LAZY)
+    //@JsonIgnore
+    @ManyToOne//(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_type")
     private HotelRoomType hotelRoomType;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    //@JsonIgnore
+    @ManyToOne//(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_client")
     private Client client;
 
@@ -37,10 +37,10 @@ public class HotelRoom implements Serializable {
     private Double price;
 
     @Column(name = "picture_url", length = 1000)
-    private String url;
+    private String url = "https://pp.userapi.com/c854028/v854028525/2b94f/DcPoMxV66Xk.jpg";
 
     @Column(name = "description", length = 1000)
-    private String description;
+    private String description = "Пока нет описания";
 
     @Column(name = "date_from")
     private Instant dateFrom;

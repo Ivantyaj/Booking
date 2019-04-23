@@ -23,7 +23,11 @@ public class HotelRoomType implements Serializable {
     @Column(name = "description", length = 1000)
     private String description;
 
-    @JsonIgnore
+
+//    @OneToMany(mappedBy = "topic", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    private List<Answer> answer;
+//}
+    //@JsonIgnore
     //@OneToOne(mappedBy = "hotelRoomType", cascade = CascadeType.ALL, orphanRemoval = true)
     //@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     //private HotelRoom hotelRoom;
