@@ -1,5 +1,6 @@
 package com.booking.controller;
 
+import com.booking.model.entity.BookingRequest;
 import com.booking.model.entity.HotelRoom;
 import com.booking.service.iface.BookingService;
 import com.booking.service.iface.HotelRoomService;
@@ -7,6 +8,8 @@ import com.booking.utils.logging.GenericResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -66,6 +69,14 @@ public class BookingController extends BaseController {
         return rooms.stream()
                 .filter(room -> room.getPrice() <= Double.parseDouble(price))
                 .collect(Collectors.toList());
+    }
+
+    @PostMapping(value = "/booking", produces = "application/json", consumes="application/json")
+    public ResponseEntity authorize(@RequestBody BookingRequest bookingRequest) {
+
+        System.out.println("Book req =>>> " + bookingRequest);
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

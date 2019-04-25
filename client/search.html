@@ -88,6 +88,20 @@
 							<label for="roomId">Код комнаты</label>
 							<input id="roomId" class="form-control" name="roomId" required type="text" value="0000" disabled="disabled">
 						</div>
+						<!--Выбранные сервисы-->
+						<!--<div class="form-group field-middle_name row">-->
+
+							<!--<div class="col-sm-6 col-md-6 col-xs-6 no-padding">-->
+								<!--<select id="services" class="form-control" title="Сервисы">-->
+									<!--<option value="" >Префикс</option>-->
+								<!--</select>-->
+							<!--</div>-->
+							<!--<div class="col-sm-6 col-md-6 col-xs-6 no-padding">-->
+								<!--<select id="extraServ" class="form-control" title="Дополнительные">-->
+									<!--<option value="">Префикс</option>-->
+								<!--</select>-->
+							<!--</div>-->
+						<!--</div>-->
 						<div class="form-group">
 							<label for="name">Ваше имя:</label>
 							<input id="name" class="form-control" name="name" required type="text" placeholder="Иванов Иван Иванович">
@@ -143,9 +157,9 @@
 
 						<div class="form-group form-check">
 							<input id="check" class="form-check-input" checked type="checkbox">
-							<label class="form-check-label" for="check">Получить подтверждение бронирования на почту</label>
+							<label class="form-check-label" for="check">Заказать обратный звонок</label>
 						</div>
-
+						<p>Вам на почту придет подтверждение вашего бронирования</p>
 						<button id="button" class="btn btn-success" type="submit" ng-click="sendBooking()">Отправить</button>
 					</form>
 				</div>
@@ -241,14 +255,21 @@
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-12 parallax-fade-top">
-						<div class="hero-text">Search</div>
+						<div class="hero-text">Бронирование</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+
+
 	
 	<div class="section padding-top-bottom z-bigger">
+		<div class="text-center align-text-bottom">
+			<h1>Не забудьте выбрать сервисы!</h1>
+			<p>оплачиваются по приезду</p>
+		</div>
 		<div class="section z-bigger">		
 			<div class="container">
 				<div class="row">
@@ -291,14 +312,14 @@
 											<div class="col-12">
 												<div class="form-item">
 													<span class="fontawesome-calendar"></span>
-													<input class="input-sm" type="text" autocomplete="off" id="start-date-1" name="start" placeholder="chech-in date" data-date-format="DD, MM d"/>
+													<input class="input-sm" type="text" autocomplete="off" id="start-date-1" name="start" placeholder="дата приезда" data-date-format="DD, MM d"/>
 													<span class="date-text date-depart"></span>
 												</div>
 											</div>
 											<div class="col-12 pt-4">
 												<div class="form-item">
 													<span class="fontawesome-calendar"></span>
-													<input class="input-sm" type="text" autocomplete="off" id="end-date-1" name="end" placeholder="check-out date" data-date-format="DD, MM d"/>
+													<input class="input-sm" type="text" autocomplete="off" id="end-date-1" name="end" placeholder="дата отъезда" data-date-format="DD, MM d"/>
 													<span class="date-text date-return"></span>
 												</div>
 											</div>
@@ -309,7 +330,7 @@
 									<div class="row">
 										<div class="col-12 pt-4">
 											<select name="adults" class="wide" id="selectPeople">
-												<option data-display="adults">adults</option>
+												<option selected value="0">Количество человек</option>
 												<option value="1">1</option>
 												<option value="2">2</option>
 												<option value="3">3</option>
@@ -344,36 +365,36 @@
 									<input type="button" value="Подобрать" id="btnSearch">
 								</div>
 								<div class="col-12 col-md-6 col-lg-12 pt-5">
-									<h6 class="color-white mb-3">Services:</h6>
+									<h6 class="color-white mb-3">Услуги:</h6>
 									<ul class="list">
 										<li class="list__item">
 											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox">
-												welcome drink
+												<input type="checkbox" class="checkbox" id="serv1" value="Мини бар">
+												Мини бар
 											</label>
 										</li>
 										<li class="list__item">
 											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox">
-												television
+												<input type="checkbox" class="checkbox" id="serv2" value="Телевизор">
+												Телевизор
 											</label>
 										</li>
 										<li class="list__item">
 											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox">
-												king beds
+												<input type="checkbox" class="checkbox" id="serv3" value="Кровать для детей">
+												Кровать для детей
 											</label>
 										</li>
 										<li class="list__item">
 											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox">
-												bike rental
+												<input type="checkbox" class="checkbox" id="serv4" value="Аренда велосипеда">
+												Аренда велосипеда
 											</label>
 										</li>
 										<li class="list__item">
 											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox">
-												no smoking
+												<input type="checkbox" class="checkbox" id="serv5" value="Ethernet">
+												Ethernet
 											</label>
 										</li>
 									</ul>									
@@ -383,32 +404,32 @@
 									<ul class="list">
 										<li class="list__item">
 											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox">
-												breakfast
+												<input type="checkbox" class="checkbox" id="servExtr1" value="Завтраки">
+												Завтраки
 											</label>
 										</li>
 										<li class="list__item">
 											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox">
-												swimming pool
+												<input type="checkbox" class="checkbox" id="servExtr2" value="Бассейн">
+												Бассейн
 											</label>
 										</li>
 										<li class="list__item">
 											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox">
-												car rental
+												<input type="checkbox" class="checkbox" id="servExtr3" value="Прокат автомобиля">
+												Прокат автомобиля
 											</label>
 										</li>
 										<li class="list__item">
 											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox">
-												sea view
+												<input type="checkbox" class="checkbox" id="servExtr4" value="Вид на море">
+												Вид на море
 											</label>
 										</li>
 										<li class="list__item">
 											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox">
-												laundry
+												<input type="checkbox" class="checkbox" id="servExtr5" value="Прачечная">
+												Прачечная
 											</label>
 										</li>
 									</ul>									

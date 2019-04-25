@@ -58,16 +58,22 @@ public class ClientController extends BaseController {
         headers.add("one");
         headers.add("two");
         headers.add("three");
+        headers.add("4");
+        headers.add("5");
 
         ArrayList<Integer> data1 = new ArrayList<>();
         data1.add(1);
         data1.add(2);
+        data1.add(5);
+        data1.add(11);
         data1.add(3);
 
         ArrayList<Integer> data2 = new ArrayList<>();
         data2.add(5);
         data2.add(6);
         data2.add(7);
+        data2.add(12);
+        data2.add(9);
 
         ArrayList<List> toSend = new ArrayList<>();
         toSend.add(headers);
@@ -88,15 +94,27 @@ public class ClientController extends BaseController {
         headers.add("one");
         headers.add("two");
         headers.add("three");
+        headers.add("4");
+        headers.add("5");
 
         ArrayList<Integer> data = new ArrayList<>();
         data.add(1);
         data.add(2);
         data.add(3);
+        data.add(12);
+        data.add(9);
+
+        ArrayList<Integer> data2 = new ArrayList<>();
+        data2.add(5);
+        data2.add(6);
+        data2.add(12);
+        data2.add(9);
+        data2.add(7);
 
         ArrayList<List> toSend = new ArrayList<>();
         toSend.add(headers);
         toSend.add(data);
+        toSend.add(data2);
 
         return toSend;
     }

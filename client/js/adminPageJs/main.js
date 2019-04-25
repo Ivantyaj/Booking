@@ -125,7 +125,7 @@ var updateGraph = function (startDate, endDate) {
         url: 'http://localhost:8080//hotel/clients/statsClient2?' + "startDate=" + startDate + "&endDate=" + endDate, // путь к обработчику
         dataType: 'json',
         success: function(data){
-            console.log("syccess");
+            console.log("syccess Rose" , data)  ;
 
             let headers = data[0];
             let data1 = data[1];
