@@ -20,10 +20,8 @@ public class Client implements Serializable {
     @JoinColumn(name = "id_user")
     private User user;
 
-    @Column(name = "name")
-    private String name;
-    @Column(name = "surname")
-    private String surname;
+    @Column(name = "fio")
+    private String fio;
     @Column(name = "phone")
     private String phone;
     @Column(name = "email")
@@ -36,6 +34,12 @@ public class Client implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_discount")
     private Discount discount;
+
+    @Column(name = "need_call")
+    private boolean needCall = false;
+
+    @Column(name = "last_message", length = 1000)
+    private String lastMessage;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
     private Set<HotelRoom> hotelRoomSet;
@@ -59,20 +63,51 @@ public class Client implements Serializable {
         this.user = user;
     }
 
-    public String getName() {
-        return name;
+    public String getFio() {
+        return fio;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFio(String fio) {
+        this.fio = fio;
     }
 
-    public String getSurname() {
-        return surname;
+    public boolean isNeedCall() {
+        return needCall;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setNeedCall(boolean needCall) {
+        this.needCall = needCall;
+    }
+
+    public String getLastMessage() {
+        return lastMessage;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return needCall == client.needCall &&
+                Objects.equals(id, client.id) &&
+                Objects.equals(user, client.user) &&
+                Objects.equals(fio, client.fio) &&
+                Objects.equals(phone, client.phone) &&
+                Objects.equals(email, client.email) &&
+                Objects.equals(passportNumber, client.passportNumber) &&
+                Objects.equals(visitingCount, client.visitingCount) &&
+                Objects.equals(discount, client.discount) &&
+                Objects.equals(lastMessage, client.lastMessage) &&
+                Objects.equals(hotelRoomSet, client.hotelRoomSet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, user, fio, phone, email, passportNumber, visitingCount, discount, needCall, lastMessage, hotelRoomSet);
+    }
+
+    public void setLastMessage(String lastMessage) {
+        this.lastMessage = lastMessage;
     }
 
     public String getPhone() {
@@ -125,53 +160,18 @@ public class Client implements Serializable {
 
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Client client = (Client) o;
-        if (!Objects.equals(id, client.id)) return false;
-        if (!Objects.equals(user, client.user)) return false;
-        if (!Objects.equals(name, client.name)) return false;
-        if (!Objects.equals(surname, client.surname)) return false;
-        if (!Objects.equals(phone, client.phone)) return false;
-        if (!Objects.equals(email, client.email)) return false;
-        if (!Objects.equals(passportNumber, client.passportNumber))
-            return false;
-        if (!Objects.equals(visitingCount, client.visitingCount))
-            return false;
-        if (!Objects.equals(discount, client.discount)) return false;
-        return Objects.equals(hotelRoomSet,
-                client.hotelRoomSet);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (user != null ? user.hashCode() : 0);
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (surname != null ? surname.hashCode() : 0);
-        result = 31 * result + (phone != null ? phone.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (passportNumber != null ? passportNumber.hashCode() : 0);
-        result = 31 * result + (visitingCount != null ? visitingCount.hashCode() : 0);
-        result = 31 * result + (discount != null ? discount.hashCode() : 0);
-        result = 31 * result + (hotelRoomSet != null ? hotelRoomSet.hashCode() : 0);
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "Client{" +
                 "id=" + id +
                 ", user=" + user +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
+                ", fio='" + fio + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", passportNumber='" + passportNumber + '\'' +
                 ", visitingCount=" + visitingCount +
                 ", discount=" + discount +
+                ", needCall=" + needCall +
+                ", lastMessage='" + lastMessage + '\'' +
                 ", hotelRoomSet=" + hotelRoomSet +
                 '}';
     }
