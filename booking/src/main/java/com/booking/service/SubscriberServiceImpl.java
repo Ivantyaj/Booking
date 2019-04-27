@@ -6,6 +6,8 @@ import com.booking.model.repository.SubscriberRepository;
 import com.booking.service.iface.SubscriberService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class SubscriberServiceImpl implements SubscriberService {
@@ -28,7 +30,8 @@ public class SubscriberServiceImpl implements SubscriberService {
 
     @Override
     public Subscriber findByEmail(String email) {
-        return subscriberRepository.findByEmail(email);
+        return subscriberRepository.findByEmail(email).orElseThrow(() ->
+                new NotFoundException("Подписчика с таким email адресом не найдено"));
     }
 
     @Override
@@ -40,6 +43,11 @@ public class SubscriberServiceImpl implements SubscriberService {
     public Subscriber findById(Long id) {
         return subscriberRepository.findById(id).orElseThrow(() ->
                 new NotFoundException("Подписчик не найден"));
+    }
+
+    @Override
+    public List<Subscriber> findAll() {
+        return subscriberRepository.findAll();
     }
 
 
