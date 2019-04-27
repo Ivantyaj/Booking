@@ -65,7 +65,8 @@ public class HotelRoomController extends BaseController {
     public ResponseEntity<HotelRoom> createRoom(@RequestBody HotelRoom employee) throws URISyntaxException {
         try {
             HotelRoom result = hotelRoomService.save(employee);
-            return ResponseEntity.created(new URI("http://localhost:8080/hotel/rooms" + result.getId())).body(result);
+            URI uri = URI.create("http://localhost:8080/hotel/rooms" + result.getId());
+            return ResponseEntity.created(uri).body(result);
         } catch (EntityExistsException e) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
