@@ -94,14 +94,12 @@
                     <th>Имя</th>
                     <th>Телефон</th>
                     <th>Сообщение</th>
-                    <th>Zvonok</th>
                     <th></th>
                 </tr>
                 <tr ng-repeat="clients in clientss" ng-if="isNeedCall(clients)">
                     <td>{{clients.fio}}</td>
                     <td>{{clients.phone}}</td>
                     <td>{{clients.lastMessage}}</td>
-                    <td>{{clients.needCall}}</td>
                     <td>
                         <button type="button" class="btn btn-default"
                                 ng-click="updateClientsPhone(clients)">
