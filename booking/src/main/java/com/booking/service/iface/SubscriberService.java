@@ -2,6 +2,8 @@ package com.booking.service.iface;
 
 import com.booking.model.entity.Subscriber;
 
+import java.util.List;
+
 public interface SubscriberService {
     Subscriber save(Subscriber subscriber);
 
@@ -12,4 +14,6 @@ public interface SubscriberService {
     void deleteByEmail(String email);
 
     Subscriber findById(Long id);
+
+    List<Subscriber> findAll();
 }
