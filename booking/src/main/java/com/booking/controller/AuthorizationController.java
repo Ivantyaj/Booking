@@ -2,10 +2,12 @@ package com.booking.controller;
 
 
 import com.booking.model.entity.AuthorizationRequest;
+import com.booking.model.entity.User;
+import com.booking.service.iface.UserService;
+import com.booking.utils.logging.GenericResponse;
 import io.swagger.annotations.Api;
-import org.springframework.http.HttpHeaders;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,18 +17,20 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "booking")
 public class AuthorizationController extends BaseController {
 
-    //@PostMapping("/login")
-    @PostMapping(value = "/login", produces = "application/json", consumes="application/json")
+    private final UserService userService;
+
+    @Autowired
+    public AuthorizationController(UserService userService) {
+        this.userService = userService;
+    }
+
+    @PostMapping(value = "/login", produces = "application/json", consumes = "application/json")
     public ResponseEntity authorize(@RequestBody AuthorizationRequest authorizationRequest) {
 //add authorization here
+        User user = userService.findByLoginAndPassword(authorizationRequest.getLogin(),
+                authorizationRequest.getPassword());
         System.out.println("AUTH =>>> " + authorizationRequest);
-
-        if(authorizationRequest.getLogin().equals("1") && authorizationRequest.getPassword().equals("1")){
-            System.out.println("OK");
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
-        else
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
+        System.err.println(user);
+        return new ResponseEntity<>(new GenericResponse("Success authorization"), HttpStatus.OK);
     }
 }

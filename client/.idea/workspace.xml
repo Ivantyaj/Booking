@@ -2,11 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c925b8e-d539-41ab-b509-85491d10d526" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img/gallery/1m.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/gallery/2m.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/gallery/3m.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/index-1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/model/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/service/MailSenderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/service/iface/MailSenderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/service/iface/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/booking.log" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/booking.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/java/com/booking/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/java/com/booking/controller/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/controller/AuthorizationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/java/com/booking/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/controller/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/java/com/booking/controller/SubscribeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/controller/SubscribeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/java/com/booking/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/model/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/java/com/booking/service/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/service/ClientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/resources/application.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,13 +29,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index-1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+            <state relative-caret-position="2465">
+              <caret line="145" column="44" selection-start-line="145" selection-start-column="44" selection-end-line="145" selection-end-column="44" />
               <folding>
-                <element signature="n#div#10;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#12;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#13;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#14;n#body#0;n#html#0;n#!!top" />
@@ -37,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/adminPageJs/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4046">
-              <caret line="238" column="40" selection-start-line="238" selection-start-column="18" selection-end-line="238" selection-end-column="40" />
+            <state relative-caret-position="4114">
+              <caret line="242" column="14" selection-start-line="242" selection-start-column="14" selection-end-line="242" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -46,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ng/search/angularCtrls.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1870">
-              <caret line="110" column="9" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
+            <state relative-caret-position="1700">
+              <caret line="141" selection-start-line="141" selection-end-line="141" />
             </state>
           </provider>
         </entry>
@@ -55,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7361">
-              <caret line="433" column="45" selection-start-line="433" selection-start-column="45" selection-end-line="433" selection-end-column="45" />
+            <state relative-caret-position="7191">
+              <caret line="444" column="50" selection-start-line="444" selection-start-column="50" selection-end-line="444" selection-end-column="50" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#4;n#body#0;n#html#0;n#!!top" />
@@ -66,25 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/ng/crud/controllers/subscribe.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="63">
               <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gallery.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="170" column="51" selection-start-line="170" selection-start-column="51" selection-end-line="170" selection-end-column="68" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#10851#10856#0" expanded="true" />
-                <element signature="e#11046#11051#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -110,22 +105,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainAdmin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6256">
-              <caret line="424" column="54" selection-start-line="424" selection-start-column="54" selection-end-line="424" selection-end-column="54" />
+            <state relative-caret-position="6120">
+              <caret line="429" column="7" selection-start-line="429" selection-start-column="7" selection-end-line="429" selection-end-column="7" />
               <folding>
                 <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" />
-                <marker date="1556013209247" expanded="true" signature="1562:1631" ph="..." />
-                <marker date="1556013209247" expanded="true" signature="11494:12086" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clientPage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4522">
-              <caret line="266" column="34" selection-start-line="266" selection-start-column="34" selection-end-line="266" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -181,20 +165,18 @@
         <option value="$PROJECT_DIR$/js/ng/crud/services/subscribe.service.js" />
         <option value="$PROJECT_DIR$/mainAdmin.html" />
         <option value="$PROJECT_DIR$/js/query.js" />
+        <option value="$PROJECT_DIR$/index-1.html" />
         <option value="$PROJECT_DIR$/js/clientPageJs/clientJs.js" />
         <option value="$PROJECT_DIR$/clientPage.html" />
         <option value="$PROJECT_DIR$/js/adminPageJs/main.js" />
         <option value="$PROJECT_DIR$/js/ng/search/angularCtrls.js" />
         <option value="$PROJECT_DIR$/search.html" />
-        <option value="$PROJECT_DIR$/../../Thalia/thalia template/gallery.html" />
-        <option value="$PROJECT_DIR$/gallery.html" />
-        <option value="$PROJECT_DIR$/index-1.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="125" />
-    <option name="y" value="17" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
     <option name="width" value="1940" />
     <option name="height" value="1100" />
   </component>
@@ -204,6 +186,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -279,11 +262,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -291,19 +274,19 @@
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Projects\CourseWork\Git\client\js\ng\crud\controllers" />
+      <recent name="E:\Projects\CourseWork\Git\client\js\ng\crud\services" />
+      <recent name="E:\Projects\CourseWork\Git\client\js" />
+      <recent name="E:\Projects\CourseWork\Git\client\css" />
+      <recent name="E:\Projects\CourseWork\Git\client" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Projects\CourseWork\Git\client\img\gallery" />
       <recent name="E:\Projects\CourseWork\Git\client" />
       <recent name="E:\Projects\CourseWork\Git\client\img" />
       <recent name="E:\Projects\CourseWork\Git\client\js\adminPageJs" />
       <recent name="E:\Projects\CourseWork\Git\client\js\ng\crud" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Projects\CourseWork\Git\client\img\gallery" />
-      <recent name="E:\Projects\CourseWork\Git\client" />
-      <recent name="E:\Projects\CourseWork\Git\client\js\ng\crud\controllers" />
-      <recent name="E:\Projects\CourseWork\Git\client\js\ng\crud\services" />
-      <recent name="E:\Projects\CourseWork\Git\client\js" />
+      <recent name="E:\Projects\CourseWork\Git\client\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -349,15 +332,14 @@
       <workItem from="1555402966391" duration="13970000" />
       <workItem from="1555669662808" duration="52376000" />
       <workItem from="1556049734407" duration="17879000" />
-      <workItem from="1556358328734" duration="2551000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96988000" />
+    <option name="totallyTimeSpent" value="94437000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26442954" />
@@ -366,7 +348,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3297587" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.19839142" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.19839142" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -498,9 +480,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services.html">
+    <entry file="file://$PROJECT_DIR$/clientPage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-255" />
+        <state relative-caret-position="358">
+          <caret line="266" column="34" lean-forward="true" selection-start-line="266" selection-start-column="34" selection-end-line="266" selection-end-column="34" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/clientPageJs/clientJs.js">
@@ -510,24 +494,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mainAdmin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="424" column="54" selection-start-line="424" selection-start-column="54" selection-end-line="424" selection-end-column="54" />
+          <folding>
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" />
+            <marker date="1556013209247" expanded="true" signature="1562:1631" ph="..." />
+            <marker date="1556013209247" expanded="true" signature="11494:12086" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index-1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="145" column="44" selection-start-line="145" selection-start-column="44" selection-end-line="145" selection-end-column="44" />
+          <folding>
+            <element signature="n#div#10;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#12;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#13;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#14;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/bookingForm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="13" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/adminPageJs/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4046">
-          <caret line="238" column="40" selection-start-line="238" selection-start-column="18" selection-end-line="238" selection-end-column="40" />
+        <state relative-caret-position="273">
+          <caret line="238" column="40" lean-forward="true" selection-start-line="238" selection-start-column="18" selection-end-line="238" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/ng/search/angularCtrls.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="110" column="9" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
+        <state relative-caret-position="154">
+          <caret line="110" column="9" lean-forward="true" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7361">
-          <caret line="433" column="45" selection-start-line="433" selection-start-column="45" selection-end-line="433" selection-end-column="45" />
+        <state relative-caret-position="312">
+          <caret line="433" column="45" lean-forward="true" selection-start-line="433" selection-start-column="45" selection-end-line="433" selection-end-column="45" />
           <folding>
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#4;n#body#0;n#html#0;n#!!top" />
@@ -538,34 +559,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/ng/crud/controllers/general.controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="323">
           <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/bookingForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="13" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mainAdmin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6256">
-          <caret line="424" column="54" selection-start-line="424" selection-start-column="54" selection-end-line="424" selection-end-column="54" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" />
-            <marker date="1556013209247" expanded="true" signature="1562:1631" ph="..." />
-            <marker date="1556013209247" expanded="true" signature="11494:12086" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clientPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4522">
-          <caret line="266" column="34" selection-start-line="266" selection-start-column="34" selection-end-line="266" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -573,31 +568,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gallery.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="170" column="51" selection-start-line="170" selection-start-column="51" selection-end-line="170" selection-end-column="68" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#10851#10856#0" expanded="true" />
-            <element signature="e#11046#11051#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index-1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
-          <folding>
-            <element signature="n#div#10;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#12;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#13;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#14;n#body#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
