@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c925b8e-d539-41ab-b509-85491d10d526" name="Default Changelist" comment="" />
+    <list default="true" id="0c925b8e-d539-41ab-b509-85491d10d526" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/model/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/service/MailSenderServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/service/iface/MailSenderService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/service/iface/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/booking.log" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/booking.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/java/com/booking/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/java/com/booking/controller/AuthorizationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/controller/AuthorizationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/java/com/booking/controller/BookingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/controller/BookingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/java/com/booking/controller/SubscribeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/controller/SubscribeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/java/com/booking/model/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/model/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/java/com/booking/service/ClientServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/java/com/booking/service/ClientServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../booking/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../booking/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -14,21 +30,11 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/clientPageJs/clientJs.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index-1.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="496">
+            <state relative-caret-position="2465">
               <caret line="145" column="44" selection-start-line="145" selection-start-column="44" selection-end-line="145" selection-end-column="44" />
               <folding>
-                <element signature="n#div#10;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#12;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#13;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#div#14;n#body#0;n#html#0;n#!!top" />
@@ -40,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/adminPageJs/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="238" column="40" lean-forward="true" selection-start-line="238" selection-start-column="18" selection-end-line="238" selection-end-column="40" />
+            <state relative-caret-position="4114">
+              <caret line="242" column="14" selection-start-line="242" selection-start-column="14" selection-end-line="242" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -49,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ng/search/angularCtrls.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="110" column="9" lean-forward="true" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
+            <state relative-caret-position="1700">
+              <caret line="141" selection-start-line="141" selection-end-line="141" />
             </state>
           </provider>
         </entry>
@@ -58,8 +64,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="433" column="45" lean-forward="true" selection-start-line="433" selection-start-column="45" selection-end-line="433" selection-end-column="45" />
+            <state relative-caret-position="7191">
+              <caret line="444" column="50" selection-start-line="444" selection-start-column="50" selection-end-line="444" selection-end-column="50" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#4;n#body#0;n#html#0;n#!!top" />
@@ -72,7 +78,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/ng/crud/controllers/subscribe.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="63">
               <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
             </state>
           </provider>
@@ -81,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/ng/crud/controllers/general.controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="374">
               <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
             </state>
           </provider>
@@ -99,22 +105,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mainAdmin.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="424" column="54" selection-start-line="424" selection-start-column="54" selection-end-line="424" selection-end-column="54" />
+            <state relative-caret-position="6120">
+              <caret line="429" column="7" selection-start-line="429" selection-start-column="7" selection-end-line="429" selection-end-column="7" />
               <folding>
                 <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" />
-                <marker date="1556013209247" expanded="true" signature="1562:1631" ph="..." />
-                <marker date="1556013209247" expanded="true" signature="11494:12086" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clientPage.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="266" column="34" lean-forward="true" selection-start-line="266" selection-start-column="34" selection-end-line="266" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -271,6 +266,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -343,7 +339,7 @@
     <option name="totallyTimeSpent" value="94437000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26442954" />
