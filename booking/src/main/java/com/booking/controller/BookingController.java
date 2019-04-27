@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 public class BookingController extends BaseController {
 
     private final BookingService bookingService;
-    private HotelRoomService hotelRoomService;
+    private final HotelRoomService hotelRoomService;
 
     @Autowired
     public BookingController(BookingService bookingService, HotelRoomService hotelRoomService) {
@@ -71,7 +71,7 @@ public class BookingController extends BaseController {
                 .collect(Collectors.toList());
     }
 
-    @PostMapping(value = "/booking", produces = "application/json", consumes="application/json")
+    @PostMapping(value = "/booking", produces = "application/json", consumes = "application/json")
     public ResponseEntity authorize(@RequestBody BookingRequest bookingRequest) {
 
         System.out.println("Book req =>>> " + bookingRequest);

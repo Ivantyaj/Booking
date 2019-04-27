@@ -1,7 +1,5 @@
 package com.booking.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -80,7 +78,6 @@ public class User {
                 "id=" + id +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
-                ", role=" + role +
                 '}';
     }
 }
