@@ -2,25 +2,32 @@ package com.booking.model.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Set;
 
 
 @Entity
 @Table(name = "role")
-public class Role {
+@EntityListeners(AuditingEntityListener.class)
+public class Role implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "role_name")
+    private String roleName;
+
     @Column(name = "permission")
     private Long permission;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
-    private Set<User> userSet;
+
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
+//    private Set<User> userSet;
 
     public Role() {
     }
@@ -33,13 +40,21 @@ public class Role {
         this.id = id;
     }
 
-    public Set<User> getUserSet() {
-        return userSet;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setUserSet(Set<User> userSet) {
-        this.userSet = userSet;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
+
+//    public Set<User> getUserSet() {
+//        return userSet;
+//    }
+//
+//    public void setUserSet(Set<User> userSet) {
+//        this.userSet = userSet;
+//    }
 
     public Long getPermission() {
         return permission;
@@ -49,27 +64,33 @@ public class Role {
         this.permission = permission;
     }
 
+    //    @Override
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Role role = (Role) o;
         return Objects.equals(id, role.id) &&
-                Objects.equals(permission, role.permission) &&
-                Objects.equals(userSet, role.userSet);
+                Objects.equals(roleName, role.roleName) &&
+                Objects.equals(permission, role.permission);
     }
 
-//    @Override
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, roleName, permission);
+    }
 //    public int hashCode() {
 //        return Objects.hash(id, permission, userSet);
 //    }
+
 
     @Override
     public String toString() {
         return "Role{" +
                 "id=" + id +
+                ", roleName='" + roleName + '\'' +
                 ", permission=" + permission +
-                ", userSet=" + userSet +
                 '}';
     }
 }
