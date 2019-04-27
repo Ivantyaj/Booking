@@ -11,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -125,5 +126,29 @@ public class ClientController extends BaseController {
         return clientService.getAll();
     }
 
+    @PutMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Client> updateClient(@RequestBody Client client) {
+        System.out.println("client  Hello update");
+        if (client.getId() == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        try {
+            Client clientNew = clientService.getById(client.getId());
+            clientNew.setUser(client.getUser());
+            clientNew.setFio(client.getFio());
+            clientNew.setPhone(client.getPhone());
+            clientNew.setEmail(client.getEmail());
+            clientNew.setPassportNumber(client.getPassportNumber());
+            clientNew.setVisitingCount(client.getVisitingCount());
+            clientNew.setDiscount(client.getDiscount());
+            clientNew.setNeedCall(client.isNeedCall());
+            clientNew.setLastMessage(client.getLastMessage());
+
+            clientService.save(clientNew);
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (EntityNotFoundException e) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
 }
 
