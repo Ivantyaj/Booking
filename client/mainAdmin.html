@@ -94,25 +94,19 @@
                     <th>Имя</th>
                     <th>Телефон</th>
                     <th>Сообщение</th>
+                    <th>Zvonok</th>
                     <th></th>
                 </tr>
-                <tr ng-repeat="clients in clientss">
-                    <td>{{clients.id}}</td>
-                    <td>{{clients.roomAmount}}</td>
+                <tr ng-repeat="clients in clientss" ng-if="isNeedCall(clients)">
+                    <td>{{clients.fio}}</td>
+                    <td>{{clients.phone}}</td>
+                    <td>{{clients.lastMessage}}</td>
+                    <td>{{clients.needCall}}</td>
                     <td>
                         <button type="button" class="btn btn-default"
                                 ng-click="updateClientsPhone(clients)">
-                            <span class="glyphicon glyphicon-edit" aria-hidden="true">Звонок сделан</span>
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true">Пометить, что звонок сделан</span>
                         </button>
-                        <!--<button type="button" class="btn btn-default"-->
-                        <!--ng-click="updateClientsInit(clients)">-->
-                        <!--<span class="glyphicon glyphicon-edit" aria-hidden="true">upd</span>-->
-                        <!--</button>-->
-                        <!--<button type="button" class="btn btn-default"-->
-                        <!--ng-click="deleteClients(clients)">-->
-                        <!--<span class="glyphicon glyphicon-remove-circle"-->
-                        <!--aria-hidden="true">del</span>-->
-                        <!--</button>-->
                     </td>
                 </tr>
             </table>

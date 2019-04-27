@@ -6,7 +6,7 @@ function ClientController($scope, Clients) {
 
     $scope.clientss = Clients.query();
 
-    console.log($scope.clientss);
+    console.log("clientss", $scope.clientss);
 
     $scope.clients = {};
 
@@ -28,23 +28,29 @@ function ClientController($scope, Clients) {
     }
 
     $scope.updateClientsInit = function(clients) {
+        console.log(clients);
         $scope.buttonText="Update";
         $scope.clients = clients;
     }
 
     $scope.updateClientsPhone = function(clients) {
-
-        $scope.clients; //????????
-        Clients.save($scope.clients, function() {
-            $scope.clientss = Clients.query();
-            $scope.clients = {};
-        });
+        clients.needCall = false;
+        $scope.clients = clients;
+        $scope.saveClients();
     }
 
     $scope.deleteClients = function(clients) {
         clients.$delete({id: clients.id}, function() {
             $scope.clientss = Clients.query();
         });
+    }
+
+    $scope.isNeedCall = function (clients) {
+        if(clients.needCall === true){
+            return true;
+        } else {
+            return false;
+        }
     }
 
 
