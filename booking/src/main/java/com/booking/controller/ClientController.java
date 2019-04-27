@@ -121,7 +121,7 @@ public class ClientController extends BaseController {
     }
 
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Client> getAllRoom() {
+    public List<Client> getAllClient() {
         return clientService.getAll();
     }
 

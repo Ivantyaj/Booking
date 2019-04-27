@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" ng-app="crudApp">
 <head>
     <title>Administrator panel</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
@@ -23,7 +23,7 @@
                 <form class="form-inline">
                     <div class="form-group">
                         <label class="sr-only" for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter email"  name="email">
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="pwd">Password:</label>
@@ -53,7 +53,7 @@
         <ul class="navbar-nav mr-4">
 
             <!--<li class="nav-item">-->
-                <!--<a class="nav-link" data-value="about" href="#">About</a>-->
+            <!--<a class="nav-link" data-value="about" href="#">About</a>-->
             <!--</li>-->
             <li class="nav-item">
                 <a class="nav-link " data-value="portfolio" href="#">Статискика</a>
@@ -65,7 +65,7 @@
                 <a class="nav-link " data-value="team" href="#">Комнаты</a>
             </li>
             <!--<li class="nav-item">-->
-                <!--<a class="nav-link " data-value="contact" href="#">Contact</a>-->
+            <!--<a class="nav-link " data-value="contact" href="#">Contact</a>-->
             <!--</li>-->
         </ul>
 
@@ -77,14 +77,48 @@
     <div class="container">
         <div class="description ">
             <h1>
-                Страница администрирования
-                <p>...</p>
-                <button class="btn btn-outline-secondary btn-lg">Вернуться</button>
+                Страница администрирования<br>Гостиничного комплекса
             </h1>
         </div>
     </div>
 
 </header>
+
+<!--Waiting for calling-->
+<div class="blog" id="call" ng-controller="ClientController">
+    <div class="container">
+        <h1 class="text-center">Перезвоните этим клиентам!</h1>
+        <div class="table-responsive col-md-12">
+            <table class="table table-striped">
+                <tr>
+                    <th>Имя</th>
+                    <th>Телефон</th>
+                    <th>Сообщение</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="clients in clientss">
+                    <td>{{clients.id}}</td>
+                    <td>{{clients.roomAmount}}</td>
+                    <td>
+                        <button type="button" class="btn btn-default"
+                                ng-click="updateClientsPhone(clients)">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true">Звонок сделан</span>
+                        </button>
+                        <!--<button type="button" class="btn btn-default"-->
+                        <!--ng-click="updateClientsInit(clients)">-->
+                        <!--<span class="glyphicon glyphicon-edit" aria-hidden="true">upd</span>-->
+                        <!--</button>-->
+                        <!--<button type="button" class="btn btn-default"-->
+                        <!--ng-click="deleteClients(clients)">-->
+                        <!--<span class="glyphicon glyphicon-remove-circle"-->
+                        <!--aria-hidden="true">del</span>-->
+                        <!--</button>-->
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 
 <div class="portfolio" id="portfolio">
     <h1 class="text-center">Статистика</h1>
@@ -159,15 +193,18 @@
                         <form class="mbr-form form-active" action="#" method="post" data-form-title="Mobirise Form">
                             <div class="col-lg-80 col-md-80 col-sm-120 right">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" placeholder="ФИО" name="" id="clientName">
+                                    <input type="text" class="form-control form-control-lg" placeholder="ФИО" name=""
+                                           id="clientName">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-lg" placeholder="Email@email.com"
+                                    <input type="email" class="form-control form-control-lg"
+                                           placeholder="Email@email.com"
                                            name="email" id="clientEmail">
                                 </div>
-                                <input type="submit" class="btn btn-secondary btn-block" value="Найти" name="" id="btnFindClients">
+                                <input type="submit" class="btn btn-secondary btn-block" value="Найти" name=""
+                                       id="btnFindClients">
                             </div>
-                        </span>
+                            </span>
                         </form>
                         <div class="col-lg-3 col-md-3 col-sm-12 item">
                             <img src="images/team-3.jpg" class="img-fluid" alt="team">
@@ -176,48 +213,52 @@
                             </div>
                             <span class="text-muted" id="clientFindInf">Информация</span>
                         </div>
-                          <div class="col-lg-3 col-md-3 col-sm-12 item" id="formFind" style="display: none">
-                              <form>
-                                  <div class="form-group">
-                                      <label for="exampleInputEmail1">Количнство посещений</label>
-                                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="exampleSelect1">Скидка</label>
-                                      <select class="form-control" id="exampleSelect1">
-                                          <option>Скидка не предоставляется</option>
-                                          <option>Скидка 5%</option>
-                                          <option>Скидкаа 10%</option>
-                                          <option>VIP Клиент (персональные условия)</option>
-                                      </select>
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="exampleTextarea">Дополнительная информация</label>
-                                      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                                  </div>
-                                  <fieldset class="form-group">
-                                      <legend>Сервисы</legend>
-                                      <div class="form-check">
-                                          <label class="form-check-label">
-                                              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-                                              Страндартный набор серсисов
-                                          </label>
-                                      </div>
-                                      <div class="form-check">
-                                          <label class="form-check-label">
-                                              <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-                                              Расширенный набор сервисов
-                                          </label>
-                                      </div>
-                                  </fieldset>
-                                  <div class="form-check">
-                                      <label class="form-check-label">
-                                          <input type="checkbox" class="form-check-input">
-                                          Отправить в черный список
-                                      </label>
-                                  </div>
-                                  <input type="submit" class="btn btn-secondary btn-block" value="Сохранить" name="" id="btnSendClient">
-                              </form>
+                        <div class="col-lg-3 col-md-3 col-sm-12 item" id="formFind" style="display: none">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Количнство посещений</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1"
+                                           aria-describedby="emailHelp" placeholder="Enter email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleSelect1">Скидка</label>
+                                    <select class="form-control" id="exampleSelect1">
+                                        <option>Скидка не предоставляется</option>
+                                        <option>Скидка 5%</option>
+                                        <option>Скидкаа 10%</option>
+                                        <option>VIP Клиент (персональные условия)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleTextarea">Дополнительная информация</label>
+                                    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+                                </div>
+                                <fieldset class="form-group">
+                                    <legend>Сервисы</legend>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="optionsRadios"
+                                                   id="optionsRadios1" value="option1" checked>
+                                            Страндартный набор серсисов
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="optionsRadios"
+                                                   id="optionsRadios2" value="option2">
+                                            Расширенный набор сервисов
+                                        </label>
+                                    </div>
+                                </fieldset>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input">
+                                        Отправить в черный список
+                                    </label>
+                                </div>
+                                <input type="submit" class="btn btn-secondary btn-block" value="Сохранить" name=""
+                                       id="btnSendClient">
+                            </form>
                         </div>
 
                     </div>
@@ -231,7 +272,7 @@
 <div class="team" id="team">
     <div class="container">
         <h1 class="text-center">Комнаты</h1>
-        <div id="tabs" ng-app="crudApp">
+        <div id="tabs">
             <ul>
                 <li><a href="#tabs-1">Комнаты</a></li>
                 <li><a href="#tabs-2">Подписки</a></li>
@@ -245,14 +286,15 @@
                             <form class="col-md-6" ng-submit="saveHotelRooms()">
                                 <div class="form-group">
                                     <label for="hotelRoomsId">id</label> <input type="text"
-                                                                                ng-model="hotelRooms.id" class="form-control" id="hotelRoomsId"
+                                                                                ng-model="hotelRooms.id"
+                                                                                class="form-control" id="hotelRoomsId"
                                                                                 placeholder="id">
                                 </div>
                                 <!--<div class="form-group">-->
-                                    <!--<label for="hotelRoomsStatus">status</label> <input type="text"-->
-                                                                                        <!--ng-model="hotelRooms.status" class="form-control"-->
-                                                                                        <!--id="hotelRoomsStatus"-->
-                                                                                        <!--placeholder="status">-->
+                                <!--<label for="hotelRoomsStatus">status</label> <input type="text"-->
+                                <!--ng-model="hotelRooms.status" class="form-control"-->
+                                <!--id="hotelRoomsStatus"-->
+                                <!--placeholder="status">-->
                                 <!--</div>-->
 
                                 <div class="form-group">
@@ -263,17 +305,17 @@
                                 </div>
 
                                 <div class="form-group">
-                                <label for="hotelRoomsId_type">id_type</label>
-                                <input type="text"
-                                       ng-model="hotelRooms.hotelRoomType.id" class="form-control"
-                                       id="hotelRoomsId_type" placeholder="id_type">
+                                    <label for="hotelRoomsId_type">id_type</label>
+                                    <input type="text"
+                                           ng-model="hotelRooms.hotelRoomType.id" class="form-control"
+                                           id="hotelRoomsId_type" placeholder="id_type">
                                 </div>
 
                                 <!--<div class="form-group">-->
-                                    <!--<label for="hotelRoomsId_client">id_client</label>-->
-                                    <!--<input type="text"-->
-                                           <!--ng-model="hotelRooms.id_client" class="form-control"-->
-                                           <!--id="hotelRoomsId_client" placeholder="id_client">-->
+                                <!--<label for="hotelRoomsId_client">id_client</label>-->
+                                <!--<input type="text"-->
+                                <!--ng-model="hotelRooms.id_client" class="form-control"-->
+                                <!--id="hotelRoomsId_client" placeholder="id_client">-->
                                 <!--</div>-->
 
                                 <div class="form-group">
@@ -344,14 +386,16 @@
                             <form class="col-md-6" ng-submit="saveSubscribes()">
                                 <div class="form-group">
                                     <label for="subscribeId">id</label> <input type="text"
-                                                                                ng-model="subscribe.id" class="form-control" id="subscribeId"
-                                                                                placeholder="id">
+                                                                               ng-model="subscribe.id"
+                                                                               class="form-control" id="subscribeId"
+                                                                               placeholder="id">
                                 </div>
                                 <div class="form-group">
                                     <label for="subscribeEmail">email</label> <input type="text"
-                                                                                        ng-model="subscribe.email" class="form-control"
-                                                                                        id="subscribeEmail"
-                                                                                        placeholder="email">
+                                                                                     ng-model="subscribe.email"
+                                                                                     class="form-control"
+                                                                                     id="subscribeEmail"
+                                                                                     placeholder="email">
                                 </div>
 
                                 <div class="form-group">
@@ -403,7 +447,6 @@
 </div>
 
 
-
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script src="js/moment-with-locales.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
@@ -420,10 +463,12 @@
 <script type="text/javascript" src="js/ng/crud/controllers/subscribe.controller.js"></script>
 <script type="text/javascript" src="js/ng/crud/services/subscribe.service.js"></script>
 
+<script type="text/javascript" src="js/ng/crud/controllers/client.controller.js"></script>
+<script type="text/javascript" src="js/ng/crud/services/client.service.js"></script>
+
 <script type="text/javascript" src='js/adminPageJs/Chart.js'></script>
 <script type="text/javascript" src="js/adminPageJs/jquery-ui.js"></script>
 <script type="text/javascript" src='js/adminPageJs/main.js'></script>
-
 
 
 </body>

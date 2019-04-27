@@ -1,6 +1,7 @@
 package com.booking.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,13 +11,14 @@ import java.util.Set;
 
 @Entity
 @Table(name = "client")
+@EntityListeners(AuditingEntityListener.class)
 public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne//(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_user")
     private User user;
 
@@ -41,8 +43,8 @@ public class Client implements Serializable {
     @Column(name = "last_message", length = 1000)
     private String lastMessage;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
-    private Set<HotelRoom> hotelRoomSet;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
+//    private Set<HotelRoom> hotelRoomSet;
 
     public Client() {
     }
@@ -97,13 +99,14 @@ public class Client implements Serializable {
                 Objects.equals(passportNumber, client.passportNumber) &&
                 Objects.equals(visitingCount, client.visitingCount) &&
                 Objects.equals(discount, client.discount) &&
-                Objects.equals(lastMessage, client.lastMessage) &&
-                Objects.equals(hotelRoomSet, client.hotelRoomSet);
+                Objects.equals(lastMessage, client.lastMessage) //&&
+                //Objects.equals(hotelRoomSet, client.hotelRoomSet)
+                ;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, fio, phone, email, passportNumber, visitingCount, discount, needCall, lastMessage, hotelRoomSet);
+        return Objects.hash(id, user, fio, phone, email, passportNumber, visitingCount, discount, needCall, lastMessage/*, hotelRoomSet*/);
     }
 
     public void setLastMessage(String lastMessage) {
@@ -149,14 +152,14 @@ public class Client implements Serializable {
     public void setDiscount(Discount discount) {
         this.discount = discount;
     }
-
-    public Set<HotelRoom> getHotelRoomSet() {
-        return hotelRoomSet;
-    }
-
-    public void setHotelRoomSet(Set<HotelRoom> hotelRoomSet) {
-        this.hotelRoomSet = hotelRoomSet;
-    }
+//
+//    public Set<HotelRoom> getHotelRoomSet() {
+//        return hotelRoomSet;
+//    }
+//
+//    public void setHotelRoomSet(Set<HotelRoom> hotelRoomSet) {
+//        this.hotelRoomSet = hotelRoomSet;
+//    }
 
 
     @Override
@@ -172,7 +175,7 @@ public class Client implements Serializable {
                 ", discount=" + discount +
                 ", needCall=" + needCall +
                 ", lastMessage='" + lastMessage + '\'' +
-                ", hotelRoomSet=" + hotelRoomSet +
+                //", hotelRoomSet=" + hotelRoomSet +
                 '}';
     }
 }
