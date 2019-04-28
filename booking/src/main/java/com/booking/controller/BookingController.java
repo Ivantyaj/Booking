@@ -7,6 +7,7 @@ import com.booking.model.entity.HotelRoom;
 import com.booking.service.iface.BookingService;
 import com.booking.service.iface.ClientService;
 import com.booking.service.iface.HotelRoomService;
+import com.booking.service.iface.MailSenderService;
 import com.booking.utils.DateUtils;
 import com.booking.utils.logging.GenericResponse;
 import io.swagger.annotations.Api;
@@ -33,12 +34,14 @@ public class BookingController extends BaseController {
     private final BookingService bookingService;
     private final HotelRoomService hotelRoomService;
     private final ClientService clientService;
+    private final MailSenderService mailSenderService;
 
     @Autowired
-    public BookingController(BookingService bookingService, HotelRoomService hotelRoomService, ClientService clientService) {
+    public BookingController(BookingService bookingService, HotelRoomService hotelRoomService, ClientService clientService, MailSenderService mailSenderService) {
         this.bookingService = bookingService;
         this.hotelRoomService = hotelRoomService;
         this.clientService = clientService;
+        this.mailSenderService = mailSenderService;
     }
 
 //    @ApiOperation(value = "Get all rooms", response = GenericResponse.class, notes = "get_room")
@@ -98,7 +101,7 @@ public class BookingController extends BaseController {
     }
 
     @PostMapping(value = "/booking", produces = "application/json", consumes = "application/json")
-    public ResponseEntity authorize(@RequestBody BookingRequest bookingRequest) throws ParseException {
+    public ResponseEntity bookingRoom(@RequestBody BookingRequest bookingRequest) throws ParseException {
 
         System.err.println("Book req =>>> " + bookingRequest);
 
@@ -122,7 +125,8 @@ public class BookingController extends BaseController {
                 hotelRoom.getHotelRoomType().getHumanAmount());
         System.err.println(client);
         bookingService.save(booking);
-
+        String message = "Благодарим вас за успешное бронирование номера. Информация о бронировании :\n" + bookingRequest + "\n С уважением, команда Booking Hotel.";
+        mailSenderService.sendEmail(client.getEmail(), "Booked Room", message);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
