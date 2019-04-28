@@ -34,6 +34,12 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
+    public Client findByEmailAndPhone(String email, String phone) {
+        return clientRepository.findByEmailAndPhone(email, phone).orElseThrow(() ->
+                new NotFoundException("Клиент не найден"));
+    }
+
+    @Override
     public List<Client> getAll() {
         return clientRepository.findAll();
     }

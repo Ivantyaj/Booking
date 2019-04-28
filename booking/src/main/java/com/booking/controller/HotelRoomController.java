@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController(value = "RoomController")
@@ -28,27 +27,6 @@ public class HotelRoomController extends BaseController {
         this.hotelRoomService = hotelRoomService;
     }
 
-//    @ApiOperation(value = "Create hotelRoom", response = GenericResponse.class, notes = "room_create")
-//    @PostMapping(value = "/create")
-//    public ResponseEntity<GenericResponse> createRoom(@RequestBody HotelRoom hotelRoom) {
-//        System.err.println(hotelRoom);
-//        hotelRoomService.save(hotelRoom);
-//        return new ResponseEntity<>(new GenericResponse("message"), HttpStatus.OK);
-//    }
-//
-//    @ApiOperation(value = "Get room", response = GenericResponse.class, notes = "get_room")
-//    @GetMapping(value = "/{id}")
-//    public ResponseEntity<GenericResponse> getRoom(@PathVariable("id") Long id) {
-//        HotelRoom hotelRoom = hotelRoomService.getById(id);
-//        return new ResponseEntity<>(new GenericResponse("ROOM " + hotelRoom), HttpStatus.OK);
-//    }
-//
-//    @ApiOperation(value = "Get all rooms", response = GenericResponse.class, notes = "get_room")
-//    @GetMapping(value = "/")
-//    public ResponseEntity<GenericResponse> getAllRooms() {
-//        List<HotelRoom> hotelRoomList = hotelRoomService.getAll();
-//        return new ResponseEntity<>(new GenericResponse("ROOM " + hotelRoomList), HttpStatus.OK);
-//    }
 
     //ADD to test crud
 
@@ -62,7 +40,7 @@ public class HotelRoomController extends BaseController {
     }
 
     @PostMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<HotelRoom> createRoom(@RequestBody HotelRoom employee) throws URISyntaxException {
+    public ResponseEntity<HotelRoom> createRoom(@RequestBody HotelRoom employee) {
         try {
             HotelRoom result = hotelRoomService.save(employee);
             URI uri = URI.create("http://localhost:8080/hotel/rooms" + result.getId());

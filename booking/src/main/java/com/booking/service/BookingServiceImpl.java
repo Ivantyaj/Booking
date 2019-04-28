@@ -1,6 +1,6 @@
 package com.booking.service;
 
-import com.booking.model.entity.HotelRoom;
+import com.booking.model.entity.Booking;
 import com.booking.model.repository.BookingRepository;
 import com.booking.service.iface.BookingService;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,12 @@ public class BookingServiceImpl implements BookingService {
     }
 
     @Override
-    public List<HotelRoom> getAll() {
+    public List<Booking> getAll() {
         return bookingRepository.findAll();
+    }
+
+    @Override
+    public Booking save(Booking booking) {
+        return bookingRepository.save(booking);
     }
 }

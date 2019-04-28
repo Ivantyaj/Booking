@@ -36,16 +36,16 @@ public class SubscribeController extends BaseController {
     public ResponseEntity subscribe(@RequestBody SubscribeRequest subscribeRequest) {
         System.err.println(subscribeRequest.getEmail());
         List<Subscriber> subscriberList = subscriberService.findAll();
-        for (Subscriber subscriber : subscriberList){
-            if (subscriber.getEmail().equals(subscribeRequest.getEmail())){
-                return new ResponseEntity<>(new GenericResponse("Такой подписчик уже есть"),HttpStatus.BAD_REQUEST);
+        for (Subscriber subscriber : subscriberList) {
+            if (subscriber.getEmail().equals(subscribeRequest.getEmail())) {
+                return new ResponseEntity<>(new GenericResponse("Такой подписчик уже есть"), HttpStatus.BAD_REQUEST);
             }
         }
         URI uri = URI.create("http://localhost:8080/news/unsubscribe");
         URI link = UriComponentsBuilder.fromUri(uri)
                 .queryParam("email", subscribeRequest.getEmail()).build().toUri();
-
-        String message = link.toString();
+        String message = "Благодарим вас за подписку на обновления! Пройдите по ссылке : " +
+                link.toString() + ", если хотите отписаться от рассылки!С уважением, команда Booking Hotel.";
         System.err.println(message);
         mailSenderService.sendEmail(subscribeRequest.getEmail(), "Subscribing", message);
         Subscriber subscriber = new Subscriber(subscribeRequest.getEmail(), true);
