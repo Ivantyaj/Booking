@@ -238,7 +238,7 @@
 						<div class="row">
 							<div class="col-lg-10" ng-repeat="rooms in findRooms">
 								<div class="room-box background-grey">
-									<div class="room-name">suite tanya</div>
+									<div class="room-name">{{rooms.hotelRoomType.description}}</div>
 									<div class="room-per">
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
@@ -248,7 +248,7 @@
 									</div>
 									<img id="{{'idRoom' + $index}}" src={{rooms.url}} alt="">
 									<div class="room-box-in">
-										<h5 class="">pool suite</h5>
+										<h5 class="">{{rooms.hotelRoomType.type_name}}</h5>
 										<p class="mt-3">{{rooms.description}}</p>
 										<!--<a class="mt-1 btn btn-primary" href="booking.html?roomId={{rooms.id}}">Забронировать за {{rooms.price}}$</a>-->
 										<input type="button" value="Забронировать за {{rooms.price}}$" ng-click="booking(rooms.id)" data-toggle="modal" data-target="#exampleModal">
