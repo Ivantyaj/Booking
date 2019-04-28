@@ -1,12 +1,9 @@
 package com.booking.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
-import java.util.Set;
 
 
 @Entity
@@ -42,6 +39,14 @@ public class Client implements Serializable {
 
     @Column(name = "last_message", length = 1000)
     private String lastMessage;
+
+    @Column(name = "card_holder")
+    private String cardHolder;
+
+    @Column(name = "card_cvv")
+    private String cardCVV;
+    @Column(name = "card_date")
+    private String cardDate;
 
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
 //    private Set<HotelRoom> hotelRoomSet;
@@ -85,28 +90,71 @@ public class Client implements Serializable {
         return lastMessage;
     }
 
+    public String getCardHolder() {
+        return cardHolder;
+    }
+
+    public void setCardHolder(String cardHolder) {
+        this.cardHolder = cardHolder;
+    }
+
+    public String getCardCVV() {
+        return cardCVV;
+    }
+
+    public void setCardCVV(String cardCVV) {
+        this.cardCVV = cardCVV;
+    }
+
+    public String getCardDate() {
+        return cardDate;
+    }
+
+    public void setCardDate(String cardDate) {
+        this.cardDate = cardDate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+
         Client client = (Client) o;
-        return needCall == client.needCall &&
-                Objects.equals(id, client.id) &&
-                Objects.equals(user, client.user) &&
-                Objects.equals(fio, client.fio) &&
-                Objects.equals(phone, client.phone) &&
-                Objects.equals(email, client.email) &&
-                Objects.equals(passportNumber, client.passportNumber) &&
-                Objects.equals(visitingCount, client.visitingCount) &&
-                Objects.equals(discount, client.discount) &&
-                Objects.equals(lastMessage, client.lastMessage) //&&
-                //Objects.equals(hotelRoomSet, client.hotelRoomSet)
-                ;
+
+        if (needCall != client.needCall) return false;
+        if (cardCVV != client.cardCVV) return false;
+        if (id != null ? !id.equals(client.id) : client.id != null) return false;
+        if (user != null ? !user.equals(client.user) : client.user != null) return false;
+        if (fio != null ? !fio.equals(client.fio) : client.fio != null) return false;
+        if (phone != null ? !phone.equals(client.phone) : client.phone != null) return false;
+        if (email != null ? !email.equals(client.email) : client.email != null) return false;
+        if (passportNumber != null ? !passportNumber.equals(client.passportNumber) : client.passportNumber != null)
+            return false;
+        if (visitingCount != null ? !visitingCount.equals(client.visitingCount) : client.visitingCount != null)
+            return false;
+//        if (discount != null ? !discount.equals(client.discount) : client.discount != null) return false;
+        if (lastMessage != null ? !lastMessage.equals(client.lastMessage) : client.lastMessage != null) return false;
+        if (cardHolder != null ? !cardHolder.equals(client.cardHolder) : client.cardHolder != null) return false;
+        return cardDate != null ? cardDate.equals(client.cardDate) : client.cardDate == null;
+
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, user, fio, phone, email, passportNumber, visitingCount, discount, needCall, lastMessage/*, hotelRoomSet*/);
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (user != null ? user.hashCode() : 0);
+        result = 31 * result + (fio != null ? fio.hashCode() : 0);
+        result = 31 * result + (phone != null ? phone.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (passportNumber != null ? passportNumber.hashCode() : 0);
+        result = 31 * result + (visitingCount != null ? visitingCount.hashCode() : 0);
+//        result = 31 * result + (discount != null ? discount.hashCode() : 0);
+        result = 31 * result + (needCall ? 1 : 0);
+        result = 31 * result + (lastMessage != null ? lastMessage.hashCode() : 0);
+        result = 31 * result + (cardHolder != null ? cardHolder.hashCode() : 0);
+        result = 31 * result + (cardCVV != null ? cardCVV.hashCode() : 0);
+        result = 31 * result + (cardDate != null ? cardDate.hashCode() : 0);
+        return result;
     }
 
     public void setLastMessage(String lastMessage) {
@@ -166,16 +214,18 @@ public class Client implements Serializable {
     public String toString() {
         return "Client{" +
                 "id=" + id +
-                ", user=" + user +
+             //   ", user=" + user +
                 ", fio='" + fio + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
                 ", passportNumber='" + passportNumber + '\'' +
                 ", visitingCount=" + visitingCount +
-                ", discount=" + discount +
+//                ", discount=" + discount +
                 ", needCall=" + needCall +
                 ", lastMessage='" + lastMessage + '\'' +
-                //", hotelRoomSet=" + hotelRoomSet +
+                ", cardHolder='" + cardHolder + '\'' +
+                ", cardCVV=" + cardCVV +
+                ", cardDate='" + cardDate + '\'' +
                 '}';
     }
 }

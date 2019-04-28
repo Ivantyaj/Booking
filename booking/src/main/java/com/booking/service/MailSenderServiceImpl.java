@@ -38,7 +38,9 @@ public class MailSenderServiceImpl implements MailSenderService {
     public void mailAll(String message) {
         List<Subscriber> subscriberList = subscriberService.findAll();
         System.err.println(Arrays.toString(subscriberList.toArray()));
-        subscriberList.forEach(subscriber -> sendEmail(subscriber.getEmail(), "Mailing", message));
+        for (Subscriber subscriber : subscriberList){
+            sendEmail(subscriber.getEmail(),"Mailing",message);
+        }
     }
 
 

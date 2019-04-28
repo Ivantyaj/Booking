@@ -27,27 +27,6 @@ public class HotelRoomController extends BaseController {
         this.hotelRoomService = hotelRoomService;
     }
 
-//    @ApiOperation(value = "Create hotelRoom", response = GenericResponse.class, notes = "room_create")
-//    @PostMapping(value = "/create")
-//    public ResponseEntity<GenericResponse> createRoom(@RequestBody HotelRoom hotelRoom) {
-//        System.err.println(hotelRoom);
-//        hotelRoomService.save(hotelRoom);
-//        return new ResponseEntity<>(new GenericResponse("message"), HttpStatus.OK);
-//    }
-//
-//    @ApiOperation(value = "Get room", response = GenericResponse.class, notes = "get_room")
-//    @GetMapping(value = "/{id}")
-//    public ResponseEntity<GenericResponse> getRoom(@PathVariable("id") Long id) {
-//        HotelRoom hotelRoom = hotelRoomService.getById(id);
-//        return new ResponseEntity<>(new GenericResponse("ROOM " + hotelRoom), HttpStatus.OK);
-//    }
-//
-//    @ApiOperation(value = "Get all rooms", response = GenericResponse.class, notes = "get_room")
-//    @GetMapping(value = "/")
-//    public ResponseEntity<GenericResponse> getAllRooms() {
-//        List<HotelRoom> hotelRoomList = hotelRoomService.getAll();
-//        return new ResponseEntity<>(new GenericResponse("ROOM " + hotelRoomList), HttpStatus.OK);
-//    }
 
     //ADD to test crud
 

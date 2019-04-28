@@ -25,6 +25,7 @@ public class Discount {
     @Column(name = "description")
     private String description;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "discount")
     private Set<Client> clients = new HashSet<>();
 

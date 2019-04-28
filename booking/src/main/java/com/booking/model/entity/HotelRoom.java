@@ -29,6 +29,9 @@ public class HotelRoom implements Serializable {
     @JoinColumn(name = "id_client")
     private Client client;
 
+    @OneToOne(mappedBy = "hotelRoom")
+    private Booking booking;
+
 
     @Column(name = "price", length = 1000)
     private Double price;
@@ -54,6 +57,10 @@ public class HotelRoom implements Serializable {
         this.price = price;
         this.url = url;
         this.description = description;
+    }
+
+    public HotelRoom(Long roomId) {
+        this.id = roomId;
     }
 
     public String getUrl() {

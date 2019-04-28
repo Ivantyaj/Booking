@@ -1,7 +1,12 @@
 package com.booking.controller;
 
+import com.booking.model.entity.Booking;
 import com.booking.model.entity.Client;
+import com.booking.model.entity.HotelRoom;
+import com.booking.model.entity.HotelRoomType;
+import com.booking.service.iface.BookingService;
 import com.booking.service.iface.ClientService;
+import com.booking.service.iface.HotelRoomService;
 import com.booking.utils.logging.GenericResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -12,20 +17,24 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController(value = "ClientController")
-@CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
+@CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
 @RequestMapping(value = "/hotel/clients")
 @Api(tags = "client")
 public class ClientController extends BaseController {
 
     private final ClientService clientService;
+    private final HotelRoomService hotelRoomService;
+    private final BookingService bookingService;
 
     @Autowired
-    public ClientController(ClientService clientService) {
+    public ClientController(ClientService clientService, HotelRoomService hotelRoomService, BookingService bookingService) {
         this.clientService = clientService;
+        this.hotelRoomService = hotelRoomService;
+        this.bookingService = bookingService;
     }
 
     @ApiOperation(value = "Create client", response = GenericResponse.class, notes = "client_create")
@@ -54,33 +63,20 @@ public class ClientController extends BaseController {
     @GetMapping(value = "/statsClient")
     @ResponseBody
     public List<List> getStats(@RequestParam String startDate,
-                                       @RequestParam String endDate) {
+                               @RequestParam String endDate) {
 
-        ArrayList<String> headers = new ArrayList<>();
-        headers.add("one");
-        headers.add("two");
-        headers.add("three");
-        headers.add("4");
-        headers.add("5");
 
-        ArrayList<Integer> data1 = new ArrayList<>();
-        data1.add(1);
-        data1.add(2);
-        data1.add(5);
-        data1.add(11);
-        data1.add(3);
+        List<Client> clientList = clientService.getAll();
 
-        ArrayList<Integer> data2 = new ArrayList<>();
-        data2.add(5);
-        data2.add(6);
-        data2.add(7);
-        data2.add(12);
-        data2.add(9);
+        List<String> headers = clientList.stream().map(Client::getFio).collect(Collectors.toList());
+        List<Long> data1 = clientList.stream().map(Client::getVisitingCount).collect(Collectors.toList());
+//        List<Long> data2 = Collections.singletonList(clientList.stream().filter(client -> client.getDiscount() != null).count());
+
 
         ArrayList<List> toSend = new ArrayList<>();
         toSend.add(headers);
         toSend.add(data1);
-        toSend.add(data2);
+//        toSend.add(data2);
 
         return toSend;
     }
@@ -90,33 +86,28 @@ public class ClientController extends BaseController {
     @GetMapping(value = "/statsClient2")
     @ResponseBody
     public List<List> getStats2(@RequestParam String startDate,
-                               @RequestParam String endDate) {
+                                @RequestParam String endDate) {
 
-        ArrayList<String> headers = new ArrayList<>();
-        headers.add("one");
-        headers.add("two");
-        headers.add("three");
-        headers.add("4");
-        headers.add("5");
 
-        ArrayList<Integer> data = new ArrayList<>();
-        data.add(1);
-        data.add(2);
-        data.add(3);
-        data.add(12);
-        data.add(9);
+        List<HotelRoom> hotelRoomList = hotelRoomService.getAll();
+        List<String> headers = hotelRoomList.stream()
+                .map(HotelRoom::getHotelRoomType)
+                .map(HotelRoomType::getType_name)
+                .collect(Collectors.toList());
+        List<Booking> bookingList = bookingService.getAll();
 
-        ArrayList<Integer> data2 = new ArrayList<>();
-        data2.add(5);
-        data2.add(6);
-        data2.add(12);
-        data2.add(9);
-        data2.add(7);
+
+//        List<Long> data2 = bookingList.stream().map(Booking::getHumanAmount).collect(Collectors.toList());
+        List<Double> data1 = hotelRoomList.stream().map(HotelRoom::getPrice).collect(Collectors.toList());
+
+
+//        System.err.println(Arrays.toString(data2.toArray()));
+
 
         ArrayList<List> toSend = new ArrayList<>();
         toSend.add(headers);
-        toSend.add(data);
-        toSend.add(data2);
+        toSend.add(data1);
+//        toSend.add(data2);
 
         return toSend;
     }
