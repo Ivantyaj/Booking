@@ -56,13 +56,16 @@
             <!--<a class="nav-link" data-value="about" href="#">About</a>-->
             <!--</li>-->
             <li class="nav-item">
+                <a class="nav-link " data-value="blog" href="#">Звонки</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link " data-value="portfolio" href="#">Статискика</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " data-value="blog" href="#">Клиенты</a>
+                <a class="nav-link " data-value="team" href="#">Комнаты</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " data-value="team" href="#">Комнаты</a>
+                <a class="nav-link " data-value="spam" href="#">Рассылка</a>
             </li>
             <!--<li class="nav-item">-->
             <!--<a class="nav-link " data-value="contact" href="#">Contact</a>-->
@@ -267,8 +270,8 @@
         <div id="tabs">
             <ul>
                 <li><a href="#tabs-1">Комнаты</a></li>
-                <li><a href="#tabs-2">Подписки</a></li>
-                <li><a href="#tabs-3">3</a></li>
+                <!--<li><a href="#tabs-2">Подписки</a></li>-->
+                <!--<li><a href="#tabs-3">3</a></li>-->
             </ul>
             <div id="tabs-1">
                 <div ng-controller="GeneralController">
@@ -280,54 +283,28 @@
                                     <label for="hotelRoomsId">id</label> <input type="text"
                                                                                 ng-model="hotelRooms.id"
                                                                                 class="form-control" id="hotelRoomsId"
-                                                                                placeholder="id">
-                                </div>
-                                <!--<div class="form-group">-->
-                                <!--<label for="hotelRoomsStatus">status</label> <input type="text"-->
-                                <!--ng-model="hotelRooms.status" class="form-control"-->
-                                <!--id="hotelRoomsStatus"-->
-                                <!--placeholder="status">-->
-                                <!--</div>-->
-
-                                <div class="form-group">
-                                    <label for="hotelRoomsAmount">roomAmount</label>
-                                    <input type="text"
-                                           ng-model="hotelRooms.roomAmount" class="form-control"
-                                           id="hotelRoomsAmount" placeholder="roomAmount">
+                                                                                placeholder="id" disabled>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="hotelRoomsId_type">id_type</label>
-                                    <input type="text"
-                                           ng-model="hotelRooms.hotelRoomType.id" class="form-control"
-                                           id="hotelRoomsId_type" placeholder="id_type">
-                                </div>
-
-                                <!--<div class="form-group">-->
-                                <!--<label for="hotelRoomsId_client">id_client</label>-->
-                                <!--<input type="text"-->
-                                <!--ng-model="hotelRooms.id_client" class="form-control"-->
-                                <!--id="hotelRoomsId_client" placeholder="id_client">-->
-                                <!--</div>-->
-
-                                <div class="form-group">
-                                    <label for="hotelRoomsPrice">price</label>
+                                    <label for="hotelRoomsPrice">Цена комнаты</label>
                                     <input type="text"
                                            ng-model="hotelRooms.price" class="form-control"
                                            id="hotelRoomsPrice" placeholder="price">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="hotelRoomsFrom">dateFrom</label>
-                                    <input type="text"
-                                           ng-model="hotelRooms.dateFrom" class="form-control"
-                                           id="hotelRoomsFrom" placeholder="dateFrom">
-                                </div>
+                                <label for="url">Url фото комнаты</label>
+                                <input type="text"
+                                       ng-model="hotelRooms.url" class="form-control"
+                                       id="url" placeholder="url">
+                            </div>
+
                                 <div class="form-group">
-                                    <label for="hotelRoomsTo">dateTo</label>
+                                    <label for="description">Описание</label>
                                     <input type="text"
-                                           ng-model="hotelRooms.dateTo" class="form-control"
-                                           id="hotelRoomsTo" placeholder="dateTo">
+                                           ng-model="hotelRooms.description" class="form-control"
+                                           id="description" placeholder="description">
                                 </div>
 
                                 <button type="submit" class="btn btn-default">{{buttonText}}</button>
@@ -337,30 +314,26 @@
                             <div class="table-responsive col-md-12">
                                 <table class="table table-striped">
                                     <tr>
-                                        <th>Id</th>
-                                        <th>roomAmount</th>
-                                        <th>id_type</th>
-                                        <th>id_price</th>
-                                        <th>dateFrom</th>
-                                        <th>dateTo</th>
-                                        <th></th>
+                                        <th style="width: 10%">Id</th>
+                                        <th style="width: 10%">Цена</th>
+                                        <!--<th style="width: 20%">Url</th>-->
+                                        <th style="width: 20%">Описание</th>
+                                        <th style="width: 30%"></th>
                                     </tr>
                                     <tr ng-repeat="hotelRooms in hotelRoomss">
-                                        <td>{{hotelRooms.id}}</td>
-                                        <td>{{hotelRooms.roomAmount}}</td>
-                                        <td>{{hotelRooms.hotelRoomType.id}}</td>
-                                        <td>{{hotelRooms.price}}</td>
-                                        <td>{{hotelRooms.dateFrom}}</td>
-                                        <td>{{hotelRooms.dateTo}}</td>
-                                        <td>
+                                        <td style="width: 10%">{{hotelRooms.id}}</td>
+                                        <td style="width: 10%">{{hotelRooms.price}}</td>
+                                        <!--<td style="width: 20%">{{hotelRooms.url}}</td>-->
+                                        <td style="width: 20%">{{hotelRooms.description}}</td>
+                                        <td style="width: 30%">
                                             <button type="button" class="btn btn-default"
                                                     ng-click="updateHotelRoomsInit(hotelRooms)">
-                                                <span class="glyphicon glyphicon-edit" aria-hidden="true">upd</span>
+                                                <span class="glyphicon glyphicon-edit" aria-hidden="true">Обновить</span>
                                             </button>
                                             <button type="button" class="btn btn-default"
                                                     ng-click="deleteHotelRooms(hotelRooms)">
 								<span class="glyphicon glyphicon-remove-circle"
-                                      aria-hidden="true">del</span>
+                                      aria-hidden="true">Удалить</span>
                                             </button>
                                         </td>
                                     </tr>
@@ -370,70 +343,70 @@
                     </div>
                 </div>
             </div>
-            <div id="tabs-2">
-                <div ng-controller="SubscribeController">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">Subscribes</div>
-                        <div class="panel-body">
-                            <form class="col-md-6" ng-submit="saveSubscribes()">
-                                <div class="form-group">
-                                    <label for="subscribeId">id</label> <input type="text"
-                                                                               ng-model="subscribe.id"
-                                                                               class="form-control" id="subscribeId"
-                                                                               placeholder="id">
-                                </div>
-                                <div class="form-group">
-                                    <label for="subscribeEmail">email</label> <input type="text"
-                                                                                     ng-model="subscribe.email"
-                                                                                     class="form-control"
-                                                                                     id="subscribeEmail"
-                                                                                     placeholder="email">
-                                </div>
+            <!--<div id="tabs-2">-->
+                <!--<div ng-controller="SubscribeController">-->
+                    <!--<div class="panel panel-default">-->
+                        <!--<div class="panel-heading">Subscribes</div>-->
+                        <!--<div class="panel-body">-->
+                            <!--<form class="col-md-6" ng-submit="saveSubscribes()">-->
+                                <!--<div class="form-group">-->
+                                    <!--<label for="subscribeId">id</label> <input type="text"-->
+                                                                               <!--ng-model="subscribe.id"-->
+                                                                               <!--class="form-control" id="subscribeId"-->
+                                                                               <!--placeholder="id">-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                    <!--<label for="subscribeEmail">email</label> <input type="text"-->
+                                                                                     <!--ng-model="subscribe.email"-->
+                                                                                     <!--class="form-control"-->
+                                                                                     <!--id="subscribeEmail"-->
+                                                                                     <!--placeholder="email">-->
+                                <!--</div>-->
 
-                                <div class="form-group">
-                                    <label for="subscribeIsSub">isSub</label>
-                                    <input type="text"
-                                           ng-model="subscribe.isSub" class="form-control"
-                                           id="subscribeIsSub" placeholder="isSub">
-                                </div>
+                                <!--<div class="form-group">-->
+                                    <!--<label for="subscribeIsSub">isSub</label>-->
+                                    <!--<input type="text"-->
+                                           <!--ng-model="subscribe.isSub" class="form-control"-->
+                                           <!--id="subscribeIsSub" placeholder="isSub">-->
+                                <!--</div>-->
 
-                                <button type="submit" class="btn btn-default">{{buttonText2}}</button>
+                                <!--<button type="submit" class="btn btn-default">{{buttonText2}}</button>-->
 
-                            </form>
+                            <!--</form>-->
 
-                            <div class="table-responsive col-md-12">
-                                <table class="table table-striped">
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>email</th>
-                                        <th>isSubscribe</th>
-                                        <th></th>
-                                    </tr>
-                                    <tr ng-repeat="subscribe in subscribes">
-                                        <td>{{subscribe.id}}</td>
-                                        <td>{{subscribe.email}}</td>
-                                        <td>{{subscribe.is_sub}}</td>
-                                        <td>
-                                            <button type="button" class="btn btn-default"
-                                                    ng-click="updateSubscribesInit(subscribe)">
-                                                <span class="glyphicon glyphicon-edit" aria-hidden="true">upd</span>
-                                            </button>
-                                            <button type="button" class="btn btn-default"
-                                                    ng-click="deleteSubscribes(subscribe)">
-								<span class="glyphicon glyphicon-remove-circle"
-                                      aria-hidden="true">del</span>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="tabs-3">
-                <p>3</p>
-            </div>
+                            <!--<div class="table-responsive col-md-12">-->
+                                <!--<table class="table table-striped">-->
+                                    <!--<tr>-->
+                                        <!--<th>Id</th>-->
+                                        <!--<th>email</th>-->
+                                        <!--<th>isSubscribe</th>-->
+                                        <!--<th></th>-->
+                                    <!--</tr>-->
+                                    <!--<tr ng-repeat="subscribe in subscribes">-->
+                                        <!--<td>{{subscribe.id}}</td>-->
+                                        <!--<td>{{subscribe.email}}</td>-->
+                                        <!--<td>{{subscribe.is_sub}}</td>-->
+                                        <!--<td>-->
+                                            <!--<button type="button" class="btn btn-default"-->
+                                                    <!--ng-click="updateSubscribesInit(subscribe)">-->
+                                                <!--<span class="glyphicon glyphicon-edit" aria-hidden="true">upd</span>-->
+                                            <!--</button>-->
+                                            <!--<button type="button" class="btn btn-default"-->
+                                                    <!--ng-click="deleteSubscribes(subscribe)">-->
+								<!--<span class="glyphicon glyphicon-remove-circle"-->
+                                      <!--aria-hidden="true">del</span>-->
+                                            <!--</button>-->
+                                        <!--</td>-->
+                                    <!--</tr>-->
+                                <!--</table>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div id="tabs-3">-->
+                <!--<p>3</p>-->
+            <!--</div>-->
         </div>
     </div>
 </div>

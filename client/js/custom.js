@@ -94,7 +94,7 @@
 
 		dateSelect.datepicker({
 			autoclose: true,
-			format: "mm.dd.yyyy",
+			format: "dd.mm.yyyy",
 			maxViewMode: 0,
 			startDate: "now"
 		});	
@@ -111,7 +111,7 @@
 
 		dateSelect.datepicker({
 			autoclose: true,
-			format: "dd.M",
+			format: "dd.mm.yyyy",
 			maxViewMode: 0,
 			startDate: "now"
 		});

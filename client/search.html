@@ -174,69 +174,29 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-6 px-0 px-md-3 pl-1 py-3">
-						<span class="call-top">call us:</span> <a href="#" class="call-top">(381) 60 422 4256</a>
+						<span class="call-top">Позвоните нам</span> <a href="#" class="call-top">(029) 123-456-70</a>
 					</div>
 					<div class="col-6 px-0 px-md-3 py-3 text-right">
-						<a href="#" class="social-top">fb</a>
-						<a href="#" class="social-top">tw</a>
-						<div class="lang-wrap">
-							eng
-							<ul>
-								<li><a href="#">ger</a></li>
-								<li><a href="#">rus</a></li>
-								<li><a href="#">ser</a></li>
-							</ul>
-						</div>
+						<a href="https://vk.com/hotels" class="social-top">vk</a>
+						<a href="https://twitter.com/hotel" class="social-top">twitter</a>
 					</div>
-				</div>	
-			</div>		
+				</div>
+			</div>
 		</div>
 		<div class="menu">
-			<a href="index.html" >
-				<div class="logo">
-					<img src="img/logo.png" alt="">
-				</div>
+			<div class="logo">
+				<img src="img/logo.png" alt="">
+			</div>
 			</a>
 			<ul>
 				<li>
-					<a href="#" >home</a>
-					<ul>
-						<li><a href="index.html">Flip Slider</a></li>
-						<li><a href="index-1.html">Video Background</a></li>
-						<li><a href="index-2.html">Moving Image</a></li>
-					</ul>
+					<a class="curent-page" href="index-1.html" >Главная</a>
 				</li>
 				<li>
-					<a href="#" >rooms</a>
-					<ul>
-						<li><a href="rooms.html">Our Rooms</a></li>
-						<li><a href="rooms-gallery.html">Room Gallery</a></li>
-						<li><a href="rooms-video.html">Room Video</a></li>
-					</ul>
+					<a href="gallery.html" >Галерея</a>
 				</li>
 				<li>
-					<a class="curent-page" href="#" >pages</a>
-					<ul>
-						<li><a href="explore.html">Explore</a></li>
-						<li><a class="curent-page" href="search.html">Search</a></li>
-						<li><a href="tandc.html">Terms &amp; Conditions</a></li>
-						<li><a href="services.html">Services</a></li>
-						<li><a href="restaurant.html">Restaurant</a></li>
-						<li><a href="testimonials.html">Testimonials</a></li>
-						<li><a href="gallery.html">Gallery</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="about.html">about us</a>
-				</li>
-				<li>
-					<a href="blog.html">news</a>
-				</li>
-				<li>
-					<a href="contact.html">contact</a>
-				</li>
-				<li>
-					<a href="search.html"><span>book now</span></a>
+					<a href="clientPage.html"><span>Я ваш клиент!</span></a>
 				</li>
 			</ul>
 		</div>
@@ -278,7 +238,7 @@
 						<div class="row">
 							<div class="col-lg-10" ng-repeat="rooms in findRooms">
 								<div class="room-box background-grey">
-									<div class="room-name">suite tanya</div>
+									<div class="room-name">{{rooms.hotelRoomType.description}}</div>
 									<div class="room-per">
 										<i class="fa fa-star"></i>
 										<i class="fa fa-star"></i>
@@ -288,7 +248,7 @@
 									</div>
 									<img id="{{'idRoom' + $index}}" src={{rooms.url}} alt="">
 									<div class="room-box-in">
-										<h5 class="">pool suite</h5>
+										<h5 class="">{{rooms.hotelRoomType.type_name}}</h5>
 										<p class="mt-3">{{rooms.description}}</p>
 										<!--<a class="mt-1 btn btn-primary" href="booking.html?roomId={{rooms.id}}">Забронировать за {{rooms.price}}$</a>-->
 										<input type="button" value="Забронировать за {{rooms.price}}$" ng-click="booking(rooms.id)" data-toggle="modal" data-target="#exampleModal">
@@ -441,85 +401,20 @@
 			</div>					
 		</div>
 	</div>
-	
-	<div class="section background-dark over-hide">
-		<div class="container-fluid py-4">
-			<div class="row">
-				<div class="col-sm-6 col-lg-3">
-					<a href="services.html">
-						<div class="img-wrap services-wrap">
-							<img src="img/ser-1.jpg" alt="">
-							<div class="services-text-over">spa salon</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-6 col-lg-3 pt-4 pt-sm-0">
-					<a href="services.html">
-						<div class="img-wrap services-wrap">
-							<img src="img/ser-2.jpg" alt="">
-							<div class="services-text-over">restaurant</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-6 col-lg-3 pt-4 pt-lg-0">
-					<a href="services.html">
-						<div class="img-wrap services-wrap">
-							<img src="img/ser-3.jpg" alt="">
-							<div class="services-text-over">pool</div>
-						</div>
-					</a>
-				</div>
-				<div class="col-sm-6 col-lg-3 pt-4 pt-lg-0">
-					<a href="services.html">
-						<div class="img-wrap services-wrap">
-							<img src="img/ser-4.jpg" alt="">
-							<div class="services-text-over">activities</div>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<div class="section padding-top-bottom-small background-black over-hide footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-3 text-center text-md-left">
-					<img src="img/logo.png" alt="">
-					<p class="color-grey mt-4">Avenue Street 3284<br>Thessaloniki</p>
-				</div>
-				<div class="col-md-4 text-center text-md-left">
-					<h6 class="color-white mb-3">information</h6>
-					<a href="tandc.html">terms &amp; conditions</a>
-					<a href="services.html">services</a>
-					<a href="restaurant.html">restaurant</a>
-					<a href="testimonials.html">testimonials</a>
-					<a href="gallery.html">gallery &amp; images</a>
-				</div>
-				<div class="col-md-5 mt-4 mt-md-0 text-center text-md-left logos-footer">
-					<h6 class="color-white mb-3">about us</h6>
-					<p class="color-grey mb-4">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.</p>
-					<img src="img/logos/1.png" alt="">
-					<img src="img/logos/2.png" alt="">
-					<img src="img/logos/3.png" alt="">
-				</div>
-			</div>	
-		</div>	
-	</div>
-	
+
 	<div class="section py-4 background-dark over-hide footer-bottom">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 text-center text-md-left mb-2 mb-md-0">
-					<p>2019 © Thalia. All rights reserved.</p>
+					<p>2019 © Всем отелям отель.</p>
 				</div>
 				<div class="col-md-6 text-center text-md-right">
-					<a href="#" class="social-footer-bottom">facebook</a>
-					<a href="#" class="social-footer-bottom">twitter</a>
-					<a href="#" class="social-footer-bottom">instagram</a>
+					<a href="https://vk.com/hotels" class="social-footer-bottom">VK</a>
+					<a href="https://twitter.com/hotel" class="social-footer-bottom">twitter</a>
+					<a href="mainAdmin.html" class="social-footer-bottom">admin</a>
 				</div>
-			</div>	
-		</div>		
+			</div>
+		</div>
 	</div>
 	
 	

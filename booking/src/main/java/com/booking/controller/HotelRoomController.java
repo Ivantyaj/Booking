@@ -59,7 +59,7 @@ public class HotelRoomController extends BaseController {
         try {
             HotelRoom hotelRoom = hotelRoomService.findById(employee.getId());
             hotelRoom.setPrice(employee.getPrice());
-            hotelRoom.setRoomAmount(employee.getRoomAmount());
+            hotelRoom.setPeopleAmount(employee.getPeopleAmount());
             hotelRoom.setUrl(employee.getUrl());
             hotelRoom.setDescription(employee.getDescription());
             hotelRoomService.save(hotelRoom);
