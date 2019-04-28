@@ -1,13 +1,10 @@
 package com.booking.model.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import net.bytebuddy.implementation.bind.annotation.Default;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.Instant;
 import java.util.Objects;
 
 @Entity
@@ -41,13 +38,6 @@ public class HotelRoom implements Serializable {
 
     @Column(name = "description", length = 1000)
     private String description = "Пока нет описания";
-
-    @Column(name = "date_from")
-    private Instant dateFrom;
-
-    @Column(name = "date_to")
-    private Instant dateTo;
-
 
     public HotelRoom() {
     }
@@ -107,21 +97,6 @@ public class HotelRoom implements Serializable {
         this.client = client;
     }
 
-    public Instant getDateFrom() {
-        return dateFrom;
-    }
-
-    public void setDateFrom(Instant dateFrom) {
-        this.dateFrom = dateFrom;
-    }
-
-    public Instant getDateTo() {
-        return dateTo;
-    }
-
-    public void setDateTo(Instant dateTo) {
-        this.dateTo = dateTo;
-    }
 
     public Double getPrice() {
         return price;
@@ -148,8 +123,6 @@ public class HotelRoom implements Serializable {
         result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (url != null ? url.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (dateFrom != null ? dateFrom.hashCode() : 0);
-        result = 31 * result + (dateTo != null ? dateTo.hashCode() : 0);
         return result;
     }
 
@@ -176,8 +149,6 @@ public class HotelRoom implements Serializable {
                 ", price=" + price +
                 ", url='" + url + '\'' +
                 ", description='" + description + '\'' +
-                ", dateFrom=" + dateFrom +
-                ", dateTo=" + dateTo +
                 '}';
     }
 

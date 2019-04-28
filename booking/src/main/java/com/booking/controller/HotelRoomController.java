@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityNotFoundException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController(value = "RoomController")
@@ -62,7 +61,7 @@ public class HotelRoomController extends BaseController {
     }
 
     @PostMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<HotelRoom> createRoom(@RequestBody HotelRoom employee) throws URISyntaxException {
+    public ResponseEntity<HotelRoom> createRoom(@RequestBody HotelRoom employee) {
         try {
             HotelRoom result = hotelRoomService.save(employee);
             URI uri = URI.create("http://localhost:8080/hotel/rooms" + result.getId());

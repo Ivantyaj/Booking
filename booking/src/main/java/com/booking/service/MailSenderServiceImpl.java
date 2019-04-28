@@ -9,6 +9,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -36,6 +37,7 @@ public class MailSenderServiceImpl implements MailSenderService {
     @Override
     public void mailAll(String message) {
         List<Subscriber> subscriberList = subscriberService.findAll();
+        System.err.println(Arrays.toString(subscriberList.toArray()));
         subscriberList.forEach(subscriber -> sendEmail(subscriber.getEmail(), "Mailing", message));
     }
 
