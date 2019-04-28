@@ -22,7 +22,9 @@ public class User implements Serializable {
     @Column(name = "password")
     private String password;
 
-    @ManyToOne//(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne//(fe
+
+    // tch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id_role")
     private Role role;
 

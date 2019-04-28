@@ -14,23 +14,12 @@ public class HotelRoomType implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "human_amount")
-    private Long humanAmount;
-
     @Column(name = "name", nullable = false)
     private String type_name;
 
     @Column(name = "description", length = 1000)
     private String description;
 
-
-//    @OneToMany(mappedBy = "topic", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    private List<Answer> answer;
-//}
-    //@JsonIgnore
-    //@OneToOne(mappedBy = "hotelRoomType", cascade = CascadeType.ALL, orphanRemoval = true)
-    //@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    //private HotelRoom hotelRoom;
 
     public HotelRoomType() {
     }
@@ -41,14 +30,6 @@ public class HotelRoomType implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getHumanAmount() {
-        return humanAmount;
-    }
-
-    public void setHumanAmount(Long humanAmount) {
-        this.humanAmount = humanAmount;
     }
 
     public String getType_name() {
@@ -67,20 +48,11 @@ public class HotelRoomType implements Serializable {
         this.description = description;
     }
 
-//    public HotelRoom getHotelRoom() {
-//        return hotelRoom;
-//    }
-
-    //public void setHotelRoom(HotelRoom hotelRoom) {
-    //    this.hotelRoom = hotelRoom;
-    //}
-
     @Override
     public String toString() {
         return "HotelRoomType{" +
                 "id=" + id +
-                ", humanAmount=" + humanAmount +
-                ", type_name=" + type_name +
+                ", type_name='" + type_name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }
@@ -89,17 +61,14 @@ public class HotelRoomType implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        HotelRoomType hotelRoomType = (HotelRoomType) o;
-        return Objects.equals(id, hotelRoomType.id) &&
-                Objects.equals(humanAmount, hotelRoomType.humanAmount) &&
-                type_name.equals(hotelRoomType.type_name) &&
-                Objects.equals(description, hotelRoomType.description); //&&
-                //Objects.equals(hotelRoom, hotelRoomType.hotelRoom);
+        HotelRoomType that = (HotelRoomType) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(type_name, that.type_name) &&
+                Objects.equals(description, that.description);
     }
 
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(id, humanAmount, type_name, description, hotelRoom);
-//    }
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, type_name, description);
+    }
 }

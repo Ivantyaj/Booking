@@ -16,22 +16,16 @@ public class HotelRoom implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "room_amount", nullable = false)
-    private Long roomAmount;
+    @Column(name = "people_amount", nullable = false)
+    private Long peopleAmount;
 
     //@JsonIgnore
     @ManyToOne//(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_type")
     private HotelRoomType hotelRoomType;
 
-    //@JsonIgnore
-    @ManyToOne//(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_client")
-    private Client client;
-
     @OneToOne(mappedBy = "hotelRoom")
     private Booking booking;
-
 
     @Column(name = "price", length = 1000)
     private Double price;
@@ -88,22 +82,13 @@ public class HotelRoom implements Serializable {
         this.id = id;
     }
 
-    public Long getRoomAmount() {
-        return roomAmount;
+    public Long getPeopleAmount() {
+        return peopleAmount;
     }
 
-    public void setRoomAmount(Long roomAmount) {
-        this.roomAmount = roomAmount;
+    public void setPeopleAmount(Long peopleAmount) {
+        this.peopleAmount = peopleAmount;
     }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
 
     public Double getPrice() {
         return price;
@@ -122,37 +107,31 @@ public class HotelRoom implements Serializable {
     }
 
     @Override
-    public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (roomAmount != null ? roomAmount.hashCode() : 0);
-        result = 31 * result + (hotelRoomType != null ? hotelRoomType.hashCode() : 0);
-        result = 31 * result + (client != null ? client.hashCode() : 0);
-        result = 31 * result + (price != null ? price.hashCode() : 0);
-        result = 31 * result + (url != null ? url.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        return result;
-    }
-
-    //НАДО фиксить поля
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         HotelRoom hotelRoom = (HotelRoom) o;
         return Objects.equals(id, hotelRoom.id) &&
-                Objects.equals(roomAmount, hotelRoom.roomAmount) &&
-                Objects.equals(client, hotelRoom.client) &&
+                Objects.equals(peopleAmount, hotelRoom.peopleAmount) &&
+                Objects.equals(hotelRoomType, hotelRoom.hotelRoomType) &&
+                Objects.equals(booking, hotelRoom.booking) &&
                 Objects.equals(price, hotelRoom.price) &&
-                hotelRoomType == hotelRoom.hotelRoomType;
+                Objects.equals(url, hotelRoom.url) &&
+                Objects.equals(description, hotelRoom.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, peopleAmount, hotelRoomType, booking, price, url, description);
     }
 
     @Override
     public String toString() {
         return "HotelRoom{" +
                 "id=" + id +
-                ", roomAmount=" + roomAmount +
+                ", peopleAmount=" + peopleAmount +
                 ", hotelRoomType=" + hotelRoomType +
-                ", client=" + client +
+                ", booking=" + booking +
                 ", price=" + price +
                 ", url='" + url + '\'' +
                 ", description='" + description + '\'' +

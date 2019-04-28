@@ -100,8 +100,9 @@ $(document).ready(function () {
     });
 
     $('#spamBtn').click(function () {
-        let messsage = $('#spamArea').text();
-        console.log("area message", messsage);
+        let messsage = $('#spamArea').val();
+        console.log("area message", messsage,);
+        alert("Рассылка сообщения всем подписчикам выполнена");
         $.ajax({
             type: 'POST', // метод отправки
             url: 'http://localhost:8080/news/mailing',
@@ -270,7 +271,9 @@ var authorisation = function () {
                 if(data.status == 200) {
                     $("#myModal").modal('hide');
                 }
-                console.log("pishov vid seda " , data);
+                else {
+                    alert("Данные не верны!");
+                }
 
             }})
     }
