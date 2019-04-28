@@ -97,8 +97,26 @@ $(document).ready(function () {
                 console.log("errrrrrr" + data);
 
             }})
-    })
-    //Форма клиент
+    });
+
+    $('#spamBtn').click(function () {
+        let messsage = $('#spamArea').text();
+        console.log("area message", messsage);
+        $.ajax({
+            type: 'POST', // метод отправки
+            url: 'http://localhost:8080/news/mailing',
+            data: JSON.stringify({message: messsage}),
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(data){
+                console.log("syccess spam ", data);
+
+            },
+            error: function(data){
+                console.log("errrrrrr spam" + data);
+
+            }})
+    });
 
 })
 
