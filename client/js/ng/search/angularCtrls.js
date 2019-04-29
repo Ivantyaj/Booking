@@ -129,10 +129,14 @@ appSearch.controller("searchCtrl", function ($scope, $http) {
             contentType: 'application/json',
             dataType: 'json',
             success: function(data) {
+                $('#cardPayment').fadeOut();
                 console.log("Succc bbouk", data);
             },
             error:  function(data){
                 console.log("Err book", data);
+
+                alert('Заявка принята! Проверьте почту!');
+                $('#cardPayment').fadeOut();
             }
         });
 
