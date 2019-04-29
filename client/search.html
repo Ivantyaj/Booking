@@ -1,440 +1,444 @@
 ﻿<!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]>
-<!--><html class="no-js" lang="en" ng-app="ngSearch"><!--<![endif]-->
+<!-->
+<html class="no-js" lang="en" ng-app="ngSearch"><!--<![endif]-->
 <head>
 
-	<!-- Basic Page Needs
-	================================================== -->
-	<meta charset="utf-8">
-	<title>Thalia</title>
-	<meta name="description"  content="Professional Creative Template" />
-	<meta name="author" content="IG Design">
-	<meta name="keywords"  content="ig design, website, design, html5, css3, jquery, creative, clean, animated, portfolio, blog, one-page, multi-page, corporate, business," />
-	<meta property="og:title" content="Professional Creative Template" />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="" />
-	<meta property="og:image" content="" />
-	<meta property="og:image:width" content="470" />
-	<meta property="og:image:height" content="246" />
-	<meta property="og:site_name" content="" />
-	<meta property="og:description" content="Professional Creative Template" />
-	<meta name="twitter:card" content="" />
-	<meta name="twitter:site" content="https://twitter.com/IvanGrozdic" />
-	<meta name="twitter:domain" content="http://ivang-design.com/" />
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:description" content="Professional Creative Template" />
-	<meta name="twitter:image" content="http://ivang-design.com/" />
+    <!-- Basic Page Needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Thalia</title>
 
-	<!-- Mobile Specific Metas
-	================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<meta name="theme-color" content="#212121"/>
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="theme-color" content="#212121"/>
     <meta name="msapplication-navbutton-color" content="#212121"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="#212121"/>
 
-	<!-- Web Fonts 
-	================================================== -->
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"/>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
-	
-	<!-- CSS
-	================================================== -->
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="css/ionicons.min.css"/>
-	<link rel="stylesheet" href="css/datepicker.css"/>
-	<link rel="stylesheet" href="css/jquery.fancybox.min.css"/>
-	<link rel="stylesheet" href="css/owl.carousel.css"/>
-	<link rel="stylesheet" href="css/owl.transitions.css"/>
-	<link rel="stylesheet" href="css/style.css"/>
-	<link rel="stylesheet" href="css/colors/color.css"/>
-	<!--<link rel="stylesheet" href="css/checkCard.css"/>-->
+    <!-- Web Fonts 
+    ================================================== -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+          rel="stylesheet">
 
-	<!-- Favicons
-	================================================== -->
-	<link rel="icon" type="image/png" href="favicon.png">
-	<link rel="apple-touch-icon" href="apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
-	
-	
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/ionicons.min.css"/>
+    <link rel="stylesheet" href="css/datepicker.css"/>
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css"/>
+    <link rel="stylesheet" href="css/owl.carousel.css"/>
+    <link rel="stylesheet" href="css/owl.transitions.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/colors/color.css"/>
+    <!--<link rel="stylesheet" href="css/checkCard.css"/>-->
+
+    <!-- Favicons
+    ================================================== -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+
+
 </head>
 <body ng-controller="searchCtrl">
 
-	<div class="loader">
-		<div class="loader__figure"></div>
-	</div>
+<div class="loader">
+    <div class="loader__figure"></div>
+</div>
 
-	<svg class="hidden">
-		<svg id="icon-nav" viewBox="0 0 152 63">
-			<title>navarrow</title>
-			<path d="M115.737 29L92.77 6.283c-.932-.92-1.21-2.84-.617-4.281.594-1.443 1.837-1.862 2.765-.953l28.429 28.116c.574.57.925 1.557.925 2.619 0 1.06-.351 2.046-.925 2.616l-28.43 28.114c-.336.327-.707.486-1.074.486-.659 0-1.307-.509-1.69-1.437-.593-1.442-.315-3.362.617-4.284L115.299 35H3.442C2.032 35 .89 33.656.89 32c0-1.658 1.143-3 2.552-3H115.737z"/>
-		</svg>
-	</svg>
+<svg class="hidden">
+    <svg id="icon-nav" viewBox="0 0 152 63">
+        <title>navarrow</title>
+        <path d="M115.737 29L92.77 6.283c-.932-.92-1.21-2.84-.617-4.281.594-1.443 1.837-1.862 2.765-.953l28.429 28.116c.574.57.925 1.557.925 2.619 0 1.06-.351 2.046-.925 2.616l-28.43 28.114c-.336.327-.707.486-1.074.486-.659 0-1.307-.509-1.69-1.437-.593-1.442-.315-3.362.617-4.284L115.299 35H3.442C2.032 35 .89 33.656.89 32c0-1.658 1.143-3 2.552-3H115.737z"/>
+    </svg>
+</svg>
 
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 10%">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Бронирование</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form id="contactForm" action="#">
-						<div class="form-group">
-							<label for="roomId">Код комнаты</label>
-							<input id="roomId" class="form-control" name="roomId" required type="text" value="0000" disabled="disabled">
-						</div>
-						<!--Выбранные сервисы-->
-						<!--<div class="form-group field-middle_name row">-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true" style="margin-top: 10%">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Бронирование</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="contactForm" action="#">
+                    <div class="form-group">
+                        <label for="roomId">Код комнаты</label>
+                        <input id="roomId" class="form-control" name="roomId" required type="text" value="0000"
+                               disabled="disabled">
+                    </div>
+                    <!--Выбранные сервисы-->
+                    <!--<div class="form-group field-middle_name row">-->
 
-							<!--<div class="col-sm-6 col-md-6 col-xs-6 no-padding">-->
-								<!--<select id="services" class="form-control" title="Сервисы">-->
-									<!--<option value="" >Префикс</option>-->
-								<!--</select>-->
-							<!--</div>-->
-							<!--<div class="col-sm-6 col-md-6 col-xs-6 no-padding">-->
-								<!--<select id="extraServ" class="form-control" title="Дополнительные">-->
-									<!--<option value="">Префикс</option>-->
-								<!--</select>-->
-							<!--</div>-->
-						<!--</div>-->
-						<div class="form-group">
-							<label for="name">Ваше имя:</label>
-							<input id="name" class="form-control" name="name" required type="text" placeholder="Иванов Иван Иванович">
-						</div>
-						<div class="form-group">
-							<label for="email">Ваш E-mail:</label>
-							<input id="email" class="form-control" name="email" required type="text" placeholder="ivanov@email.com">
-						</div>
-						<div class="form-group">
-							<label for="phone">Ваш телефон:</label>
-							<input id="phone" class="form-control" name="phone" required type="text" placeholder="+375 (00) 000-00-00">
-						</div>
-						<div class="form-group">
-							<label for="message">Текст сообщения:</label>
-							<textarea id="message" class="form-control" required name="message" rows="4"></textarea>
-						</div>
+                    <!--<div class="col-sm-6 col-md-6 col-xs-6 no-padding">-->
+                    <!--<select id="services" class="form-control" title="Сервисы">-->
+                    <!--<option value="" >Префикс</option>-->
+                    <!--</select>-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-6 col-md-6 col-xs-6 no-padding">-->
+                    <!--<select id="extraServ" class="form-control" title="Дополнительные">-->
+                    <!--<option value="">Префикс</option>-->
+                    <!--</select>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <div class="form-group">
+                        <label for="name">Ваше имя:</label>
+                        <input id="name" class="form-control" name="name" required type="text"
+                               placeholder="Иванов Иван Иванович">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Ваш E-mail:</label>
+                        <input id="email" class="form-control" name="email" required type="text"
+                               placeholder="ivanov@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Ваш телефон:</label>
+                        <input id="phone" class="form-control" name="phone" required type="text"
+                               placeholder="+375 (00) 000-00-00">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Текст сообщения:</label>
+                        <textarea id="message" class="form-control" name="message" rows="4"></textarea>
+                    </div>
 
-						<div class="form-group">
-							<div class="form-group form-check">
-								<input id="checkCash" class="form-check-input" checked type="radio" name="payment" value="cash" ng-click="payment()">
-								<label class="form-check-label" for="checkCash" >Оплата на месте</label>
-							</div>
-							<div class="form-group form-check">
-								<input id="checkCard" class="form-check-input" type="radio" name="payment" value="card" ng-click="payment()">
-								<label class="form-check-label" for="checkCard" >Оплата картой</label>
-							</div>
-						</div>
+                    <div class="form-group">
+                        <div class="form-group form-check">
+                            <input id="checkCash" class="form-check-input" checked type="radio" name="payment"
+                                   value="cash" ng-click="payment()">
+                            <label class="form-check-label" for="checkCash">Оплата на месте</label>
+                        </div>
+                        <div class="form-group form-check">
+                            <input id="checkCard" class="form-check-input" type="radio" name="payment" value="card"
+                                   ng-click="payment()">
+                            <label class="form-check-label" for="checkCard">Оплата картой</label>
+                        </div>
+                    </div>
 
-						<div class="form-group" id="cardPayment">
-							<div class="creditCardForm">
-								<b>Введите данные по карте:</b>
-								<div class="form-group">
-										<div class="form-group owner">
-											<label for="owner">Владелец</label>
-											<input type="text" class="form-control" id="owner">
-										</div>
-										<div class="form-group CVV">
-											<label for="cvv">CVV</label>
-											<input type="text" class="form-control" id="cvv">
-										</div>
-										<div class="form-group exp">
-											<label for="cvv">Срок действия</label>
-											<input type="text" class="form-control" id="exp">
-										</div>
-										<div class="form-group" id="credit_cards">
-											<img src="http://bootstraptema.ru/snippets/form/2017/visa.jpg" id="visa">
-											<img src="http://bootstraptema.ru/snippets/form/2017/mastercard.jpg" id="mastercard">
-											<img src="http://bootstraptema.ru/snippets/form/2017/amex.jpg" id="amex">
-										</div>
-								</div>
-							</div>
-						</div>
+                    <div class="form-group" id="cardPayment">
+                        <div class="creditCardForm">
+                            <b>Введите данные по карте:</b>
+                            <div class="form-group">
+                                <div class="form-group owner">
+                                    <label for="owner">Владелец</label>
+                                    <input type="text" class="form-control" id="owner">
+                                </div>
+                                <div class="form-group CVV">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" class="form-control" id="cvv">
+                                </div>
+                                <div class="form-group exp">
+                                    <label for="cvv">Срок действия</label>
+                                    <input type="text" class="form-control" id="exp">
+                                </div>
+                                <div class="form-group" id="credit_cards">
+                                    <img src="http://bootstraptema.ru/snippets/form/2017/visa.jpg" id="visa">
+                                    <img src="http://bootstraptema.ru/snippets/form/2017/mastercard.jpg"
+                                         id="mastercard">
+                                    <img src="http://bootstraptema.ru/snippets/form/2017/amex.jpg" id="amex">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-						<div class="form-group form-check">
-							<input id="check" class="form-check-input" checked type="checkbox">
-							<label class="form-check-label" for="check">Заказать обратный звонок</label>
-						</div>
-						<p>Вам на почту придет подтверждение вашего бронирования</p>
-						<button id="button" class="btn btn-success" type="submit" ng-click="sendBooking()">Отправить</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Nav and Logo
-	================================================== -->
+                    <div class="form-group form-check">
+                        <input id="check" class="form-check-input" checked type="checkbox">
+                        <label class="form-check-label" for="check">Заказать обратный звонок</label>
+                    </div>
+                    <p>Вам на почту придет подтверждение вашего бронирования</p>
+                    <button id="button" class="btn btn-success" type="submit" ng-click="sendBooking()">Отправить
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Nav and Logo
+================================================== -->
 
-	<nav id="menu-wrap" class="menu-back cbp-af-header">
-		<div class="menu-top background-black">
-			<div class="container">
-				<div class="row">
-					<div class="col-6 px-0 px-md-3 pl-1 py-3">
-						<span class="call-top">Позвоните нам</span> <a href="#" class="call-top">(029) 123-456-70</a>
-					</div>
-					<div class="col-6 px-0 px-md-3 py-3 text-right">
-						<a href="https://vk.com/hotels" class="social-top">vk</a>
-						<a href="https://twitter.com/hotel" class="social-top">twitter</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="menu">
-			<div class="logo">
-				<img src="img/logo.png" alt="">
-			</div>
-			</a>
-			<ul>
-				<li>
-					<a class="curent-page" href="index-1.html" >Главная</a>
-				</li>
-				<li>
-					<a href="gallery.html" >Галерея</a>
-				</li>
-				<li>
-					<a href="clientPage.html"><span>Я ваш клиент!</span></a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-		
-	<!-- Primary Page Layout
-	================================================== -->
+<nav id="menu-wrap" class="menu-back cbp-af-header">
+    <div class="menu-top background-black">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 px-0 px-md-3 pl-1 py-3">
+                    <span class="call-top">Позвоните нам</span> <a href="#" class="call-top">(029) 123-456-70</a>
+                </div>
+                <div class="col-6 px-0 px-md-3 py-3 text-right">
+                    <a href="https://vk.com/hotels" class="social-top">vk</a>
+                    <a href="https://twitter.com/hotel" class="social-top">twitter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="logo">
+            <img src="img/logo.png" alt="">
+        </div>
+        </a>
+        <ul>
+            <li>
+                <a class="curent-page" href="index-1.html">Главная</a>
+            </li>
+            <li>
+                <a href="gallery.html">Галерея</a>
+            </li>
+            <!--<li>-->
+            <!--<a href="clientPage.html"><span>Я ваш клиент!</span></a>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</nav>
 
-	<div class="section big-55-height over-hide z-bigger">
-	
-		<!--<div class="parallax parallax-top" style="background-image: url('img/1.jpg')"></div>-->
-		<div class="parallax parallax-top" style="background-image: url('https://look.com.ua/pic/201806/1920x1080/look.com.ua-289904.jpg')"></div>
-		<div class="dark-over-pages"></div>
-	
-		<div class="hero-center-section pages">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-12 parallax-fade-top">
-						<div class="hero-text">Бронирование</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- Primary Page Layout
+================================================== -->
 
+<div class="section big-55-height over-hide z-bigger">
 
+    <!--<div class="parallax parallax-top" style="background-image: url('img/1.jpg')"></div>-->
+    <div class="parallax parallax-top"
+         style="background-image: url('https://look.com.ua/pic/201806/1920x1080/look.com.ua-289904.jpg')"></div>
+    <div class="dark-over-pages"></div>
 
-	
-	<div class="section padding-top-bottom z-bigger">
-		<div class="text-center align-text-bottom">
-			<h1>Не забудьте выбрать сервисы!</h1>
-			<p>оплачиваются по приезду</p>
-		</div>
-		<div class="section z-bigger">		
-			<div class="container">
-				<div class="row">
-					<!--<div class="col-lg-8 mt-4 mt-lg-0" ng-controller="searchCtrl">-->
-					<div class="col-lg-8 mt-4 mt-lg-0">
-						<div class="row">
-							<div class="col-lg-10" ng-repeat="rooms in findRooms">
-								<div class="room-box background-grey">
-									<div class="room-name">{{rooms.hotelRoomType.description}}</div>
-									<div class="room-per">
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-										<i class="fa fa-star"></i>
-									</div>
-									<img id="{{'idRoom' + $index}}" src={{rooms.url}} alt="">
-									<div class="room-box-in">
-										<h5 class="">{{rooms.hotelRoomType.type_name}}</h5>
-										<p class="mt-3">{{rooms.description}}</p>
-										<!--<a class="mt-1 btn btn-primary" href="booking.html?roomId={{rooms.id}}">Забронировать за {{rooms.price}}$</a>-->
-										<input type="button" value="Забронировать за {{rooms.price}}$" ng-click="booking(rooms.id)" data-toggle="modal" data-target="#exampleModal">
-										<div class="room-icons mt-4 pt-4">
-											<img src="img/5.svg" alt="">
-											<img src="img/2.svg" alt="">
-											<img src="img/3.svg" alt="">
-											<!--<a href="rooms-gallery.html">full info</a>-->
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 order-first order-lg-last">
-						<div class="section background-dark p-4">	
-							<div class="row">
-								<div class="col-12">
-									<div class="input-daterange input-group" id="flight-datepicker">
-										<div class="row">	
-											<div class="col-12">
-												<div class="form-item">
-													<span class="fontawesome-calendar"></span>
-													<input class="input-sm" type="text" autocomplete="off" id="start-date-1" name="start" placeholder="дата приезда" data-date-format="DD, MM d"/>
-													<span class="date-text date-depart"></span>
-												</div>
-											</div>
-											<div class="col-12 pt-4">
-												<div class="form-item">
-													<span class="fontawesome-calendar"></span>
-													<input class="input-sm" type="text" autocomplete="off" id="end-date-1" name="end" placeholder="дата отъезда" data-date-format="DD, MM d"/>
-													<span class="date-text date-return"></span>
-												</div>
-											</div>
-										</div>
-									</div>	
-								</div>
-								<div class="col-12">
-									<div class="row">
-										<div class="col-12 pt-4">
-											<select name="adults" class="wide" id="selectPeople">
-												<option selected value="0">Количество человек</option>
-												<option value="1">1</option>
-												<option value="2">2</option>
-												<option value="3">3</option>
-												<option value="4">4</option>
-												<option value="5">5</option>
-											</select>
-										</div>
-										<!--<div class="col-12 pt-4">-->
-											<!--<select name="children" class="wide">-->
-												<!--<option data-display="children">children</option>-->
-												<!--<option value="1">1</option>-->
-												<!--<option value="2">2</option>-->
-												<!--<option value="3">3</option>-->
-												<!--<option value="4">4</option>-->
-												<!--<option value="5">5</option>-->
-											<!--</select>-->
-										<!--</div>-->
-									</div>
-								</div>
-								<div class="col-12 pt-5">
-									<h6 class="color-white mb-3">Максимальная цена за ночь</h6>
-									<div class="selecteurPrix">
-										<div class="range-slider">
-											<input class="input-range" type="range" value="500" min="1" max="500" id="inputPrice">
-											<div class="valeurPrix">
-												<span class="range-value"></span>
-											</div>
-										</div>
-									</div>									
-								</div>
-								<div class="col-12 pt-5">
-									<input type="button" value="Подобрать" id="btnSearch">
-								</div>
-								<div class="col-12 col-md-6 col-lg-12 pt-5">
-									<h6 class="color-white mb-3">Услуги:</h6>
-									<ul class="list">
-										<li class="list__item">
-											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox" id="serv1" value="Мини бар">
-												Мини бар
-											</label>
-										</li>
-										<li class="list__item">
-											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox" id="serv2" value="Телевизор">
-												Телевизор
-											</label>
-										</li>
-										<li class="list__item">
-											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox" id="serv3" value="Кровать для детей">
-												Кровать для детей
-											</label>
-										</li>
-										<li class="list__item">
-											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox" id="serv4" value="Аренда велосипеда">
-												Аренда велосипеда
-											</label>
-										</li>
-										<li class="list__item">
-											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox" id="serv5" value="Ethernet">
-												Ethernet
-											</label>
-										</li>
-									</ul>									
-								</div>
-								<div class="col-12 col-md-6 col-lg-12 pt-5">
-									<h6 class="color-white mb-3">Extra services:</h6>
-									<ul class="list">
-										<li class="list__item">
-											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox" id="servExtr1" value="Завтраки">
-												Завтраки
-											</label>
-										</li>
-										<li class="list__item">
-											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox" id="servExtr2" value="Бассейн">
-												Бассейн
-											</label>
-										</li>
-										<li class="list__item">
-											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox" id="servExtr3" value="Прокат автомобиля">
-												Прокат автомобиля
-											</label>
-										</li>
-										<li class="list__item">
-											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox" id="servExtr4" value="Вид на море">
-												Вид на море
-											</label>
-										</li>
-										<li class="list__item">
-											<label class="label--checkbox">
-												<input type="checkbox" class="checkbox" id="servExtr5" value="Прачечная">
-												Прачечная
-											</label>
-										</li>
-									</ul>									
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>					
-		</div>
-	</div>
-
-	<div class="section py-4 background-dark over-hide footer-bottom">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 text-center text-md-left mb-2 mb-md-0">
-					<p>2019 © Всем отелям отель.</p>
-				</div>
-				<div class="col-md-6 text-center text-md-right">
-					<a href="https://vk.com/hotels" class="social-footer-bottom">VK</a>
-					<a href="https://twitter.com/hotel" class="social-footer-bottom">twitter</a>
-					<a href="mainAdmin.html" class="social-footer-bottom">admin</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	
-	<div class="scroll-to-top"></div>
+    <div class="hero-center-section pages">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 parallax-fade-top">
+                    <div class="hero-text">Бронирование</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-	<!-- JAVASCRIPT
-    ================================================== -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/popper.min.js"></script> 
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/plugins.js"></script>  
-	<script src="js/custom.js"></script>
-	<script src="js/search.js"></script>
-	<script src="js/angular.min.js"></script>
-	<script src="js/ng/search/angularCtrls.js"></script>
-	<script src="js/bookingForm.js"></script>
-	<!--<script src="js/jquery.payform.min.js" charset="utf-8"></script>-->
-	<!--<script src="js/checkCard.js"></script>-->
+<div class="section padding-top-bottom z-bigger">
+    <div class="text-center align-text-bottom">
+        <h1>Не забудьте выбрать сервисы!</h1>
+        <p>оплачиваются по приезду</p>
+    </div>
+    <div class="section z-bigger">
+        <div class="container">
+            <div class="row">
+                <!--<div class="col-lg-8 mt-4 mt-lg-0" ng-controller="searchCtrl">-->
+                <div class="col-lg-8 mt-4 mt-lg-0">
+                    <div class="row">
+                        <div class="col-lg-10" ng-repeat="rooms in findRooms">
+                            <div class="room-box background-grey">
+                                <div class="room-name">{{rooms.hotelRoomType.description}}</div>
+                                <div class="room-per">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <img id="{{'idRoom' + $index}}" src={{rooms.url}} alt="">
+                                <div class="room-box-in">
+                                    <h5 class="">{{rooms.hotelRoomType.type_name}}</h5>
+                                    <p class="mt-3">{{rooms.description}}</p>
+                                    <!--<a class="mt-1 btn btn-primary" href="booking.html?roomId={{rooms.id}}">Забронировать за {{rooms.price}}$</a>-->
+                                    <input type="button" value="Забронировать за {{rooms.price}}$"
+                                           ng-click="booking(rooms.id)" data-toggle="modal" data-target="#exampleModal">
+                                    <div class="room-icons mt-4 pt-4">
+                                        <img src="img/5.svg" alt="">
+                                        <img src="img/2.svg" alt="">
+                                        <img src="img/3.svg" alt="">
+                                        <!--<a href="rooms-gallery.html">full info</a>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 order-first order-lg-last">
+                    <div class="section background-dark p-4">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="input-daterange input-group" id="flight-datepicker">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-item">
+                                                <span class="fontawesome-calendar"></span>
+                                                <input class="input-sm" type="text" autocomplete="off" id="start-date-1"
+                                                       name="start" placeholder="дата приезда"
+                                                       data-date-format="DD, MM d"/>
+                                                <span class="date-text date-depart"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 pt-4">
+                                            <div class="form-item">
+                                                <span class="fontawesome-calendar"></span>
+                                                <input class="input-sm" type="text" autocomplete="off" id="end-date-1"
+                                                       name="end" placeholder="дата отъезда"
+                                                       data-date-format="DD, MM d"/>
+                                                <span class="date-text date-return"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12 pt-4">
+                                        <select name="adults" class="wide" id="selectPeople">
+                                            <option selected value="0">Количество человек</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                    <!--<div class="col-12 pt-4">-->
+                                    <!--<select name="children" class="wide">-->
+                                    <!--<option data-display="children">children</option>-->
+                                    <!--<option value="1">1</option>-->
+                                    <!--<option value="2">2</option>-->
+                                    <!--<option value="3">3</option>-->
+                                    <!--<option value="4">4</option>-->
+                                    <!--<option value="5">5</option>-->
+                                    <!--</select>-->
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                            <div class="col-12 pt-5">
+                                <h6 class="color-white mb-3">Максимальная цена за ночь</h6>
+                                <div class="selecteurPrix">
+                                    <div class="range-slider">
+                                        <input class="input-range" type="range" value="500" min="1" max="500"
+                                               id="inputPrice">
+                                        <div class="valeurPrix">
+                                            <span class="range-value"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 pt-5">
+                                <input type="button" value="Подобрать" id="btnSearch">
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-12 pt-5">
+                                <h6 class="color-white mb-3">Услуги:</h6>
+                                <ul class="list">
+                                    <li class="list__item">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" class="checkbox" id="serv1" value="Мини бар">
+                                            Мини бар
+                                        </label>
+                                    </li>
+                                    <li class="list__item">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" class="checkbox" id="serv2" value="Телевизор">
+                                            Телевизор
+                                        </label>
+                                    </li>
+                                    <li class="list__item">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" class="checkbox" id="serv3"
+                                                   value="Кровать для детей">
+                                            Кровать для детей
+                                        </label>
+                                    </li>
+                                    <li class="list__item">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" class="checkbox" id="serv4"
+                                                   value="Аренда велосипеда">
+                                            Аренда велосипеда
+                                        </label>
+                                    </li>
+                                    <li class="list__item">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" class="checkbox" id="serv5" value="Ethernet">
+                                            Ethernet
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-12 pt-5">
+                                <h6 class="color-white mb-3">Extra services:</h6>
+                                <ul class="list">
+                                    <li class="list__item">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" class="checkbox" id="servExtr1" value="Завтраки">
+                                            Завтраки
+                                        </label>
+                                    </li>
+                                    <li class="list__item">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" class="checkbox" id="servExtr2" value="Бассейн">
+                                            Бассейн
+                                        </label>
+                                    </li>
+                                    <li class="list__item">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" class="checkbox" id="servExtr3"
+                                                   value="Прокат автомобиля">
+                                            Прокат автомобиля
+                                        </label>
+                                    </li>
+                                    <li class="list__item">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" class="checkbox" id="servExtr4" value="Вид на море">
+                                            Вид на море
+                                        </label>
+                                    </li>
+                                    <li class="list__item">
+                                        <label class="label--checkbox">
+                                            <input type="checkbox" class="checkbox" id="servExtr5" value="Прачечная">
+                                            Прачечная
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section py-4 background-dark over-hide footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-left mb-2 mb-md-0">
+                <p>2019 © Всем отелям отель.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-right">
+                <a href="https://vk.com/hotels" class="social-footer-bottom">VK</a>
+                <a href="https://twitter.com/hotel" class="social-footer-bottom">twitter</a>
+                <a href="mainAdmin.html" class="social-footer-bottom">admin</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="scroll-to-top"></div>
+
+
+<!-- JAVASCRIPT
+================================================== -->
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/search.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/ng/search/angularCtrls.js"></script>
+<script src="js/bookingForm.js"></script>
+<!--<script src="js/jquery.payform.min.js" charset="utf-8"></script>-->
+<!--<script src="js/checkCard.js"></script>-->
 <!-- End Document
 ================================================== -->
 </body>
-</html>
+</html>`

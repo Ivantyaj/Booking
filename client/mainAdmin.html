@@ -56,10 +56,13 @@
             <!--<a class="nav-link" data-value="about" href="#">About</a>-->
             <!--</li>-->
             <li class="nav-item">
-                <a class="nav-link " data-value="blog" href="#">Звонки</a>
+                <a class="nav-link " data-value="call" href="#">Звонки</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " data-value="portfolio" href="#">Статискика</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " data-value="booking" href="#">Бронирование</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " data-value="team" href="#">Комнаты</a>
@@ -178,87 +181,121 @@
 
 
 <!-- Posts section -->
-<div class="blog" id="blog">
-    <div class="container">
-        <h1 class="text-center">Клиенты</h1>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="media-container-column col-lg-100" data-form-type="formoid">
-                    <div class="row row-sm-offset">
-                        <form class="mbr-form form-active" action="#" method="post" data-form-title="Mobirise Form">
-                            <div class="col-lg-80 col-md-80 col-sm-120 right">
-                                <div class="form-group">
-                                    <input type="text" class="form-control form-control-lg" placeholder="ФИО" name=""
-                                           id="clientName">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-lg"
-                                           placeholder="Email@email.com"
-                                           name="email" id="clientEmail">
-                                </div>
-                                <input type="submit" class="btn btn-secondary btn-block" value="Найти" name=""
-                                       id="btnFindClients">
-                            </div>
-                            </span>
-                        </form>
-                        <div class="col-lg-3 col-md-3 col-sm-12 item">
-                            <img src="images/team-3.jpg" class="img-fluid" alt="team">
-                            <div class="des" id="clientFindName">
-                                Клиент
-                            </div>
-                            <span class="text-muted" id="clientFindInf">Информация</span>
-                        </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 item" id="formFind" style="display: none">
-                            <form>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Количнство посещений</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1"
-                                           aria-describedby="emailHelp" placeholder="Enter email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleSelect1">Скидка</label>
-                                    <select class="form-control" id="exampleSelect1">
-                                        <option>Скидка не предоставляется</option>
-                                        <option>Скидка 5%</option>
-                                        <option>Скидкаа 10%</option>
-                                        <option>VIP Клиент (персональные условия)</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleTextarea">Дополнительная информация</label>
-                                    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-                                </div>
-                                <fieldset class="form-group">
-                                    <legend>Сервисы</legend>
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optionsRadios"
-                                                   id="optionsRadios1" value="option1" checked>
-                                            Страндартный набор серсисов
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" name="optionsRadios"
-                                                   id="optionsRadios2" value="option2">
-                                            Расширенный набор сервисов
-                                        </label>
-                                    </div>
-                                </fieldset>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input">
-                                        Отправить в черный список
-                                    </label>
-                                </div>
-                                <input type="submit" class="btn btn-secondary btn-block" value="Сохранить" name=""
-                                       id="btnSendClient">
-                            </form>
-                        </div>
+<!--<div class="blog" id="blog">-->
+    <!--<div class="container">-->
+        <!--<h1 class="text-center">Клиенты</h1>-->
+        <!--<div class="container">-->
+            <!--<div class="row justify-content-center">-->
+                <!--<div class="media-container-column col-lg-100" data-form-type="formoid">-->
+                    <!--<div class="row row-sm-offset">-->
+                        <!--<form class="mbr-form form-active" action="#" method="post" data-form-title="Mobirise Form">-->
+                            <!--<div class="col-lg-80 col-md-80 col-sm-120 right">-->
+                                <!--<div class="form-group">-->
+                                    <!--<input type="text" class="form-control form-control-lg" placeholder="ФИО" name=""-->
+                                           <!--id="clientName">-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                    <!--<input type="email" class="form-control form-control-lg"-->
+                                           <!--placeholder="Email@email.com"-->
+                                           <!--name="email" id="clientEmail">-->
+                                <!--</div>-->
+                                <!--<input type="submit" class="btn btn-secondary btn-block" value="Найти" name=""-->
+                                       <!--id="btnFindClients">-->
+                            <!--</div>-->
+                            <!--</span>-->
+                        <!--</form>-->
+                        <!--<div class="col-lg-3 col-md-3 col-sm-12 item">-->
+                            <!--<img src="images/team-3.jpg" class="img-fluid" alt="team">-->
+                            <!--<div class="des" id="clientFindName">-->
+                                <!--Клиент-->
+                            <!--</div>-->
+                            <!--<span class="text-muted" id="clientFindInf">Информация</span>-->
+                        <!--</div>-->
+                        <!--<div class="col-lg-3 col-md-3 col-sm-12 item" id="formFind" style="display: none">-->
+                            <!--<form>-->
+                                <!--<div class="form-group">-->
+                                    <!--<label for="exampleInputEmail1">Количнство посещений</label>-->
+                                    <!--<input type="email" class="form-control" id="exampleInputEmail1"-->
+                                           <!--aria-describedby="emailHelp" placeholder="Enter email">-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                    <!--<label for="exampleSelect1">Скидка</label>-->
+                                    <!--<select class="form-control" id="exampleSelect1">-->
+                                        <!--<option>Скидка не предоставляется</option>-->
+                                        <!--<option>Скидка 5%</option>-->
+                                        <!--<option>Скидкаа 10%</option>-->
+                                        <!--<option>VIP Клиент (персональные условия)</option>-->
+                                    <!--</select>-->
+                                <!--</div>-->
+                                <!--<div class="form-group">-->
+                                    <!--<label for="exampleTextarea">Дополнительная информация</label>-->
+                                    <!--<textarea class="form-control" id="exampleTextarea" rows="3"></textarea>-->
+                                <!--</div>-->
+                                <!--<fieldset class="form-group">-->
+                                    <!--<legend>Сервисы</legend>-->
+                                    <!--<div class="form-check">-->
+                                        <!--<label class="form-check-label">-->
+                                            <!--<input type="radio" class="form-check-input" name="optionsRadios"-->
+                                                   <!--id="optionsRadios1" value="option1" checked>-->
+                                            <!--Страндартный набор серсисов-->
+                                        <!--</label>-->
+                                    <!--</div>-->
+                                    <!--<div class="form-check">-->
+                                        <!--<label class="form-check-label">-->
+                                            <!--<input type="radio" class="form-check-input" name="optionsRadios"-->
+                                                   <!--id="optionsRadios2" value="option2">-->
+                                            <!--Расширенный набор сервисов-->
+                                        <!--</label>-->
+                                    <!--</div>-->
+                                <!--</fieldset>-->
+                                <!--<div class="form-check">-->
+                                    <!--<label class="form-check-label">-->
+                                        <!--<input type="checkbox" class="form-check-input">-->
+                                        <!--Отправить в черный список-->
+                                    <!--</label>-->
+                                <!--</div>-->
+                                <!--<input type="submit" class="btn btn-secondary btn-block" value="Сохранить" name=""-->
+                                       <!--id="btnSendClient">-->
+                            <!--</form>-->
+                        <!--</div>-->
 
-                    </div>
-                </div>
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="blog" id="booking" ng-controller="BookingController">
+    <div class="container">
+        <h1 class="text-center">Лист бронирования</h1>
+
+        <div class="table-responsive col-md-12">
+            <div class="md-form mb-9 textarea active-textarea-2">
+                <label for="messageBooking">Укажите причину отмены бронирования!</label>
+                <textarea id="messageBooking" class="md-textarea form-control" cols="60" rows="5"></textarea>
+                <br>
             </div>
+
+            <table class="table table-striped">
+                <tr>
+                    <th>Имя</th>
+                    <th>Телефон</th>
+                    <th>Сообщение</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="booking in bookings">
+                    <td>{{booking.id}}</td>
+                    <td>{{booking.phone}}</td>
+                    <td>{{booking.lastMessage}}</td>
+                    <td>
+                        <button type="button" class="btn btn-default"
+                                ng-click="cancelBooking(booking)">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true">Отменить бронирование</span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
@@ -458,6 +495,9 @@
 
 <script type="text/javascript" src="js/ng/crud/controllers/client.controller.js"></script>
 <script type="text/javascript" src="js/ng/crud/services/client.service.js"></script>
+
+<script type="text/javascript" src="js/ng/crud/controllers/booking.controller.js"></script>
+<script type="text/javascript" src="js/ng/crud/services/booking.service.js"></script>
 
 <script type="text/javascript" src='js/adminPageJs/Chart.js'></script>
 <script type="text/javascript" src="js/adminPageJs/jquery-ui.js"></script>

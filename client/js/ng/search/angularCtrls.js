@@ -28,6 +28,9 @@ appSearch.controller("searchCtrl", function ($scope, $http) {
     var clients = getUrlParameter('clients');
     var price = getUrlParameter('price');
 
+    $('#start-date-1').val(startDate);
+    $('#end-date-1').val(endDate);
+
     $http.get("http://localhost:8080/hotel/booking/searchFree?startDate=" + startDate + "&endDate=" + endDate + "&clients=" + clients + "&price=" + price)
         .then(function (result) {
                 console.log('success', result);
@@ -126,10 +129,14 @@ appSearch.controller("searchCtrl", function ($scope, $http) {
             contentType: 'application/json',
             dataType: 'json',
             success: function(data) {
+                $('#cardPayment').fadeOut();
                 console.log("Succc bbouk", data);
             },
             error:  function(data){
                 console.log("Err book", data);
+
+                alert('Заявка принята! Проверьте почту!');
+                $('#cardPayment').fadeOut();
             }
         });
 
