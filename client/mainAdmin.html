@@ -279,15 +279,19 @@
 
             <table class="table table-striped">
                 <tr>
+                    <th>Код брони</th>
                     <th>Имя</th>
                     <th>Телефон</th>
-                    <th>Сообщение</th>
+                    <th>Приезд</th>
+                    <th>Отъезд</th>
                     <th></th>
                 </tr>
                 <tr ng-repeat="booking in bookings">
                     <td>{{booking.id}}</td>
-                    <td>{{booking.phone}}</td>
-                    <td>{{booking.lastMessage}}</td>
+                    <td>{{booking.client.fio}}</td>
+                    <td>{{booking.client.phone}}</td>
+                    <td>{{booking.arrivalDate}}</td>
+                    <td>{{booking.leavingDate}}</td>
                     <td>
                         <button type="button" class="btn btn-default"
                                 ng-click="cancelBooking(booking)">

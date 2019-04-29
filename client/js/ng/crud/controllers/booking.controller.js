@@ -56,9 +56,15 @@ function BookingController($scope, Booking) {
             dataType: 'json',
             success: function(data) {
                 console.log("Succc bbouk", data);
+                $scope.bookings = Booking.query();
+                location.reload();
+                alert("возможно стоит обновить страницу!");
             },
             error:  function(data){
                 console.log("Err book", data);
+                $scope.bookings = Booking.query();
+                location.reload();
+                alert("возможно стоит обновить страницу!");
             }
         });
 

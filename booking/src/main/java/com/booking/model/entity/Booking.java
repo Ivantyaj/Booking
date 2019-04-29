@@ -1,5 +1,6 @@
 package com.booking.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
