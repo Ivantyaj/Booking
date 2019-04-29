@@ -15,7 +15,7 @@ public class Booking implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "id_room", nullable = false)
     private HotelRoom hotelRoom;
 
@@ -33,6 +33,9 @@ public class Booking implements Serializable {
 
     @Column(name = "human_amount")
     private Long humanAmount;
+
+    @Column(name = "status")
+    private Boolean status = false;
 
     public Booking() {
     }
@@ -60,7 +63,6 @@ public class Booking implements Serializable {
     public void setHotelRoom(HotelRoom hotelRoom) {
         this.hotelRoom = hotelRoom;
     }
-
 
 
     public Client getClient() {
@@ -95,6 +97,14 @@ public class Booking implements Serializable {
         this.humanAmount = humanAmount;
     }
 
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -107,7 +117,8 @@ public class Booking implements Serializable {
         if (client != null ? !client.equals(booking.client) : booking.client != null) return false;
         if (arrivalDate != null ? !arrivalDate.equals(booking.arrivalDate) : booking.arrivalDate != null) return false;
         if (leavingDate != null ? !leavingDate.equals(booking.leavingDate) : booking.leavingDate != null) return false;
-        return humanAmount != null ? humanAmount.equals(booking.humanAmount) : booking.humanAmount == null;
+        if (humanAmount != null ? !humanAmount.equals(booking.humanAmount) : booking.humanAmount != null) return false;
+        return status != null ? status.equals(booking.status) : booking.status == null;
 
     }
 
@@ -119,6 +130,7 @@ public class Booking implements Serializable {
         result = 31 * result + (arrivalDate != null ? arrivalDate.hashCode() : 0);
         result = 31 * result + (leavingDate != null ? leavingDate.hashCode() : 0);
         result = 31 * result + (humanAmount != null ? humanAmount.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
 
@@ -126,11 +138,12 @@ public class Booking implements Serializable {
     public String toString() {
         return "Booking{" +
                 "id=" + id +
-//                ", hotelRoom=" + hotelRoom +
-//                ", client=" + client +
+                ", hotelRoom=" + hotelRoom +
+                ", client=" + client +
                 ", arrivalDate=" + arrivalDate +
                 ", leavingDate=" + leavingDate +
                 ", humanAmount=" + humanAmount +
+                ", status=" + status +
                 '}';
     }
 }

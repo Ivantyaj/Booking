@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.Arrays;
 import java.util.List;
 
@@ -35,11 +37,16 @@ public class MailSenderServiceImpl implements MailSenderService {
     }
 
     @Override
-    public void mailAll(String message) {
+    public void mailAll(String message, URI uri) {
         List<Subscriber> subscriberList = subscriberService.findAll();
+
         System.err.println(Arrays.toString(subscriberList.toArray()));
-        for (Subscriber subscriber : subscriberList){
-            sendEmail(subscriber.getEmail(),"Mailing",message);
+
+        for (Subscriber subscriber : subscriberList) {
+            URI link = UriComponentsBuilder.fromUri(uri)
+                    .queryParam("email", subscriber.getEmail()).build().toUri();
+            String messageText = "Перейдите по ссылке :" + link + ", если хотите отписаться от рассылки.С уважением, команда Booking Hotel.";
+            sendEmail(subscriber.getEmail(), "Mailing", message + messageText);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.booking.service;
 
+import com.booking.exceptions.NotFoundException;
 import com.booking.model.entity.Booking;
 import com.booking.model.repository.BookingRepository;
 import com.booking.service.iface.BookingService;
@@ -25,4 +26,17 @@ public class BookingServiceImpl implements BookingService {
     public Booking save(Booking booking) {
         return bookingRepository.save(booking);
     }
+
+    @Override
+    public Booking findById(Long id) {
+        return bookingRepository.findById(id).orElseThrow(() ->
+                new NotFoundException("Запись о бронировании не найдена"));
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        bookingRepository.deleteById(id);
+    }
+
+
 }

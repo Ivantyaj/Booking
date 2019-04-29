@@ -63,7 +63,8 @@ public class SubscribeController extends BaseController {
 
     @PostMapping(value = "/mailing", produces = "application/json", consumes = "application/json")
     public ResponseEntity mailing(@RequestBody MailingRequest mailingRequest) {
-        mailSenderService.mailAll(mailingRequest.getMessage());
+        URI uri = URI.create("http://localhost:8080/news/unsubscribe");
+        mailSenderService.mailAll(mailingRequest.getMessage(),uri);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
