@@ -5,6 +5,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -24,8 +25,8 @@ public class HotelRoom implements Serializable {
     @JoinColumn(name = "id_type")
     private HotelRoomType hotelRoomType;
 
-    @OneToOne(mappedBy = "hotelRoom")
-    private Booking booking;
+    @OneToMany(mappedBy = "hotelRoom")
+    private List<Booking> booking;
 
     @Column(name = "price", length = 1000)
     private Double price;

@@ -25,8 +25,7 @@ public class Client implements Serializable {
     private String phone;
     @Column(name = "email")
     private String email;
-    @Column(name = "passport_num")
-    private String passportNumber;
+
     @Column(name = "count_visiting")
     private Long visitingCount;
 
@@ -52,6 +51,11 @@ public class Client implements Serializable {
 //    private Set<HotelRoom> hotelRoomSet;
 
     public Client() {
+    }
+
+    public Client(String email, String phone) {
+        this.email = email;
+        this.phone = phone;
     }
 
     public Long getId() {
@@ -128,8 +132,7 @@ public class Client implements Serializable {
         if (fio != null ? !fio.equals(client.fio) : client.fio != null) return false;
         if (phone != null ? !phone.equals(client.phone) : client.phone != null) return false;
         if (email != null ? !email.equals(client.email) : client.email != null) return false;
-        if (passportNumber != null ? !passportNumber.equals(client.passportNumber) : client.passportNumber != null)
-            return false;
+
         if (visitingCount != null ? !visitingCount.equals(client.visitingCount) : client.visitingCount != null)
             return false;
 //        if (discount != null ? !discount.equals(client.discount) : client.discount != null) return false;
@@ -146,7 +149,6 @@ public class Client implements Serializable {
         result = 31 * result + (fio != null ? fio.hashCode() : 0);
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (passportNumber != null ? passportNumber.hashCode() : 0);
         result = 31 * result + (visitingCount != null ? visitingCount.hashCode() : 0);
 //        result = 31 * result + (discount != null ? discount.hashCode() : 0);
         result = 31 * result + (needCall ? 1 : 0);
@@ -177,13 +179,6 @@ public class Client implements Serializable {
         this.email = email;
     }
 
-    public String getPassportNumber() {
-        return passportNumber;
-    }
-
-    public void setPassportNumber(String passportNumber) {
-        this.passportNumber = passportNumber;
-    }
 
     public Long getVisitingCount() {
         return visitingCount;
@@ -218,7 +213,6 @@ public class Client implements Serializable {
                 ", fio='" + fio + '\'' +
                 ", phone='" + phone + '\'' +
                 ", email='" + email + '\'' +
-                ", passportNumber='" + passportNumber + '\'' +
                 ", visitingCount=" + visitingCount +
 //                ", discount=" + discount +
                 ", needCall=" + needCall +

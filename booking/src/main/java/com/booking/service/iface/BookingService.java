@@ -8,4 +8,8 @@ public interface BookingService {
     List<Booking> getAll();
 
     Booking save(Booking booking);
+
+    Booking findById(Long id);
+
+    void deleteById(Long id);
 }

@@ -22,9 +22,24 @@ create table if not exists room_type
     id bigint auto_increment
         primary key,
     name varchar(45) not null,
-    human_amount bigint not null,
     description varchar(255) null
 );
+
+create table if not exists hotel_room
+(
+    id bigint auto_increment
+        primary key,
+    people_amount bigint default 1 not null,
+    id_type bigint null,
+    price double not null,
+    picture_url varchar(255) default 'https://vk.cc/9kOXbA' not null,
+    description varchar(255) default ' Пока нет описания ' not null,
+    constraint idtype
+        foreign key (id_type) references room_type (id)
+);
+
+create index idtype_idx
+    on hotel_room (id_type);
 
 create table if not exists service
 (
@@ -63,7 +78,6 @@ create table if not exists client
     fio varchar(255) not null,
     phone varchar(45) not null,
     email varchar(45) not null,
-    passport_num varchar(45) not null,
     count_visiting bigint default 0 not null,
     id_discount bigint null,
     need_call bit default b'0' not null,
@@ -76,6 +90,34 @@ create table if not exists client
     constraint iduser
         foreign key (id_user) references user (id)
 );
+
+create table if not exists booking
+(
+    id bigint auto_increment
+        primary key,
+    id_room bigint not null,
+    id_service bigint null,
+    arrival_date datetime not null,
+    leaving_date datetime not null,
+    id_client bigint not null,
+    human_amount bigint not null,
+    status bit default b'0' null,
+    constraint clients
+        foreign key (id_client) references client (id),
+    constraint idroom
+        foreign key (id_room) references hotel_room (id),
+    constraint idservice
+        foreign key (id_service) references service (id)
+);
+
+create index idclient_idx
+    on booking (id_client);
+
+create index idroom_idx
+    on booking (id_room);
+
+create index idservice_idx
+    on booking (id_service);
 
 create index iddiscount_idx
     on client (id_discount);
@@ -96,55 +138,6 @@ create table if not exists feedback
 
 create index idclients_idx
     on feedback (id_client);
-
-create table if not exists hotel_room
-(
-    id bigint auto_increment
-        primary key,
-    room_amount bigint default 1 null,
-    id_type bigint null,
-    id_client bigint null,
-    price double not null,
-    picture_url varchar(255) default 'https://pp.userapi.com/c854028/v854028525/2b94f/DcPoMxV66Xk.jpg' not null,
-    description varchar(255) default ' Пока нет описания ' not null,
-    constraint idclient
-        foreign key (id_client) references client (id),
-    constraint idtype
-        foreign key (id_type) references room_type (id)
-);
-
-create table if not exists booking
-(
-    id bigint auto_increment
-        primary key,
-    id_room bigint not null,
-    id_service bigint null,
-    arrival_date datetime not null,
-    leaving_date datetime not null,
-    id_client bigint not null,
-    human_amount bigint not null,
-    constraint clients
-        foreign key (id_client) references client (id),
-    constraint idroom
-        foreign key (id_room) references hotel_room (id),
-    constraint idservice
-        foreign key (id_service) references service (id)
-);
-
-create index idclient_idx
-    on booking (id_client);
-
-create index idroom_idx
-    on booking (id_room);
-
-create index idservice_idx
-    on booking (id_service);
-
-create index idclient_idx
-    on hotel_room (id_client);
-
-create index idtype_idx
-    on hotel_room (id_type);
 
 create index idrole_idx
     on user (id_role);

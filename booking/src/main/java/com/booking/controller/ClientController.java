@@ -85,15 +85,15 @@ public class ClientController extends BaseController {
     @ApiOperation(value = "Get stats2", response = GenericResponse.class, notes = "get_stats2")
     @GetMapping(value = "/statsClient2")
     @ResponseBody
-    public List<List> getStats2(@RequestParam String startDate,
+    public Set<Set> getStats2(@RequestParam String startDate,
                                 @RequestParam String endDate) {
 
 
         List<HotelRoom> hotelRoomList = hotelRoomService.getAll();
-        List<String> headers = hotelRoomList.stream()
+        Set<String> headers = hotelRoomList.stream()
                 .map(HotelRoom::getHotelRoomType)
                 .map(HotelRoomType::getType_name)
-                .collect(Collectors.toList());
+                .collect(Collectors.toSet());
         List<Booking> bookingList = bookingService.getAll();
 
 
@@ -104,9 +104,9 @@ public class ClientController extends BaseController {
 //        System.err.println(Arrays.toString(data2.toArray()));
 
 
-        ArrayList<List> toSend = new ArrayList<>();
+        Set<Set> toSend = new HashSet<>();
         toSend.add(headers);
-        toSend.add(data1);
+        toSend.add(data1.stream().collect(Collectors.toSet()));
 //        toSend.add(data2);
 
         return toSend;
@@ -129,7 +129,6 @@ public class ClientController extends BaseController {
             clientNew.setFio(client.getFio());
             clientNew.setPhone(client.getPhone());
             clientNew.setEmail(client.getEmail());
-            clientNew.setPassportNumber(client.getPassportNumber());
             clientNew.setVisitingCount(client.getVisitingCount());
             clientNew.setDiscount(client.getDiscount());
             clientNew.setNeedCall(client.isNeedCall());
