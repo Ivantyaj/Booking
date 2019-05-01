@@ -1,6 +1,5 @@
 package com.booking.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -30,6 +29,13 @@ public class User implements Serializable {
 
     public User() {
     }
+
+    public User(String email, String email1, long roleId) {
+        this.login = email;
+        this.password = email1;
+        this.role = new Role(roleId);
+    }
+
 
     public Long getId() {
         return id;

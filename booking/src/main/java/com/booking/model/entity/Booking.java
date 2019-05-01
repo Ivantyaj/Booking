@@ -1,6 +1,5 @@
 package com.booking.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -139,7 +138,7 @@ public class Booking implements Serializable {
     public String toString() {
         return "Booking{" +
                 "id=" + id +
-                ", hotelRoom=" + hotelRoom +
+//                ", hotelRoom=" + hotelRoom +
                 ", client=" + client +
                 ", arrivalDate=" + arrivalDate +
                 ", leavingDate=" + leavingDate +
