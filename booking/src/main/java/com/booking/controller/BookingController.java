@@ -1,15 +1,11 @@
 package com.booking.controller;
 
 import com.booking.model.entity.*;
-import com.booking.service.iface.BookingService;
-import com.booking.service.iface.ClientService;
-import com.booking.service.iface.HotelRoomService;
-import com.booking.service.iface.MailSenderService;
+import com.booking.service.iface.*;
 import com.booking.utils.DateUtils;
 import com.booking.utils.logging.GenericResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,8 +17,9 @@ import java.net.URI;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.LinkedList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController(value = "BookingController")
@@ -35,62 +32,74 @@ public class BookingController extends BaseController {
     private final HotelRoomService hotelRoomService;
     private final ClientService clientService;
     private final MailSenderService mailSenderService;
+    private final UserService userService;
 
     @Autowired
-    public BookingController(BookingService bookingService, HotelRoomService hotelRoomService, ClientService clientService, MailSenderService mailSenderService) {
+    public BookingController(BookingService bookingService, HotelRoomService hotelRoomService, ClientService clientService, MailSenderService mailSenderService, UserService userService) {
         this.bookingService = bookingService;
         this.hotelRoomService = hotelRoomService;
         this.clientService = clientService;
         this.mailSenderService = mailSenderService;
+        this.userService = userService;
     }
 
     @ApiOperation(value = "find free", response = GenericResponse.class, notes = "find_free")
     @GetMapping(value = "/searchFree")
     @ResponseBody
-    public List<HotelRoom> getFreeRooms(@RequestParam String startDate,
-                                        @RequestParam String endDate,
-                                        @RequestParam String clients,
-                                        @RequestParam String price) throws ParseException {
+    public Set<HotelRoom> getFreeRooms(@RequestParam String startDate,
+                                       @RequestParam String endDate,
+                                       @RequestParam String clients,
+                                       @RequestParam String price) throws ParseException {
         System.err.println(startDate + " " + endDate + " " + clients + " " + price);
 
 //todo date should be in format dd.MM.yyyy
         List<Booking> bookingList = bookingService.getAll();
         List<HotelRoom> hotelRoomList = hotelRoomService.getAll();
         List<HotelRoom> bookedRooms = bookingList.stream().map(Booking::getHotelRoom).collect(Collectors.toList());
-        List<HotelRoom> freeRooms = new LinkedList<>();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM.dd.yyyy");
+        Set<HotelRoom> freeRooms = new HashSet<>();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         Date date = dateFormat.parse(startDate);
         for (Booking booking : bookingList) {
             if (DateUtils.compareDates(date, Date.from(booking.getLeavingDate()))) {
                 freeRooms.add(booking.getHotelRoom());
             }
         }
-        freeRooms.addAll(hotelRoomList.stream()
-                .filter(room -> !bookedRooms.contains(room))
-                .filter(room -> room.getPrice() <= Double.parseDouble(price))
+        System.err.println(freeRooms.stream().map(HotelRoom::getId).collect(Collectors.toSet()));
+        freeRooms.addAll(hotelRoomList);
+        System.err.println(freeRooms.stream().map(HotelRoom::getId).collect(Collectors.toSet()));
+        return freeRooms.stream()
+//                .filter(room -> !bookedRooms.contains(room))
                 .filter(room -> room.getPeopleAmount() >= Long.parseLong(clients))
-                .collect(Collectors.toList())
-        );
-        System.err.println(freeRooms.size());
-        System.err.println(freeRooms.stream().map(HotelRoom::getId).collect(Collectors.toList()));
-        return freeRooms;
+                .filter(room -> room.getPrice() <= Double.parseDouble(price))
+                .collect(Collectors.toSet());
     }
 
     @PostMapping(value = "/booking", produces = "application/json", consumes = "application/json")
     public ResponseEntity bookingRoom(@RequestBody BookingRequest bookingRequest) throws ParseException {
         //новый клиент если такого нет
+        System.err.println(bookingRequest);
         Client client = clientService.findByEmailAndPhone(bookingRequest.getClientEmail(),
                 bookingRequest.getClientPhone());
-        if (!StringUtils.isEmpty(client.getEmail())
-                || !StringUtils.isEmpty(client.getPhone())
-                || StringUtils.isEmpty(client.getCardHolder())
-                || StringUtils.isEmpty(client.getCardCVV())
-                || StringUtils.isEmpty(client.getCardDate())
-                || StringUtils.isEmpty(client.getFio())) {
+        System.err.println(client);
+        if (client.getVisitingCount() == null) {
+            client.setVisitingCount(1L);
+            client.setFio(bookingRequest.getClientName());
+            User user = userService.save(new User(client.getEmail(), client.getEmail(), 2L));
+            client.setUser(user);
+            client.setLastMessage(bookingRequest.getMessage());
+            client.setNeedCall(bookingRequest.isNeedBackCall());
+            client.setCardCVV(bookingRequest.getCardCVV());
+            client.setCardDate(bookingRequest.getCardData());
+            client.setCardHolder(bookingRequest.getCardHolder());
+            clientService.save(client);
+        } else {
+            client.setCardCVV(bookingRequest.getCardCVV());
+            client.setCardDate(bookingRequest.getCardData());
+            client.setCardHolder(bookingRequest.getCardHolder());
             clientService.save(client);
         }
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM.dd.yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
         Date dateFrom = dateFormat.parse(bookingRequest.getDataFrom());
         Date dateTo = dateFormat.parse(bookingRequest.getDataTo());
         HotelRoom hotelRoom = hotelRoomService.findById(bookingRequest.getRoomId());

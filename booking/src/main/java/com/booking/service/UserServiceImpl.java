@@ -22,4 +22,10 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByLoginAndPassword(login, password).orElseThrow(() ->
                 new NotFoundException("User not found"));
     }
+
+    @Override
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+
 }

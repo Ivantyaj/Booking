@@ -8,8 +8,8 @@ public class DateUtils {
 
     public static boolean compareDates(Date firstDate, Date secondDate) {
         DateTimeComparator dateTimeComparator = DateTimeComparator.getDateOnlyInstance();
-        System.err.println(firstDate);
-        System.err.println(secondDate);
+        System.err.println("Start date :" +firstDate);
+        System.err.println("Leaving date :" +secondDate);
         return dateTimeComparator.compare(firstDate, secondDate) > 0;
     }
 }

@@ -1,13 +1,11 @@
 package com.booking.model.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.Set;
 
 
 @Entity
@@ -30,6 +28,10 @@ public class Role implements Serializable {
 //    private Set<User> userSet;
 
     public Role() {
+    }
+
+    public Role(Long roleId) {
+        this.id = roleId;
     }
 
     public Long getId() {
