@@ -49,23 +49,33 @@ public class BookingController extends BaseController {
                                        @RequestParam String price) throws ParseException {
         System.err.println(startDate + " " + endDate + " " + clients + " " + price);
 
-//todo date should be in format dd.MM.yyyy
         List<Booking> bookingList = bookingService.getAll();
         List<HotelRoom> hotelRoomList = hotelRoomService.getAll();
-        Set<HotelRoom> bookedRooms = bookingList.stream().map(Booking::getHotelRoom).collect(Collectors.toSet());
-        List<HotelRoom> freeRooms = new LinkedList<>();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM.dd.yyyy");
-        Date date = dateFormat.parse(startDate);
+
+        Set<HotelRoom> notFreeRooms = new HashSet<>();
+        Set<HotelRoom> freeRooms = new HashSet<>();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        Date dateStart = dateFormat.parse(startDate);
+        Date dateEnd = dateFormat.parse(endDate);
+
         for (Booking booking : bookingList) {
-            if (DateUtils.compareDates(date, Date.from(booking.getLeavingDate()))) {
-                freeRooms.add(booking.getHotelRoom());
+            if ((dateStart.after(Date.from(booking.getArrivalDate())) && dateStart.before(Date.from(booking.getLeavingDate()))) ||
+                    (dateEnd.after(Date.from(booking.getArrivalDate())) && dateStart.before(Date.from(booking.getLeavingDate())))){
+                notFreeRooms.add(booking.getHotelRoom());
             }
         }
+
+        for(HotelRoom room : hotelRoomList){
+            if(!notFreeRooms.contains(room)){
+                freeRooms.add(room);
+            }
+        }
+
+        System.err.println(notFreeRooms.stream().map(HotelRoom::getId).collect(Collectors.toSet()));
         System.err.println(freeRooms.stream().map(HotelRoom::getId).collect(Collectors.toSet()));
-        freeRooms.addAll(hotelRoomList);
-        System.err.println(freeRooms.stream().map(HotelRoom::getId).collect(Collectors.toSet()));
+
         return freeRooms.stream()
-                .filter(room -> !bookedRooms.contains(room))
                 .filter(room -> room.getPeopleAmount() >= Long.parseLong(clients))
                 .filter(room -> room.getPrice() <= Double.parseDouble(price))
                 .collect(Collectors.toSet());
