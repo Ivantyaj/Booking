@@ -8,7 +8,6 @@ public class DateUtils {
 
     public static boolean compareDates(Date firstDate, Date secondDate) {
         DateTimeComparator dateTimeComparator = DateTimeComparator.getDateOnlyInstance();
-
         return dateTimeComparator.compare(firstDate, secondDate) > 0;
     }
 }

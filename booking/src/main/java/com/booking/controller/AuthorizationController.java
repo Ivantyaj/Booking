@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController(value = "AuthorizationController")
 @CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
 @RequestMapping(value = "/auth")
-@Api(tags = "booking")
+@Api(tags = "authorization")
 public class AuthorizationController extends BaseController {
 
     private final UserService userService;
@@ -26,11 +26,8 @@ public class AuthorizationController extends BaseController {
 
     @PostMapping(value = "/login", produces = "application/json", consumes = "application/json")
     public ResponseEntity authorize(@RequestBody AuthorizationRequest authorizationRequest) {
-//add authorization here
         User user = userService.findByLoginAndPassword(authorizationRequest.getLogin(),
                 authorizationRequest.getPassword());
-        System.out.println("AUTH =>>> " + authorizationRequest);
-        System.err.println(user);
         return new ResponseEntity<>(new GenericResponse("Success authorization"), HttpStatus.OK);
     }
 }

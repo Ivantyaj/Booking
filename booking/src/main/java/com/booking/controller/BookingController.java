@@ -2,8 +2,6 @@ package com.booking.controller;
 
 import com.booking.model.entity.*;
 import com.booking.service.iface.*;
-import com.booking.utils.DateUtils;
-import com.booking.utils.logging.GenericResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +14,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController(value = "BookingController")
@@ -40,7 +41,7 @@ public class BookingController extends BaseController {
         this.userService = userService;
     }
 
-    @ApiOperation(value = "find free", response = GenericResponse.class, notes = "find_free")
+    @ApiOperation(value = "find free", response = Set.class, notes = "find_free")
     @GetMapping(value = "/searchFree")
     @ResponseBody
     public Set<HotelRoom> getFreeRooms(@RequestParam String startDate,
@@ -81,6 +82,7 @@ public class BookingController extends BaseController {
                 .collect(Collectors.toSet());
     }
 
+    @ApiOperation(value = "booking room", response = ResponseEntity.class, notes = "booking_room")
     @PostMapping(value = "/booking", produces = "application/json", consumes = "application/json")
     public ResponseEntity bookingRoom(@RequestBody BookingRequest bookingRequest) throws ParseException {
         //новый клиент если такого нет
@@ -128,6 +130,7 @@ public class BookingController extends BaseController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @ApiOperation(value = "confirming booking", response = ResponseEntity.class, notes = "confirm_booking")
     @GetMapping(value = "/confirm")
     public ResponseEntity confirmBooking(@RequestParam("id") Long id) {
         Booking booking = bookingService.findById(id);
@@ -135,7 +138,7 @@ public class BookingController extends BaseController {
         bookingService.save(booking);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
+    @ApiOperation(value = "cancel booking", response = ResponseEntity.class, notes = "cancel_booking")
     @PostMapping(value = "/cancel", produces = "application/json", consumes = "application/json")
     public ResponseEntity cancelBooking(@RequestBody CancelBookingRequest request) {
         Booking booking = bookingService.findById(request.getId());
@@ -143,7 +146,7 @@ public class BookingController extends BaseController {
         mailSenderService.sendEmail(booking.getClient().getEmail(), "Cancel booking", request.getMessage());
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
+    @ApiOperation(value = "get all bookings", response = Set.class, notes = "get_all_bookings")
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Booking> getAllBooking() {
         return bookingService.getAll();
