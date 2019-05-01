@@ -212,7 +212,7 @@ var createGraphRose = function (labels, data1, data2){
         data: {
             labels: labels,
             datasets: [{
-                label: "My First Dataset",
+                label: "Заказы",
                 data: data1,
                 fill: true,
                 backgroundColor: "rgba(255, 99, 132, 0.2)",
@@ -221,19 +221,31 @@ var createGraphRose = function (labels, data1, data2){
                 pointBorderColor: "#fff",
                 pointHoverBackgroundColor: "#fff",
                 pointHoverBorderColor: "rgb(255, 99, 132)"
-            }, {
-                label: "My Second Dataset",
-                data: data2,
-                fill: true,
-                backgroundColor: "rgba(54, 162, 235, 0.2)",
-                borderColor: "rgb(54, 162, 235)",
-                pointBackgroundColor: "rgb(54, 162, 235)",
-                pointBorderColor: "#fff",
-                pointHoverBackgroundColor: "#fff",
-                pointHoverBorderColor: "rgb(54, 162, 235)"
-            }]
+            }
+            // , {
+            //     label: "My Second Dataset",
+            //     data: data2,
+            //     fill: true,
+            //     backgroundColor: "rgba(54, 162, 235, 0.2)",
+            //     borderColor: "rgb(54, 162, 235)",
+            //     pointBackgroundColor: "rgb(54, 162, 235)",
+            //     pointBorderColor: "#fff",
+            //     pointHoverBackgroundColor: "#fff",
+            //     pointHoverBorderColor: "rgb(54, 162, 235)"
+            // }
+            ]
         },
-        options: {elements: {line: {tension: 0, borderWidth: 3}}}
+        options: {elements: {line: {tension: 0, borderWidth: 3}},
+            scale: {
+                ticks: {
+                    beginAtZero: true,
+                    min: 0,
+                },
+                pointLabels: {
+                    fontSize: 18
+                }
+            }
+        }
     });
 }
 

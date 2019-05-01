@@ -84,22 +84,25 @@ public class ClientController extends BaseController {
         List<Date> dates = bookingList.stream()
                 .map(booking -> Date.from(booking.getArrivalDate()))
                 .sorted().collect(Collectors.toList());
-        dates.forEach(System.err::println);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM");
 
-        List<String> monthes = Arrays.asList("Янв.", "Фев.", "Март", "Апр.", "Май", "Июнь", "Июль", "Авг.", "Сент.", "Окт.", "Нояб.", "Дек.");
+        //dates.forEach(System.err::println);
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat("Mmm");
+
+        List<String> monthes = Arrays.asList("Янв.", "Фев.", "Мар.", "Апр.", "Май.", "Июн.", "Июл.", "Авг.", "Сен.", "Окт.", "Ноя.", "Дек.");
+
+        List<Integer> monthesNum = Arrays.asList(0,1,2,3,4,5,6,7,8,9,10,11);
 
         List<Long> counts = new LinkedList<>();
-        for (String string : monthes) {
-            counts.add(dates.stream().map(
-                    date -> dateFormat.format(date).equals(string)
-            ).filter(Boolean::booleanValue).count());
+
+        for(Integer month: monthesNum){
+            counts.add(dates.stream().map(date -> date.getMonth() == month).filter(Boolean::booleanValue).count());
         }
+        System.out.println("count\n"+counts);
 
         List<List> toSend = new ArrayList<>();
         toSend.add(monthes);
-//        counts.add(0L);
+
         toSend.add(counts);
 
         return toSend;
