@@ -37,7 +37,7 @@ public class ClientController extends BaseController {
         this.bookingService = bookingService;
     }
 
-    @ApiOperation(value = "Create client", response = GenericResponse.class, notes = "client_create")
+    @ApiOperation(value = "Create client", response = ResponseEntity.class, notes = "client_create")
     @PostMapping(value = "/create")
     public ResponseEntity<GenericResponse> addClient(@RequestBody Client client) {
         System.err.println(client);
@@ -45,14 +45,14 @@ public class ClientController extends BaseController {
         return new ResponseEntity<>(new GenericResponse("message"), HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Get client", response = GenericResponse.class, notes = "get_client")
+    @ApiOperation(value = "Get client", response = ResponseEntity.class, notes = "get_client")
     @GetMapping(value = "/{id}")
     public ResponseEntity<GenericResponse> getClient(@PathVariable("id") Long id) {
         Client client = clientService.getById(id);
         return new ResponseEntity<>(new GenericResponse("Client " + client), HttpStatus.OK);
     }
 
-    @ApiOperation(value = "Get stats", response = GenericResponse.class, notes = "get_stats")
+    @ApiOperation(value = "Get stats", response = List.class, notes = "get_stats")
     @GetMapping(value = "/statsClient")
     @ResponseBody
     public List<List> getStats(@RequestParam String startDate,
@@ -74,7 +74,7 @@ public class ClientController extends BaseController {
         return toSend;
     }
 
-    @ApiOperation(value = "Get stats2", response = GenericResponse.class, notes = "get_stats2")
+    @ApiOperation(value = "Get stats2", response = List.class, notes = "get_stats2")
     @GetMapping(value = "/statsClient2")
     @ResponseBody
     public List<List> getStats2(@RequestParam String startDate,
@@ -91,14 +91,14 @@ public class ClientController extends BaseController {
 
         List<String> monthes = Arrays.asList("Янв.", "Фев.", "Мар.", "Апр.", "Май.", "Июн.", "Июл.", "Авг.", "Сен.", "Окт.", "Ноя.", "Дек.");
 
-        List<Integer> monthesNum = Arrays.asList(0,1,2,3,4,5,6,7,8,9,10,11);
+        List<Integer> monthesNum = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11);
 
         List<Long> counts = new LinkedList<>();
 
-        for(Integer month: monthesNum){
+        for (Integer month : monthesNum) {
             counts.add(dates.stream().map(date -> date.getMonth() == month).filter(Boolean::booleanValue).count());
         }
-        System.out.println("count\n"+counts);
+        System.out.println("count\n" + counts);
 
         List<List> toSend = new ArrayList<>();
         toSend.add(monthes);
@@ -108,11 +108,13 @@ public class ClientController extends BaseController {
         return toSend;
     }
 
+    @ApiOperation(value = "get all clients", response = ResponseEntity.class, notes = "get_all_clients")
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Client> getAllClient() {
         return clientService.getAll();
     }
 
+    @ApiOperation(value = "updating client", response = ResponseEntity.class, notes = "update_client")
     @PutMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Client> updateClient(@RequestBody Client client) {
         System.out.println("client  Hello update");

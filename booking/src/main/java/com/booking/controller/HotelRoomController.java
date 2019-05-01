@@ -3,6 +3,7 @@ package com.booking.controller;
 import com.booking.model.entity.HotelRoom;
 import com.booking.service.iface.HotelRoomService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -27,12 +28,13 @@ public class HotelRoomController extends BaseController {
         this.hotelRoomService = hotelRoomService;
     }
 
+    @ApiOperation(value = "get all rooms", response = ResponseEntity.class, notes = "get_all_room")
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<HotelRoom> getAllRoom() {
-        System.out.println("buckle");
         return hotelRoomService.getAll();
     }
 
+    @ApiOperation(value = "create room", response = ResponseEntity.class, notes = "create_room")
     @PostMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<HotelRoom> createRoom(@RequestBody HotelRoom employee) {
         try {
@@ -43,7 +45,7 @@ public class HotelRoomController extends BaseController {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
-
+    @ApiOperation(value = "updating room", response = ResponseEntity.class, notes = "update_room")
     @PutMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<HotelRoom> updateRoom(@RequestBody HotelRoom employee) {
         if (employee.getId() == null) {
@@ -63,6 +65,7 @@ public class HotelRoomController extends BaseController {
         }
     }
 
+    @ApiOperation(value = "deleting room", response = ResponseEntity.class, notes = "delete_room")
     @DeleteMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> deleteRoom(@PathVariable Long id) {
         hotelRoomService.delete(id);

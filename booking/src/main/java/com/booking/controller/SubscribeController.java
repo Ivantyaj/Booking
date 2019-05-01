@@ -7,6 +7,7 @@ import com.booking.service.iface.MailSenderService;
 import com.booking.service.iface.SubscriberService;
 import com.booking.utils.logging.GenericResponse;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ import java.util.List;
 @RestController(value = "SubscribeController")
 @CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
 @RequestMapping(value = "/news")
-@Api(tags = "booking")
+@Api(tags = "news")
 public class SubscribeController extends BaseController {
 
     private final SubscriberService subscriberService;
@@ -32,6 +33,7 @@ public class SubscribeController extends BaseController {
 
     }
 
+    @ApiOperation(value = "subscribe", response = ResponseEntity.class, notes = "subscribing")
     @PostMapping(value = "/subscribe", produces = "application/json", consumes = "application/json")
     public ResponseEntity subscribe(@RequestBody SubscribeRequest subscribeRequest) {
         System.err.println(subscribeRequest.getEmail());
@@ -53,6 +55,7 @@ public class SubscribeController extends BaseController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @ApiOperation(value = "unsubscribe", response = ResponseEntity.class, notes = "unsubscribing")
     @GetMapping(value = "/unsubscribe")
     public ResponseEntity unsubscribe(@RequestParam("email") String email) {
         System.err.println(email);
@@ -61,6 +64,7 @@ public class SubscribeController extends BaseController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @ApiOperation(value = "mailing", response = ResponseEntity.class, notes = "mailing")
     @PostMapping(value = "/mailing", produces = "application/json", consumes = "application/json")
     public ResponseEntity mailing(@RequestBody MailingRequest mailingRequest) {
         URI uri = URI.create("http://localhost:8080/news/unsubscribe");
