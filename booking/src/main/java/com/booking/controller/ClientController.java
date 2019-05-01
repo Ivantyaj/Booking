@@ -3,7 +3,6 @@ package com.booking.controller;
 import com.booking.model.entity.Booking;
 import com.booking.model.entity.Client;
 import com.booking.model.entity.HotelRoom;
-import com.booking.model.entity.HotelRoomType;
 import com.booking.service.iface.BookingService;
 import com.booking.service.iface.ClientService;
 import com.booking.service.iface.HotelRoomService;
@@ -17,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -52,13 +52,6 @@ public class ClientController extends BaseController {
         return new ResponseEntity<>(new GenericResponse("Client " + client), HttpStatus.OK);
     }
 
-//    @ApiOperation(value = "Get all clients", response = GenericResponse.class, notes = "get_all_clients")
-//    @GetMapping(value = "/")
-//    public ResponseEntity<GenericResponse> getAllClients() {
-//        List<Client> clientList = clientService.getAll();
-//        return new ResponseEntity<>(new GenericResponse("ClientList " + clientList), HttpStatus.OK);
-//    }
-
     @ApiOperation(value = "Get stats", response = GenericResponse.class, notes = "get_stats")
     @GetMapping(value = "/statsClient")
     @ResponseBody
@@ -66,48 +59,48 @@ public class ClientController extends BaseController {
                                @RequestParam String endDate) {
 
 
-        List<Client> clientList = clientService.getAll();
-
-        List<String> headers = clientList.stream().map(Client::getFio).collect(Collectors.toList());
-        List<Long> data1 = clientList.stream().map(Client::getVisitingCount).collect(Collectors.toList());
+        List<HotelRoom> hotelRoomList = hotelRoomService.getAll();
+        List<Double> data1 = hotelRoomList.stream().map(HotelRoom::getPrice).collect(Collectors.toList());
+        Set<String> headers = hotelRoomList.stream().map(room -> room.getHotelRoomType().getType_name()).collect(Collectors.toSet());
+//        List<Long> data1 = clientList.stream().map(Client::getVisitingCount).collect(Collectors.toList());
 //        List<Long> data2 = Collections.singletonList(clientList.stream().filter(client -> client.getDiscount() != null).count());
 
 
         ArrayList<List> toSend = new ArrayList<>();
-        toSend.add(headers);
+        toSend.add(new ArrayList<>(headers));
         toSend.add(data1);
 //        toSend.add(data2);
 
         return toSend;
     }
 
-    //Пока хз по чем сделать статистику для второго графика, потом решим
     @ApiOperation(value = "Get stats2", response = GenericResponse.class, notes = "get_stats2")
     @GetMapping(value = "/statsClient2")
     @ResponseBody
-    public Set<Set> getStats2(@RequestParam String startDate,
+    public List<List> getStats2(@RequestParam String startDate,
                                 @RequestParam String endDate) {
 
-
-        List<HotelRoom> hotelRoomList = hotelRoomService.getAll();
-        Set<String> headers = hotelRoomList.stream()
-                .map(HotelRoom::getHotelRoomType)
-                .map(HotelRoomType::getType_name)
-                .collect(Collectors.toSet());
         List<Booking> bookingList = bookingService.getAll();
+        List<Date> dates = bookingList.stream()
+                .map(booking -> Date.from(booking.getArrivalDate()))
+                .sorted().collect(Collectors.toList());
+        dates.forEach(System.err::println);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM");
+
+        List<String> monthes = Arrays.asList("Янв.", "Фев.", "Март", "Апр.", "Май", "Июнь", "Июль", "Авг.", "Сент.", "Окт.", "Нояб.", "Дек.");
 
 
-//        List<Long> data2 = bookingList.stream().map(Booking::getHumanAmount).collect(Collectors.toList());
-        List<Double> data1 = hotelRoomList.stream().map(HotelRoom::getPrice).collect(Collectors.toList());
+        List<Long> counts = new LinkedList<>();
+        for (String string : monthes) {
+            counts.add(dates.stream().map(
+                    date -> dateFormat.format(date).equals(string)
+            ).filter(Boolean::booleanValue).count());
+        }
 
-
-//        System.err.println(Arrays.toString(data2.toArray()));
-
-
-        Set<Set> toSend = new HashSet<>();
-        toSend.add(headers);
-        toSend.add(data1.stream().collect(Collectors.toSet()));
-//        toSend.add(data2);
+        List<List> toSend = new ArrayList<>();
+        toSend.add(monthes);
+//        counts.add(0L);
+        toSend.add(counts);
 
         return toSend;
     }

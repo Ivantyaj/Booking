@@ -27,12 +27,6 @@ public class HotelRoomController extends BaseController {
         this.hotelRoomService = hotelRoomService;
     }
 
-
-    //ADD to test crud
-
-    //GetAll не правильно отрабатывает
-    //Response body: [{"id":1,"roomAmount":1,"status":"FREE","price":1.0},{"id":2,"roomAmount":2,"status":"FREE","price":2.0}
-    //Там два параметра с Json ignore, если их убрать, то запросы не работают
     @GetMapping(value = "", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<HotelRoom> getAllRoom() {
         System.out.println("buckle");

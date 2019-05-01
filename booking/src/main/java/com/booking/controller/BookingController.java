@@ -16,10 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController(value = "BookingController")
@@ -55,9 +52,9 @@ public class BookingController extends BaseController {
 //todo date should be in format dd.MM.yyyy
         List<Booking> bookingList = bookingService.getAll();
         List<HotelRoom> hotelRoomList = hotelRoomService.getAll();
-        List<HotelRoom> bookedRooms = bookingList.stream().map(Booking::getHotelRoom).collect(Collectors.toList());
-        Set<HotelRoom> freeRooms = new HashSet<>();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        Set<HotelRoom> bookedRooms = bookingList.stream().map(Booking::getHotelRoom).collect(Collectors.toSet());
+        List<HotelRoom> freeRooms = new LinkedList<>();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM.dd.yyyy");
         Date date = dateFormat.parse(startDate);
         for (Booking booking : bookingList) {
             if (DateUtils.compareDates(date, Date.from(booking.getLeavingDate()))) {
@@ -68,7 +65,7 @@ public class BookingController extends BaseController {
         freeRooms.addAll(hotelRoomList);
         System.err.println(freeRooms.stream().map(HotelRoom::getId).collect(Collectors.toSet()));
         return freeRooms.stream()
-//                .filter(room -> !bookedRooms.contains(room))
+                .filter(room -> !bookedRooms.contains(room))
                 .filter(room -> room.getPeopleAmount() >= Long.parseLong(clients))
                 .filter(room -> room.getPrice() <= Double.parseDouble(price))
                 .collect(Collectors.toSet());
