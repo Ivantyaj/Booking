@@ -29,7 +29,7 @@
                         <configuration>
                             <classifier>spring-boot</classifier>
                             <mainClass>
-                                com.booking_maiseyenka_stepovoi.app_maiseyenka_stepovoi.Application
+                                com.booking_maiseyenka_stepovoi.app.Application
                             </mainClass>
                         </configuration>
                     </execution>
@@ -46,7 +46,7 @@
 <!--                <configuration>-->
 <!--                    <archive>-->
 <!--                        <manifest>-->
-<!--                            <mainClass>com.booking_maiseyenka_stepovoi_maiseyenka_stepovoi.app_maiseyenka_stepovoi.Application</mainClass>-->
+<!--                            <mainClass>com.booking_maiseyenka_stepovoi_maiseyenka_stepovoi.app.Application</mainClass>-->
 <!--                        </manifest>-->
 <!--                    </archive>-->
 <!--                </configuration>-->
@@ -133,7 +133,7 @@
         <!--</dependency>-->
         <!--<dependency>-->
         <!--<groupId>org.springframework.security</groupId>-->
-        <!--<artifactId>spring-security-config_maiseyenka_stepovoi</artifactId>-->
+        <!--<artifactId>spring-security-config</artifactId>-->
         <!--<version>${spring.version}</version>-->
         <!--</dependency>-->
         <!--<dependency>-->

@@ -66,7 +66,7 @@
     <!--<property name="sessionFactory" ref="sessionFactory" />-->
 <!--</bean>-->
 
-<!--<context:annotation-config_maiseyenka_stepovoi/>-->
+<!--<context:annotation-config/>-->
 <!--<context:component-scan base-package="ru.parsentev"/>-->
 <!--<tx:annotation-driven/>-->
 <!--</beans>-->

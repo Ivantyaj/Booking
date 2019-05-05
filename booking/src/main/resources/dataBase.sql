@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `bookingbd` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `bookingbd`;
+CREATE DATABASE  IF NOT EXISTS `bookingbd_maiseyenka_stepovoi` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `bookingbd_maiseyenka_stepovoi`;
 -- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
--- Host: localhost    Database: bookingbd
+-- Host: localhost    Database: bookingbd_maiseyenka_stepovoi
 -- ------------------------------------------------------
 -- Server version	8.0.13
 
@@ -18,7 +18,7 @@ USE `bookingbd`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `booking_maiseyenka_stepovoi`
+-- Table structure for table `booking`
 --
 
 DROP TABLE IF EXISTS `booking`;
@@ -40,17 +40,17 @@ CREATE TABLE `booking` (
   CONSTRAINT `clients` FOREIGN KEY (`id_client`) REFERENCES `client` (`id`),
   CONSTRAINT `idroom` FOREIGN KEY (`id_room`) REFERENCES `hotel_room` (`id`),
   CONSTRAINT `idservice` FOREIGN KEY (`id_service`) REFERENCES `service` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `booking_maiseyenka_stepovoi`
+-- Dumping data for table `booking`
 --
 
 LOCK TABLES `booking` WRITE;
-/*!40000 ALTER TABLE `booking_maiseyenka_stepovoi` DISABLE KEYS */;
-INSERT INTO `booking` VALUES (1,1,NULL,'2019-04-29 20:48:57','2019-04-30 20:49:09',5,3,_binary '\0'),(2,1,NULL,'2019-05-29 20:49:19','2019-05-31 20:49:26',7,3,_binary '\0'),(3,2,NULL,'2019-04-24 20:49:34','2019-04-28 20:49:39',6,3,_binary '\0'),(4,4,NULL,'2019-07-16 20:49:48','2019-06-29 20:49:54',8,3,_binary '\0');
-/*!40000 ALTER TABLE `booking_maiseyenka_stepovoi` ENABLE KEYS */;
+/*!40000 ALTER TABLE `booking` DISABLE KEYS */;
+INSERT INTO `booking` VALUES (1,1,NULL,'2019-04-29 20:48:57','2019-04-30 20:49:09',5,3,_binary '\0'),(2,1,NULL,'2019-05-29 20:49:19','2019-05-31 20:49:26',7,3,_binary '\0'),(3,2,NULL,'2019-04-24 20:49:34','2019-04-28 20:49:39',6,3,_binary '\0'),(4,4,NULL,'2019-05-10 20:49:48','2019-05-12 20:49:54',8,3,_binary '\0'),(10,4,NULL,'2019-12-25 21:00:00','2019-12-30 21:00:00',9,5,_binary '\0'),(11,3,NULL,'2019-04-30 21:00:00','2019-05-07 21:00:00',9,5,_binary '\0'),(12,4,NULL,'2019-10-11 21:00:00','2019-10-19 21:00:00',9,5,_binary '\0'),(13,3,NULL,'2019-06-02 21:00:00','2019-06-08 21:00:00',9,5,_binary '\0'),(14,4,NULL,'2019-11-12 21:00:00','2019-11-14 21:00:00',9,5,_binary '\0'),(15,4,NULL,'2019-06-09 21:00:00','2019-06-12 21:00:00',9,5,_binary '\0'),(16,4,NULL,'2019-11-08 21:00:00','2019-11-10 21:00:00',9,5,_binary '\0'),(17,4,NULL,'2019-10-20 21:00:00','2019-10-25 21:00:00',9,5,_binary '\0'),(18,4,NULL,'2019-10-30 21:00:00','2019-11-04 21:00:00',9,5,_binary '\0'),(19,1,NULL,'2019-06-13 21:00:00','2019-06-18 21:00:00',9,5,_binary '\0'),(20,4,NULL,'2019-07-02 21:00:00','2019-07-08 21:00:00',9,5,_binary '\0'),(21,3,NULL,'2019-08-02 21:00:00','2019-08-08 21:00:00',9,5,_binary '\0'),(22,4,NULL,'2019-09-02 21:00:00','2019-09-08 21:00:00',9,5,_binary '\0'),(23,4,NULL,'2019-01-02 21:00:00','2019-01-08 21:00:00',9,5,_binary '\0'),(24,5,NULL,'2019-02-09 21:00:00','2019-02-11 21:00:00',9,5,_binary '\0'),(25,4,NULL,'2019-02-02 21:00:00','2019-02-08 21:00:00',9,5,_binary '\0'),(26,4,NULL,'2019-03-12 21:00:00','2019-03-14 21:00:00',9,5,_binary '\0'),(27,2,NULL,'2019-03-09 21:00:00','2019-03-11 21:00:00',9,5,_binary '\0'),(28,4,NULL,'2019-03-02 21:00:00','2019-03-08 21:00:00',9,5,_binary '\0'),(29,4,NULL,'2019-05-29 21:00:00','2019-05-29 21:00:00',11,5,_binary '\0');
+/*!40000 ALTER TABLE `booking` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -78,7 +78,7 @@ CREATE TABLE `client` (
   KEY `iduser_idx` (`id_user`),
   CONSTRAINT `iddiscount` FOREIGN KEY (`id_discount`) REFERENCES `discount` (`id`),
   CONSTRAINT `iduser` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +87,7 @@ CREATE TABLE `client` (
 
 LOCK TABLES `client` WRITE;
 /*!40000 ALTER TABLE `client` DISABLE KEYS */;
-INSERT INTO `client` VALUES (5,4,'Жоржевич Юра Пупкин','+375(29)704-15-17','mail@mail.ru',3,NULL,_binary '\0',NULL,NULL,NULL,NULL),(6,5,'Тарасевич Братан Петрович','+375(29)987-15-00','rewq@mail.ru',1,NULL,_binary '','',NULL,NULL,NULL),(7,6,'Мошко Галуга Федорович','+375(29)134-15-17','zxcv@mail.ru',1,NULL,_binary '','Принесите чаю',NULL,NULL,NULL),(8,7,'Кардин Игорь Сеневич','+375(29)454-15-17','ivantyaj@gmail.com',9,NULL,_binary '','Мне скучно',NULL,NULL,NULL),(9,8,'Молоко Булка Плюшкович','+375(33)654-88-44','qwer@mail.ru',2,NULL,_binary '\0',NULL,NULL,NULL,NULL);
+INSERT INTO `client` VALUES (5,4,'Жоржевич Юра Пупкин','+375(29)704-15-17','mail@mail.ru',3,NULL,_binary '\0',NULL,NULL,NULL,NULL),(6,5,'Тарасевич Братан Петрович','+375(29)987-15-00','rewq@mail.ru',1,NULL,_binary '','',NULL,NULL,NULL),(7,6,'Мошко Галуга Федорович','+375(29)134-15-17','zxcv@mail.ru',1,NULL,_binary '','Принесите чаю',NULL,NULL,NULL),(8,7,'Кардин Игорь Сеневич','+375(29)454-15-17','ivantyaj@gmail.com',9,NULL,_binary '','Мне скучно',NULL,NULL,NULL),(9,8,'Молоко Булка Плюшкович','+375(33)654-88-44','vladstepovoyvios@gmail.com',2,NULL,_binary '\0',NULL,'фцафца',NULL,'фцафца'),(10,9,'Gwagawgaw awg aw','awaw f af wa','vladstepovoyvios@gmail.com',1,NULL,_binary '','awfawfawfwa','',NULL,''),(11,10,'Иван','+375 (29) 704-60-43','ivantyaj@gmail.com',1,NULL,_binary '\0','11','',NULL,'');
 /*!40000 ALTER TABLE `client` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,7 +224,7 @@ INSERT INTO `room_type` VALUES (1,'LUX','Номер для самых изыса
 UNLOCK TABLES;
 
 --
--- Table structure for table `service_maiseyenka_stepovoi`
+-- Table structure for table `service`
 --
 
 DROP TABLE IF EXISTS `service`;
@@ -241,12 +241,12 @@ CREATE TABLE `service` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `service_maiseyenka_stepovoi`
+-- Dumping data for table `service`
 --
 
 LOCK TABLES `service` WRITE;
-/*!40000 ALTER TABLE `service_maiseyenka_stepovoi` DISABLE KEYS */;
-/*!40000 ALTER TABLE `service_maiseyenka_stepovoi` ENABLE KEYS */;
+/*!40000 ALTER TABLE `service` DISABLE KEYS */;
+/*!40000 ALTER TABLE `service` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -261,7 +261,7 @@ CREATE TABLE `subscribers` (
   `email` varchar(255) DEFAULT NULL,
   `status` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -270,6 +270,7 @@ CREATE TABLE `subscribers` (
 
 LOCK TABLES `subscribers` WRITE;
 /*!40000 ALTER TABLE `subscribers` DISABLE KEYS */;
+INSERT INTO `subscribers` VALUES (1,'ivantyaj@gmail.com',_binary ''),(2,'ivantyaj@gmail.com',_binary '');
 /*!40000 ALTER TABLE `subscribers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -288,7 +289,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   KEY `idrole_idx` (`id_role`),
   CONSTRAINT `idrole` FOREIGN KEY (`id_role`) REFERENCES `role` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -297,7 +298,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (3,'admin','admin',1),(4,'1','1',2),(5,'2','2',2),(6,'3','3',2),(7,'4','4',2),(8,'5','5',2);
+INSERT INTO `user` VALUES (3,'admin','admin',1),(4,'1','1',2),(5,'2','2',2),(6,'3','3',2),(7,'4','4',2),(8,'5','5',2),(9,'vladstepovoyvios@gmail.com','vladstepovoyvios@gmail.com',2),(10,'ivantyaj@gmail.com','ivantyaj@gmail.com',2);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -310,4 +311,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-30  0:09:49
+-- Dump completed on 2019-05-05 19:38:25
