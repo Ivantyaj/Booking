@@ -18,7 +18,7 @@ USE `bookingbd`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `booking`
+-- Table structure for table `booking_maiseyenka_stepovoi`
 --
 
 DROP TABLE IF EXISTS `booking`;
@@ -44,13 +44,13 @@ CREATE TABLE `booking` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `booking`
+-- Dumping data for table `booking_maiseyenka_stepovoi`
 --
 
 LOCK TABLES `booking` WRITE;
-/*!40000 ALTER TABLE `booking` DISABLE KEYS */;
+/*!40000 ALTER TABLE `booking_maiseyenka_stepovoi` DISABLE KEYS */;
 INSERT INTO `booking` VALUES (1,1,NULL,'2019-04-29 20:48:57','2019-04-30 20:49:09',5,3,_binary '\0'),(2,1,NULL,'2019-05-29 20:49:19','2019-05-31 20:49:26',7,3,_binary '\0'),(3,2,NULL,'2019-04-24 20:49:34','2019-04-28 20:49:39',6,3,_binary '\0'),(4,4,NULL,'2019-07-16 20:49:48','2019-06-29 20:49:54',8,3,_binary '\0');
-/*!40000 ALTER TABLE `booking` ENABLE KEYS */;
+/*!40000 ALTER TABLE `booking_maiseyenka_stepovoi` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -224,7 +224,7 @@ INSERT INTO `room_type` VALUES (1,'LUX','Номер для самых изыса
 UNLOCK TABLES;
 
 --
--- Table structure for table `service`
+-- Table structure for table `service_maiseyenka_stepovoi`
 --
 
 DROP TABLE IF EXISTS `service`;
@@ -241,12 +241,12 @@ CREATE TABLE `service` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `service`
+-- Dumping data for table `service_maiseyenka_stepovoi`
 --
 
 LOCK TABLES `service` WRITE;
-/*!40000 ALTER TABLE `service` DISABLE KEYS */;
-/*!40000 ALTER TABLE `service` ENABLE KEYS */;
+/*!40000 ALTER TABLE `service_maiseyenka_stepovoi` DISABLE KEYS */;
+/*!40000 ALTER TABLE `service_maiseyenka_stepovoi` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
