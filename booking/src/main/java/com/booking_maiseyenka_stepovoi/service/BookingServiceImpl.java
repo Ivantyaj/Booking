@@ -1,9 +1,9 @@
 package com.booking_maiseyenka_stepovoi.service;
 
 import com.booking_maiseyenka_stepovoi.exceptions.NotFoundException;
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.Booking;
-import com.booking_maiseyenka_stepovoi.model.repository_maiseyenka_stepovoi.BookingRepository;
-import com.booking_maiseyenka_stepovoi.service.iface_maiseyenka_stepovoi.BookingService;
+import com.booking_maiseyenka_stepovoi.model.entity.Booking;
+import com.booking_maiseyenka_stepovoi.model.repository.BookingRepository;
+import com.booking_maiseyenka_stepovoi.service.iface.BookingService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

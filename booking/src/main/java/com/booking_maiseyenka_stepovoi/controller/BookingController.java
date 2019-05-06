@@ -1,7 +1,7 @@
 package com.booking_maiseyenka_stepovoi.controller;
 
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.*;
-import com.booking_maiseyenka_stepovoi.service.iface_maiseyenka_stepovoi.*;
+import com.booking_maiseyenka_stepovoi.model.entity.*;
+import com.booking_maiseyenka_stepovoi.service.iface.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 @RestController(value = "BookingController")
 @CrossOrigin(exposedHeaders = "Access-Control-Allow-Origin")
 @RequestMapping(value = "/hotel/booking")
-@Api(tags = "booking_maiseyenka_stepovoi")
+@Api(tags = "booking")
 public class BookingController extends BaseController {
 
     private final BookingService bookingService;

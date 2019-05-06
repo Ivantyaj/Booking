@@ -1,9 +1,9 @@
 package com.booking_maiseyenka_stepovoi.controller;
 
 
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.AuthorizationRequest;
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.User;
-import com.booking_maiseyenka_stepovoi.service.iface_maiseyenka_stepovoi.UserService;
+import com.booking_maiseyenka_stepovoi.model.entity.AuthorizationRequest;
+import com.booking_maiseyenka_stepovoi.model.entity.User;
+import com.booking_maiseyenka_stepovoi.service.iface.UserService;
 import com.booking_maiseyenka_stepovoi.utils.logging.GenericResponse;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;

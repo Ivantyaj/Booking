@@ -1,9 +1,9 @@
 package com.booking_maiseyenka_stepovoi.service;
 
 import com.booking_maiseyenka_stepovoi.exceptions.NotFoundException;
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.HotelRoom;
-import com.booking_maiseyenka_stepovoi.model.repository_maiseyenka_stepovoi.HotelRoomRepository;
-import com.booking_maiseyenka_stepovoi.service.iface_maiseyenka_stepovoi.HotelRoomService;
+import com.booking_maiseyenka_stepovoi.model.entity.HotelRoom;
+import com.booking_maiseyenka_stepovoi.model.repository.HotelRoomRepository;
+import com.booking_maiseyenka_stepovoi.service.iface.HotelRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

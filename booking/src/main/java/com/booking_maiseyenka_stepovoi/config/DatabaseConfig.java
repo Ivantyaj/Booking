@@ -17,7 +17,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {"com.booking_maiseyenka_stepovoi.model.repository_maiseyenka_stepovoi"})
+@EnableJpaRepositories(basePackages = {"com.booking_maiseyenka_stepovoi.model.repository"})
 public class DatabaseConfig {
 
     private final Environment env;
@@ -32,7 +32,7 @@ public class DatabaseConfig {
         LocalContainerEntityManagerFactoryBean sessionFactory = new LocalContainerEntityManagerFactoryBean();
         sessionFactory.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan("com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi");
+        sessionFactory.setPackagesToScan("com.booking_maiseyenka_stepovoi.model.entity");
         sessionFactory.setJpaProperties(hibernateProperties());
         return sessionFactory;
     }

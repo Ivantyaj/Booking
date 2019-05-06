@@ -1,10 +1,10 @@
 package com.booking_maiseyenka_stepovoi.controller;
 
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.MailingRequest;
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.SubscribeRequest;
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.Subscriber;
-import com.booking_maiseyenka_stepovoi.service.iface_maiseyenka_stepovoi.MailSenderService;
-import com.booking_maiseyenka_stepovoi.service.iface_maiseyenka_stepovoi.SubscriberService;
+import com.booking_maiseyenka_stepovoi.model.entity.MailingRequest;
+import com.booking_maiseyenka_stepovoi.model.entity.SubscribeRequest;
+import com.booking_maiseyenka_stepovoi.model.entity.Subscriber;
+import com.booking_maiseyenka_stepovoi.service.iface.MailSenderService;
+import com.booking_maiseyenka_stepovoi.service.iface.SubscriberService;
 import com.booking_maiseyenka_stepovoi.utils.logging.GenericResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
