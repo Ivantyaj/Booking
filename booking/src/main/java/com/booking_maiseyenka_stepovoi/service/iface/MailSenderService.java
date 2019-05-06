@@ -1,4 +1,4 @@
-package com.booking_maiseyenka_stepovoi.service.iface_maiseyenka_stepovoi;
+package com.booking_maiseyenka_stepovoi.service.iface;
 
 import java.net.URI;
 

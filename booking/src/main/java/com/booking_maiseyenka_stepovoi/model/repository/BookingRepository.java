@@ -1,6 +1,6 @@
-package com.booking_maiseyenka_stepovoi.model.repository_maiseyenka_stepovoi;
+package com.booking_maiseyenka_stepovoi.model.repository;
 
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.Booking;
+import com.booking_maiseyenka_stepovoi.model.entity.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

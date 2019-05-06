@@ -1,9 +1,9 @@
 package com.booking_maiseyenka_stepovoi.service;
 
 import com.booking_maiseyenka_stepovoi.exceptions.NotFoundException;
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.User;
-import com.booking_maiseyenka_stepovoi.model.repository_maiseyenka_stepovoi.UserRepository;
-import com.booking_maiseyenka_stepovoi.service.iface_maiseyenka_stepovoi.UserService;
+import com.booking_maiseyenka_stepovoi.model.entity.User;
+import com.booking_maiseyenka_stepovoi.model.repository.UserRepository;
+import com.booking_maiseyenka_stepovoi.service.iface.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

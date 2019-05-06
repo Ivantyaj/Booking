@@ -1,8 +1,8 @@
 package com.booking_maiseyenka_stepovoi.service;
 
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.Subscriber;
-import com.booking_maiseyenka_stepovoi.service.iface_maiseyenka_stepovoi.MailSenderService;
-import com.booking_maiseyenka_stepovoi.service.iface_maiseyenka_stepovoi.SubscriberService;
+import com.booking_maiseyenka_stepovoi.model.entity.Subscriber;
+import com.booking_maiseyenka_stepovoi.service.iface.MailSenderService;
+import com.booking_maiseyenka_stepovoi.service.iface.SubscriberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;

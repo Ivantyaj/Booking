@@ -1,4 +1,4 @@
-package com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi;
+package com.booking_maiseyenka_stepovoi.model.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

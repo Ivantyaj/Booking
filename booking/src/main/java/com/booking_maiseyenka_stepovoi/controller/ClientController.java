@@ -1,11 +1,11 @@
 package com.booking_maiseyenka_stepovoi.controller;
 
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.Booking;
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.Client;
-import com.booking_maiseyenka_stepovoi.model.entity_maiseyenka_stepovoi.HotelRoom;
-import com.booking_maiseyenka_stepovoi.service.iface_maiseyenka_stepovoi.BookingService;
-import com.booking_maiseyenka_stepovoi.service.iface_maiseyenka_stepovoi.ClientService;
-import com.booking_maiseyenka_stepovoi.service.iface_maiseyenka_stepovoi.HotelRoomService;
+import com.booking_maiseyenka_stepovoi.model.entity.Booking;
+import com.booking_maiseyenka_stepovoi.model.entity.Client;
+import com.booking_maiseyenka_stepovoi.model.entity.HotelRoom;
+import com.booking_maiseyenka_stepovoi.service.iface.BookingService;
+import com.booking_maiseyenka_stepovoi.service.iface.ClientService;
+import com.booking_maiseyenka_stepovoi.service.iface.HotelRoomService;
 import com.booking_maiseyenka_stepovoi.utils.logging.GenericResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
