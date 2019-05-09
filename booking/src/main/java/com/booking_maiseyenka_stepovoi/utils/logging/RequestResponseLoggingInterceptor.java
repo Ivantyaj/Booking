@@ -21,9 +21,9 @@ public class RequestResponseLoggingInterceptor implements ClientHttpRequestInter
         String requestInfo = "" + request.getMethod() + " " + sessionId + " " + request.getURI();
 
 
-        LogUtil.logRequest("EXTERNAL", requestInfo, new String(body, StandardCharsets.UTF_8));
+        LogUtil.getInstance().logRequest("EXTERNAL", requestInfo, new String(body, StandardCharsets.UTF_8));
         ClientHttpResponse response = execution.execute(request, body);
-        LogUtil.logResponse("EXTERNAL", requestInfo, response.getRawStatusCode(), StreamUtils.copyToString(response.getBody(), Charset.defaultCharset()), System.currentTimeMillis() - startTime);
+        LogUtil.getInstance().logResponse("EXTERNAL", requestInfo, response.getRawStatusCode(), StreamUtils.copyToString(response.getBody(), Charset.defaultCharset()), System.currentTimeMillis() - startTime);
         return response;
     }
 }

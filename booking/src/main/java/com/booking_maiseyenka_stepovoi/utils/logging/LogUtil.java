@@ -11,6 +11,16 @@ public class LogUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(LogUtil.class);
 
+    private static LogUtil instance;
+    private LogUtil(){}
+
+    public static LogUtil getInstance() {
+        if(instance == null){
+            instance = new LogUtil();
+        }
+        return instance;
+    }
+
     private static String getContentAsString(byte[] buf, String charsetName) {
         if (buf == null || buf.length == 0) return "";
         int maxPayloadLength = 10000;
@@ -22,7 +32,7 @@ public class LogUtil {
         }
     }
 
-    public static void logRequest(String prefix, String reqInfo,
+    public void logRequest(String prefix, String reqInfo,
                                   String body) {
         if (body.length() > 0) {
             logger.info(prefix + " => " + reqInfo + " " + StringUtils.normalizeSpace(body));
@@ -31,7 +41,7 @@ public class LogUtil {
         }
     }
 
-    static void logResponse(String prefix,
+    void logResponse(String prefix,
                             String reqInfo,
                             int status,
                             byte[] buf,
@@ -41,7 +51,7 @@ public class LogUtil {
         logResponse(prefix, reqInfo, status, body, duration);
     }
 
-    public static void logResponse(String prefix,
+    public void logResponse(String prefix,
                                    String reqInfo,
                                    int status,
                                    String body,

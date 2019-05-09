@@ -29,11 +29,11 @@ public class HttpServletLogger extends OncePerRequestFilter {
             MultiReadHttpServletRequest multiReadHttpServletRequest = new MultiReadHttpServletRequest(request);
             ContentCachingResponseWrapper wrappedResponse = new ContentCachingResponseWrapper(response);
 
-            LogUtil.logRequest(prefix, reqInfo, IOUtils.toString(multiReadHttpServletRequest.getReader()));
+            LogUtil.getInstance().logRequest(prefix, reqInfo, IOUtils.toString(multiReadHttpServletRequest.getReader()));
 
             filterChain.doFilter(multiReadHttpServletRequest, wrappedResponse);
 
-            LogUtil.logResponse(prefix,
+            LogUtil.getInstance().logResponse(prefix,
                     reqInfo,
                     wrappedResponse.getStatus(),
                     wrappedResponse.getContentAsByteArray(),
